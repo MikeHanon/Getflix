@@ -55,7 +55,7 @@ CREATE TABLE `users` (
   `password` text NOT NULL,
   `email` text NOT NULL,
   `status` int(11) NOT NULL,
-  `img` text NOT NULL
+  `img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
