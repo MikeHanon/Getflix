@@ -22,7 +22,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
 
   }
   else {
-    echo "mdp incorect";
+    echo "Les deux mdp sont incorret";
   }
 
 
