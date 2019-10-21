@@ -22,7 +22,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
 
   }
   else {
-    echo "Les deux mdp sont incorret";
+    echo "Les deux mdp sont différent";
   }
 
 
@@ -56,8 +56,9 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
                         <form action="inscription.php" method="POST">
                                 <p><input type="email" placeholder="e-mail" name="email"></p>
                                 <p><input type="text" placeholder="Pseudo" name="username"></p>
-                                <p><input type="password" placeholder="password" name="password1"></p>
-                                <p><input type="password" placeholder="confirm" name="password2"></p>
+                                <p><input type="password" placeholder="password" name="password1" id="password" onkeyup="check()"></p>
+                                <p><input type="password" placeholder="confirm" name="password2" id="confirm_password" onkeyup="check()"></p>
+                                <span id='message'></span>
                                 <p><label > <input type="checkbox"> se souvenir de moi</label></p>
                                 <p><input type="submit" value="Inscription"></p>
                             </form>
