@@ -49,9 +49,22 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
             <p><input type="email" placeholder="e-mail" name="email"></p>
             <p><input type="text" placeholder="Pseudo" name="username"></p>
             <p><input type="password" placeholder="password" name="password1"></p>
-            <p><input type="password" placeholder="confirm" name="password2"></p>
-            <p><input type="submit"></p>
+            <p><input type="password" placeholder="confirm" name="password2" onkeyup='check();  '></p>
+            <p><input type="submit" ></p>
         </form>
-</body>
 
+
+    <script type="text/javascript">
+    var check = function() {
+      if (document.getElementById('password').value ==
+        document.getElementById('confirm_password').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'matching';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
+      }
+    }
+    </script>
+</body>
 </html>
