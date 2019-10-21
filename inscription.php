@@ -49,23 +49,21 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <div class="row ">
     <h1>Getflix</h1>
     </div>
-        <div class="row">
-            <div class="col-sm-4 "></div>
-                <div class="col-sm-4 text-center ">
-                        <h2>S'inscrire</h2>
-                        <form action="inscription.php" method="POST">
-                                <p><input type="email" placeholder="e-mail" name="email"></p>
-                                <p><input type="text" placeholder="Pseudo" name="username"></p>
-                                <p><input type="password" placeholder="password" name="password1" id="password" onkeyup="check()"></p>
-                                <p><input type="password" placeholder="confirm" name="password2" id="confirm_password" onkeyup="check()"></p>
-                                <span id='message'></span>
-                                <p><label > <input type="checkbox"> se souvenir de moi</label></p>
-                                <p><input type="submit" value="Inscription"></p>
-                            </form>
-                            <p>Vous avez déjâ un compte? <a href="">Connectez-vous</a></p>
-                </div>
-
-
+      <div class="row">
+        <div class="col-sm-4 "></div>
+          <div class="col-sm-4 text-center ">
+            <h2>S'inscrire</h2>
+            <form action="inscription.php" method="POST">
+              <p><input type="email" placeholder="e-mail" name="email"></p>
+              <p><input type="text" placeholder="Pseudo" name="username"></p>
+              <p><input type="password" placeholder="password" name="password1" id="password" onkeyup="check()"></p>
+              <p><input type="password" placeholder="confirm" name="password2" id="confirm_password" onkeyup="check()"></p>
+              <span id='message'></span>
+              <p><label > <input type="checkbox"> se souvenir de moi</label></p>
+              <p><input type="submit" value="Inscription"></p>
+            </form>
+            <p>Vous avez déjâ un compte? <a href="">Connectez-vous</a></p>
+          </div>
 </div>
 </body>
 
