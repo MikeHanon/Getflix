@@ -1,5 +1,5 @@
 <?php
-//On vérifie que ce qu'on doit ajouter est set et pas vide avant d'accéder à la 
+//On vérifie que ce qu'on doit ajouter est set et pas vide avant d'accéder à la
 if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['email']) && $_POST['username']!="" && $_POST['password1']!="" && $_POST['email']!="" ) {
   try{
 
@@ -15,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
 
     $req->execute(array(
       'username'=>htmlspecialchars($_POST['username']),
-      'password'=>htmlspecialchars($_POST['password1']),
+      'password'=>password_hash(htmlspecialchars($_POST['password1']), PASSWORD_DEFAULT),
       'email'=>htmlspecialchars($_POST['email'])
     ));
 
@@ -72,9 +72,9 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 
     </div>
   </div>
-      
+
 </div>
-  
+
 
 
 
@@ -100,4 +100,3 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 
 </body>
 </html>
-
