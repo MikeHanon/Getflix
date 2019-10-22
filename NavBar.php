@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="/css/media/minicon.ico"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styleBaretoot.css">
+    <link rel="stylesheet" href="css/style2.css">
     <title>SeriesAddict</title>
 </head>
 
@@ -15,7 +15,7 @@
 <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
         <a class="navbar-brand" href="#">
-            <img src="/css/media/logo.gif">
+            <img src="css/media/logo.gif">
         </a>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -67,46 +67,7 @@
         </div>
     </nav>
 
-<<<<<<< HEAD
-      
-<!-- Footer -->
-<footer class="page-footer font-small gray lighten-5">
-
-    <div style="background-color: gray;">
-        <div class="container">
-
-            <div class="row py-4 d-flex align-items-center">
-        <!-- RRSS -->
-                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                    <h6 class="mb-0">Get connected with us on social networks!</h6>
-                </div>
-
-                <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-                    <!-- Facebook -->
-                    <a class="fb-ic">
-                        <i class="fab fa-facebook-f white-text mr-4"> </i>
-                    </a>
-                    <!-- Twitter -->
-                    <a class="tw-ic">
-                        <i class="fab fa-twitter white-text mr-4"> </i>
-                    </a>
-                    <!--Instagram-->
-                    <a class="ins-ic">
-                        <i class="fab fa-instagram white-text"> </i>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    
-</footer>
-=======
 </body>
->>>>>>> e996dda981e9eb4668111b5ea6f80c45ea406105
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
