@@ -53,7 +53,7 @@ else{
 <body>
 <nav class="navbar navbar-light bg-transparent">
   <a class="navbar-brand" href="connexion.php">
-    <img src="css/media/logo.gif" width="180" height="90" alt="">
+    <img src="css/media/logo.gif" width="190" height="70" alt="">
   </a>
 </nav>
 <div class="container">
