@@ -40,6 +40,11 @@ if (isset($_POST['email']) && valid_email($_POST['email']) ) {
   ));
 }
 
+//Check if we need to change the profile picture
+if (isset($_POST[''])){
+
+}
+
 //Show the user datas
 $name = "pas reçu"; $password = "pas reçu"; $email = "pas reçu"; $img = "profile1.png";
 $req = $bdd->query('SELECT username,password,email,img FROM users WHERE id = 1') or die(print_r($bdd->errorInfo()));
@@ -64,7 +69,9 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
    <title>Your account settings</title>
  </head>
  <body>
+
    <?php include 'NavBar.php'; ?>
+
    <div class="container mt-5 mb-5">
      <div class="row">
        <div class="col-md-4">
