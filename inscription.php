@@ -23,7 +23,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
 
   }
   else {
-    echo "Les deux mdp sont différent";
+   
   }
 
 
@@ -44,9 +44,9 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <title>Inscription</title>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-transparent">
-  <a class="navbar-brand" href="#">
-    GetFlix
+<nav class="navbar navbar-light bg-transparent">
+  <a class="navbar-brand" href="connexion.php">
+    <img src="css/media/logo.gif" width="180" height="90" alt="">
   </a>
 </nav>
 <div class="container">
@@ -57,19 +57,18 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 <div id="main">
     <h3>S'inscrire</h3>
     <form action="inscription.php" method="POST">
-            <input class="input" type="email" placeholder="E-mail" name="email"><br>
-            <input class="input" type="text" placeholder="Pseudo" name="username"><br>
-            <input class="input" type="password" placeholder="Mot de passe" name="password1" id="password" onkeyup="check()"><br>
-            <input class="input" type="password" placeholder="Confirmez votre mot de passe" name="password2" id="confirm_password" onkeyup="check()"><br>
-            <span id='message'></span>
-            <input type="checkbox" name="remember"> <label>Se souvenir de moi</label> <br>
+            <input class="input" type="email" placeholder="  E-mail" name="email"><br>
+            <input class="input" type="text" placeholder="  Pseudo" name="username"><br>
+            <input class="input" type="password" placeholder="  Mot de passe" name="password1" id="password" onkeyup="check()"><br>
+            <input class="input" type="password" placeholder="  Confirmez votre mot de passe" name="password2" id="confirm_password" onkeyup="check()"><br>
+            <span id='message'></span><br>
+             
             <input id="connect" type="submit" name="submit" value="Inscription">
         </form>
     <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
 </div>
     </div>
     <div class="col-sm">
-
     </div>
   </div>
 
@@ -83,10 +82,10 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
       if (document.getElementById('password').value ==
         document.getElementById('confirm_password').value) {
         document.getElementById('message').style.color = 'green';
-        document.getElementById('message').innerHTML = 'matching';
+        document.getElementById('message').innerHTML = '<span>matching</span>';
       } else {
         document.getElementById('message').style.color = 'red';
-        document.getElementById('message').innerHTML = 'not matching';
+        document.getElementById('message').innerHTML = '<span>not matching</span>';
       }
     }
     </script>
