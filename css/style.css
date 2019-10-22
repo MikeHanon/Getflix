@@ -1,5 +1,7 @@
 body{
-    background-image: url("media/netflix.jpg");
+    background-image: url("media/cine.jpg");
+    background-size: 80%;
+    font-family: 'Vollkorn', serif;
 }
 h3{
     color:white;
@@ -37,9 +39,5 @@ p{
     height:48px;
     width:314px;
     margin-top: 30px;
-}
-#errorMsg{
-    position: absolute;
-    left:380px;
-    top:200px;
+    border : none;
 }
