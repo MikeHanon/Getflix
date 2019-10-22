@@ -51,8 +51,8 @@
             </form>
 
             <!-- Button déroulant -->
-                
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" aria-labelledby="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
+            <li class="nav-item form-inline dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
                     Compte
                 </a>
                 
@@ -61,7 +61,7 @@
                     <a class="dropdown-item" href="#">Compte2</a>
                     <a class="dropdown-item" href="#">Compte3</a>
                 </div>
-            
+            </li>
             
 
         </div>
