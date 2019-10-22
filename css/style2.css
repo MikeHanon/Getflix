@@ -1,0 +1,26 @@
+
+/*CSS PAGE D'ACCEUIL */
+body{
+    margin: 0;
+}
+
+.enter{
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+.film{
+    height: 163.17px;
+    width: 290px;
+}
+/*
+.footNav{
+    background-color: rgb(54, 54, 54);
+}
+*/
+.corps{
+    background-color: rgb(128, 0, 0);
+
+}
