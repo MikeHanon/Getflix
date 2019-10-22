@@ -15,14 +15,14 @@
 <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
         <a class="navbar-brand" href="#">
-            <img src="/css/media/logo.gif">
+            <img src="css/media/logo.gif">
         </a>
-        
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-   
+
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -51,18 +51,18 @@
             </form>
 
             <!-- Button déroulant -->
-                
+
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" aria-labelledby="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
                     Compte
                 </a>
-                
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Compte1</a>
                     <a class="dropdown-item" href="#">Compte2</a>
                     <a class="dropdown-item" href="#">Compte3</a>
                 </div>
-            
-            
+
+
 
         </div>
     </nav>
