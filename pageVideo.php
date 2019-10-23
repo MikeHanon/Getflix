@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,10 +27,10 @@
 <!--Collapse-->
 <div class="row d-flex justify-content-around mb-2 ml-1 mr-1">
   <div class="col">
-  <a class="btn" id="button" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Information</a>
+  <button class="btn" id="button" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Informations</button>
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
-<!--Information du film-->
+<!--Information du film--> blablabla
       </div>
     </div>
   </div>
@@ -34,7 +38,7 @@
   <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Commentaires</button>
     <div class="collapse multi-collapse"  id="multiCollapseExample2">
       <div class="card card-body">
-<!--Commentaires-->
+<!--Commentaires--> blabla
       </div>
     </div>
   </div>
