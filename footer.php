@@ -9,105 +9,63 @@
     <link rel="stylesheet" href="css/style2.css">
     <title>SeriesAddict</title>
 </head>
-<!-- Footer -->
-<footer class="page-footer font-small gray lighten-5">
 
-    <div style="background-color: gray;">
-        <div class="container">
 
-            <div class="row py-4 d-flex align-items-center">
-        <!-- RRSS -->
-                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                    <h6 class="mb-0">Get connected with us on social networks!</h6>
-                </div>
-
-                <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-                    <!-- Facebook -->
-                    <a class="fb-ic">
-                        <i class="fab fa-facebook-f white-text mr-4"> </i>
-                    </a>
-                    <!-- Twitter -->
-                    <a class="tw-ic">
-                        <i class="fab fa-twitter white-text mr-4"> </i>
-                    </a>
-                    <!--Instagram-->
-                    <a class="ins-ic">
-                        <i class="fab fa-instagram white-text"> </i>
-                    </a>
-
-                </div>
-
-            </div>
-
+<footer class="page-footer font-small pt-4 bg-dark">
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-md-4 mt-md-0 mt-3">
+  
+      
+          <h5 class="text-uppercase">SeriesAddicts</h5>
+          <p>Une question ? une recommandation ? une plainte?</p>
+          <a href="contact.php"><button type="button" class="btn btn-outline-primary">Contactez nous</button></a>
         </div>
-    </div>
+    
+            <hr class="clearfix w-100 d-md-none pb-3">
+        <div class="col-md-4 mt-md-0 mt-3">
+    
+        
+        
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left mt-5">
-        <div class="row mt-3 dark-grey-text">
-            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-                <h6 class="font-weight-bold">SerieAddict</h6>
-                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Notre enterprise streaming met à votre disposition l'accès à un catalogue de films et séries en ilimité sur tous vos appareils.</p>
-
-            </div>
-            
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                <!-- Links -->
-                <p>
-                    <a class="dark-grey-text" href="#!">Audio et sous-titres</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Presse</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Confidialité</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Nous contacter</a>
-                </p>
-
-            </div>
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <p>
-                    <a class="dark-grey-text" href="#!">Audiodescription</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Relations investisseurs</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Informations légales</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Centre d'aide</a>
-                </p>
-
-            </div>
-
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <p>
-                    <a class="dark-grey-text" href="#!">Récrutement</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Conditions d'utilisation</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Préferences cookies</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Mentions légales</a>
-                </p>
-
-            </div>
-
+<ul class="list-unstyled">
+  <li>
+    <a href="#!">Link 1</a>
+  </li>
+  <li>
+    <a href="#!">Link 2</a>
+  </li>
+  <li>
+    <a href="#!">Link 3</a>
+  </li>
+  <li>
+    <a href="#!">Link 4</a>
+  </li>
+</ul>
+        
         </div>
-
+ 
+        
+        <div class="col-md-4 mb-md-0 mb-3">
+  
+          <h5 class="text-uppercase">Réseaux sociaux</h5>
+          <span>
+          <a href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>
+          <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+        </span>
+        </div>
+  
+      </div>
+  
     </div>
 
+  
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://github.com/pawelPrzewoznik/Getflix"> SeriesAddict</a>
     </div>
-</footer>
+  
+  </footer>
 </body>
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
