@@ -68,7 +68,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <h3>Sign up</h3>
     <form action="inscription.php" method="POST">
             <input class="input" type="email" placeholder="E-mail" name="email"><br>
-            <input class="input" type="text" placeholder="Nick" name="username"><br>
+            <input class="input" type="text" placeholder="Username" name="username"><br>
             <input class="input" type="password" placeholder="Password" name="password1" id="password" onkeyup="check()"><br>
             <input class="input" type="password" placeholder="Confirm password" name="password2" id="confirm_password" onkeyup="check()"><br>
             <span id='message'></span><br>

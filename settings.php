@@ -126,7 +126,7 @@ session_start();
               </select>
             </div>
             <div class="col-auto my-1">
-              <button type="submit" class="btn btn" id="submit">Submit</button>
+              <button type="submit" class="btn btn" id="enter">Submit</button>
             </div>
           </div>
         </form>
@@ -145,9 +145,9 @@ session_start();
             </h2>
           </div>
 
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div id="collapseOne" class="collapse" id="button1" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-              <form class="" id="button1" action="settings.php" method="post">
+              <form class="" action="settings.php" method="post">
                 <label>New name :</label><br>
                 <input type="text" name="name" value="" id="name" onkeyup="checkSubmit('name','name1')"><br><br>
                 <input type="submit" name="submit" value=" Submit " id="name1" disabled="disabled">

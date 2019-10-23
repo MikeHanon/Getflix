@@ -69,7 +69,7 @@ else{
 <div id="main">
     <h3>Sign in</h3>
         <form method="POST" action="connexion.php" >
-        <input class="input" type ="name" name="username" placeholder="Nick" autocomplete="off"><br>
+        <input class="input" type ="name" name="username" placeholder="Username" autocomplete="off"><br>
         <input class="input" type ="password" name="password" placeholder="Password"><br>
         <input type="checkbox" name="remember"> <label>Remember me</label> <br>
         <a href="reset.php">Forgot password ? </a><br>
