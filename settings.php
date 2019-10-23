@@ -1,79 +1,96 @@
 <?php
 
-try{
+session_start();
 
-  //Connection to MySQL
-  $bdd = new PDO('mysql:host=localhost;dbname=Getflix;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}catch (Exception $e) {
+  try{
 
-  //If an issue occurs, show a message and stop
-  die('Erreur : ' . $e->getMessage());
-}
+    //Connection to MySQL
+    $bdd = new PDO('mysql:host=localhost;dbname=Getflix;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+  }catch (Exception $e) {
 
-//Check if we need to change the username, and if it's ok to do so
-if(isset($_POST['name']) && trim($_POST['name']) != "" ) {
+    //If an issue occurs, show a message and stop
+    die('Erreur : ' . $e->getMessage());
+  }
 
-  $req = $bdd->prepare('UPDATE users SET username = :name WHERE id = 1') or die(print_r($bdd->errorInfo()));
+  //Check if we need to change the username, and if it's ok to do so
+  if(isset($_POST['name']) && trim($_POST['name']) != "" ) {
 
-  $req->execute(array(
-    'name'=>htmlspecialchars(trim($_POST['name']))
-  ));
+    $req = $bdd->prepare('UPDATE users SET username = :name WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
+    $req->execute(array(
+      'name'=>htmlspecialchars(trim($_POST['name'])),
+      'username'=>htmlspecialchars($_SESSION['username'])
+    ));
+
+    $req->closeCursor();
+
+    $_SESSION['username'] = htmlspecialchars(trim($_POST['name']));
+  }
+
+  //Check if we need to change the password, and if it's ok to do so
+  if (isset($_POST['password']) && isset($_POST['password1']) && !empty($_POST['password']) && !empty($_POST['password1']) && $_POST['password'] == $_POST['password1'] ) {
+
+    $req = $bdd->prepare('UPDATE users SET password = :password WHERE username = :username') or die(print_r($bdd->errorInfo()));
+
+    $req->execute(array(
+      'password'=>htmlspecialchars(trim($_POST['password'])),
+      'username'=>htmlspecialchars($_SESSION['username'])
+    ));
+
+    $req->closeCursor();
+  }
+
+  //Check if we need to change the email, and if it's ok to do so
+  if (isset($_POST['email']) && valid_email($_POST['email']) ) {
+
+    $req = $bdd->prepare('UPDATE users SET email = :email WHERE username = :username') or die(print_r($bdd->errorInfo()));
+
+    $req->execute(array(
+      'email'=>htmlspecialchars($_POST['email']),
+      'username'=>htmlspecialchars($_SESSION['username'])
+    ));
+
+    $req->closeCursor();
+  }
+
+  //Check if we need to change the profile picture
+  if (isset($_POST['img']) && $_POST['img'] != "Choose..." ){
+
+    $req = $bdd->prepare('UPDATE users SET img = :img WHERE username = :username') or die(print_r($bdd->errorInfo()));
+
+    $req->execute(array(
+      'img'=>$_POST['img'],
+      'username'=>htmlspecialchars($_SESSION['username'])
+    ));
+
+    $req->closeCursor();
+  }
+
+  $ok = false;
+  $req = $bdd->query('SELECT username FROM users') or die(print_r($bdd->errorInfo()));
+  while ($donnees = $req->fetch()) {
+    if($donnees['username'] == $_SESSION['username']){
+      $ok = true;
+    }
+  }
+
+  if(isset($_SESSION['username']) && $ok == true){
+
+  //Show user's datas
+  $name = "pas reçu"; $password = "pas reçu"; $email = "pas reçu"; $img = "profile1.png";
+  $req = $bdd->prepare('SELECT username,password,email,img FROM users WHERE username = :username') or die(print_r($bdd->errorInfo()));
+
+  $req->bindValue('username',htmlspecialchars($_SESSION['username']),PDO::PARAM_STR);
+  $req->execute();
+
+  while ($donnees = $req->fetch()) {
+    $name = $donnees['username'];
+    $password = $donnees['password'];
+    $email = $donnees['email'];
+    $img = $donnees['img'];
+  }
   $req->closeCursor();
-}
 
-//Check if we need to change the password, and if it's ok to do so
-if (isset($_POST['password']) && isset($_POST['password1']) && !empty($_POST['password']) && !empty($_POST['password1']) && $_POST['password'] == $_POST['password1'] ) {
-
-  $req = $bdd->prepare('UPDATE users SET password = :password WHERE id = 1') or die(print_r($bdd->errorInfo()));
-
-  $req->execute(array(
-    'password'=>htmlspecialchars(trim($_POST['password']))
-  ));
-
-  $req->closeCursor();
-}
-
-//Check if we need to change the email, and if it's ok to do so
-if (isset($_POST['email']) && valid_email($_POST['email']) ) {
-
-  $req = $bdd->prepare('UPDATE users SET email = :email WHERE id = 1') or die(print_r($bdd->errorInfo()));
-
-  $req->execute(array(
-    'email'=>htmlspecialchars($_POST['email'])
-  ));
-
-  $req->closeCursor();
-}
-
-//Check if we need to change the profile picture
-if (isset($_POST['img']) && $_POST['img'] != "Choose..." ){
-
-  $req = $bdd->prepare('UPDATE users SET img = :img WHERE id = 1') or die(print_r($bdd->errorInfo()));
-
-  $req->execute(array(
-    'img'=>$_POST['img']
-  ));
-
-  $req->closeCursor();
-}
-
-//Show the user datas
-$name = "pas reçu"; $password = "pas reçu"; $email = "pas reçu"; $img = "profile1.png";
-$req = $bdd->query('SELECT username,password,email,img FROM users WHERE id = 1') or die(print_r($bdd->errorInfo()));
-
-while ($donnees = $req->fetch()) {
-  $name = $donnees['username'];
-  $password = $donnees['password'];
-  $email = $donnees['email'];
-  $img = $donnees['img'];
-}
-$req->closeCursor();
-
-//Check if the string look like an email address
-function valid_email($str) {
-return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -209,3 +226,16 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  </body>
 </html>
+<?php
+}
+else{
+  header('Location: connexion.php');
+
+  exit;
+}
+
+//Check if the string look like an email address
+function valid_email($str) {
+  return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
+}
+ ?>
