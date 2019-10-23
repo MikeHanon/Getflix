@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style2.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+
     <title>SeriesAddict</title>
 </head>
 
 
-<footer class="page-footer font-small pt-4 bg-dark">
+<footer class="page-footer font-small pt-4 bg">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
         <div class="col-md-4 mt-md-0 mt-3">
@@ -19,7 +21,7 @@
       
           <h5 class="text-uppercase">SeriesAddicts</h5>
           <p>Une question ? une recommandation ? une plainte?</p>
-          <a href="contact.php"><button type="button" class="btn btn-outline-primary">Contactez nous</button></a>
+          <a href="contact.php"><button type="button" class="btn btn-outline-danger">Contactez nous</button></a>
         </div>
     
             <hr class="clearfix w-100 d-md-none pb-3">

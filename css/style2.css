@@ -2,6 +2,8 @@
 /*CSS PAGE D'ACCEUIL */
 body{
     margin: 0;
+    font-family: 'Bree Serif', serif;
+
 }
 
 .enter{
@@ -31,5 +33,6 @@ a {
 }
 .page-footer{
     /* opacity:0.7; */
-    color:white;
+    background-color: black;
+    color:#F2293A;
 }

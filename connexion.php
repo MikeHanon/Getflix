@@ -1,5 +1,9 @@
 <?php 
 $error="";
+//verifie si ya un cookie , si oui il redirige directement vers index.php
+// if(isset($_COOKIE['username'])&& isset($_COOKIE['password'])){
+//   header("Location: index.php");
+// }
 if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] !="" && $_POST['password'] !="" ) {
   try{
 
@@ -45,9 +49,10 @@ else{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    
     <title>Connexion</title>
 </head>
 <body>
