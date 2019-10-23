@@ -1,5 +1,6 @@
 <?php 
 $error="";
+session_start();
 // verifie si ya un cookie , si oui il redirige directement vers index.php
 if(isset($_SESSION['username'])&& isset($_SESSION['password'])){
   header("Location: index.php");
@@ -22,17 +23,16 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
   $resultat = $req->fetch();
   //verifie si $resultat est pas vide et que le mot de passe equivaut + creation session
 if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])){
-  session_start();
   $_SESSION['username']=$_POST['username'];
   $_SESSION['password']=$_POST['password'];
 
-//se souvenir de moi
-if($_POST['remember']=="on"){
-  setcookie("username",$_POST['username'],time()+10000);
-  setcookie("password",$_POST['password'],time()+10000);
+      //se souvenir de moi
+      if($_POST['remember']=="on"){
+        setcookie("username",$_POST['username'],time()+10000);
+        setcookie("password",$_POST['password'],time()+10000);
 
-}
-header("Location: index.php");
+      }
+      header("Location: index.php");
 }
 //affichage message d'erreur
 else{
