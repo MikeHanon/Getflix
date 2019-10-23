@@ -18,6 +18,8 @@ if(isset($_POST['name']) && trim($_POST['name']) != "" ) {
   $req->execute(array(
     'name'=>htmlspecialchars(trim($_POST['name']))
   ));
+
+  $req->closeCursor();
 }
 
 //Check if we need to change the password, and if it's ok to do so
@@ -28,6 +30,8 @@ if (isset($_POST['password']) && isset($_POST['password1']) && !empty($_POST['pa
   $req->execute(array(
     'password'=>htmlspecialchars(trim($_POST['password']))
   ));
+
+  $req->closeCursor();
 }
 
 //Check if we need to change the email, and if it's ok to do so
@@ -38,11 +42,20 @@ if (isset($_POST['email']) && valid_email($_POST['email']) ) {
   $req->execute(array(
     'email'=>htmlspecialchars($_POST['email'])
   ));
+
+  $req->closeCursor();
 }
 
 //Check if we need to change the profile picture
-if (isset($_POST[''])){
+if (isset($_POST['img']) && $_POST['img'] != "Choose..." ){
 
+  $req = $bdd->prepare('UPDATE users SET img = :img WHERE id = 1') or die(print_r($bdd->errorInfo()));
+
+  $req->execute(array(
+    'img'=>$_POST['img']
+  ));
+
+  $req->closeCursor();
 }
 
 //Show the user datas
@@ -55,6 +68,7 @@ while ($donnees = $req->fetch()) {
   $email = $donnees['email'];
   $img = $donnees['img'];
 }
+$req->closeCursor();
 
 //Check if the string look like an email address
 function valid_email($str) {
@@ -81,7 +95,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
           <div class="form-row align-items-center">
             <div class="col-auto my-1">
               <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <select name="img" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                 <option selected>Choose...</option>
                 <option value="profile1.png">green</option>
                 <option value="profile2.png">orange</option>
@@ -104,7 +118,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
         <div class="card ">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <button class="btn btn-link " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 Your name : <?php echo $name; ?>
               </button>
             </h2>
