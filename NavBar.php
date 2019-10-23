@@ -8,6 +8,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/media/minicon.ico"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style2.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+
     <title>SeriesAddict</title>
 </head>
 
@@ -47,20 +49,21 @@
 
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
             </form>
 
             <!-- Button déroulant -->
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" aria-labelledby="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
-                    Compte
+            <li class="nav-item form-inline dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
+                    User
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Compte1</a>
+                    <a class="dropdown-item" href="settings.php">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Compte2</a>
-                    
+                    <a class="dropdown-item" href="#">Logout</a>
+                   
+
                 </div>
 
 
