@@ -1,4 +1,5 @@
 <?php
+$msg = "";
 //On vérifie que ce qu'on doit ajouter est set et pas vide avant d'accéder à la
 if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['email']) && $_POST['username']!="" && $_POST['password1']!="" && $_POST['email']!="" ) {
   try{
@@ -10,7 +11,20 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
     //En cas d'erreur on affiche un message et on arrete tout
     die('Erreur : ' . $e->getMessage());
   }
-  if($_POST['password1']==$_POST['password2'] && valid_email($_POST['email']) ) {
+
+  $req = $bdd->query('SELECT username,email FROM users') or die(print_r($bdd->errorInfo()));
+
+  $ok = true;
+  while ($donnees = $req->fetch()) {
+    if($donnees['username'] == $_POST['username']){
+      $ok = false; $msg .= " Username taken ";
+    }
+    if ($donnees['email'] == $_POST['email']) {
+      $ok = false; $msg .= " Email already in use ";
+    }
+  }
+
+  if($_POST['password1']==$_POST['password2'] && valid_email($_POST['email']) && $ok) {
     $req = $bdd->prepare('INSERT INTO users(username,password,email,status) VALUES(:username,:password,:email,1)') or die(print_r($bdd->errorInfo()));
 
     $req->execute(array(
@@ -22,11 +36,6 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
     header("Location: connexion.php");
 
   }
-  else {
-   
-  }
-
-
 }
 function valid_email($str) {
 return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
@@ -57,15 +66,17 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
     <h3>S'inscrire</h3>
+    <p style="color:red;padding:0;margin:0;"><?php echo $msg ?></p>
     <form action="inscription.php" method="POST">
             <input class="input" type="email" placeholder="  E-mail" name="email"><br>
             <input class="input" type="text" placeholder="  Pseudo" name="username"><br>
             <input class="input" type="password" placeholder="  Mot de passe" name="password1" id="password" onkeyup="check()"><br>
             <input class="input" type="password" placeholder="  Confirmez votre mot de passe" name="password2" id="confirm_password" onkeyup="check()"><br>
             <span id='message'></span><br>
-             
+
             <input id="connect" type="submit" name="submit" value="Inscription">
         </form>
+
     <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
 </div>
     </div>
