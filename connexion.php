@@ -58,9 +58,9 @@ else{
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-md">
     </div>
-    <div class="col-sm">
+    <div class="col-md col-sm-12">
 <div id="main">
     <h3>Se connecter</h3>
         <form method="POST" action="connexion.php" >
@@ -75,7 +75,7 @@ else{
     
 </div>
     </div>
-    <div class="col-sm">
+    <div class="col-md">
       
     </div>
   </div>

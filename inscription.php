@@ -51,9 +51,9 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-md">
     </div>
-    <div class="col-sm">
+    <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
     <h3>S'inscrire</h3>
     <form action="inscription.php" method="POST">
@@ -68,7 +68,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
 </div>
     </div>
-    <div class="col-sm">
+    <div class="col-md">
     </div>
   </div>
 
