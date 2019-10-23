@@ -1,3 +1,7 @@
+<?php 
+
+$user=$_SESSION['username'];
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -52,13 +56,13 @@
             <!-- Button déroulant -->
             <li class="nav-item form-inline dropleft">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
-                    User
+                   <?php echo $user ;?>
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="settings.php">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
                    
 
                 </div>

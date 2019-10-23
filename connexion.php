@@ -1,9 +1,9 @@
 <?php 
 $error="";
-//verifie si ya un cookie , si oui il redirige directement vers index.php
-// if(isset($_COOKIE['username'])&& isset($_COOKIE['password'])){
-//   header("Location: index.php");
-// }
+// verifie si ya un cookie , si oui il redirige directement vers index.php
+if(isset($_SESSION['username'])&& isset($_SESSION['password'])){
+  header("Location: index.php");
+}
 if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] !="" && $_POST['password'] !="" ) {
   try{
 
