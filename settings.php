@@ -78,16 +78,17 @@ session_start();
 
   //Show user's datas
   $name = "pas reçu"; $password = "pas reçu"; $email = "pas reçu"; $img = "profile1.png";
-  $req = $bdd->prepare('SELECT username,password,email,img FROM users WHERE username = :username') or die(print_r($bdd->errorInfo()));
+  $req = $bdd->prepare('SELECT username,email,img FROM users WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
   $req->bindValue('username',htmlspecialchars($_SESSION['username']),PDO::PARAM_STR);
   $req->execute();
 
   while ($donnees = $req->fetch()) {
     $name = $donnees['username'];
-    $password = $donnees['password'];
     $email = $donnees['email'];
-    $img = $donnees['img'];
+    if ($donnees['img']!=null) {
+      $img = $donnees['img'];
+    }
   }
   $req->closeCursor();
 
@@ -98,6 +99,7 @@ session_start();
    <meta charset="utf-8">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <title>Your account settings</title>
+   <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
  </head>
  <body>
 
@@ -155,7 +157,7 @@ session_start();
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Your password : <?php echo $password ?>
+                Change your password
               </button>
             </h2>
           </div>

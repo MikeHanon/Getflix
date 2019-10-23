@@ -13,7 +13,7 @@
 </head>
 
 
-<footer class="page-footer font-small pt-4 bg-dark">
+<footer class="page-footer font-small pt-4 bg">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
         <div class="col-md-4 mt-md-0 mt-3">
@@ -21,7 +21,7 @@
       
           <h5 class="text-uppercase">SeriesAddicts</h5>
           <p>Une question ? une recommandation ? une plainte?</p>
-          <a href="contact.php"><button type="button" class="btn btn-outline-primary">Contactez nous</button></a>
+          <a href="contact.php"><button type="button" class="btn btn-outline-danger">Contactez nous</button></a>
         </div>
     
             <hr class="clearfix w-100 d-md-none pb-3">
