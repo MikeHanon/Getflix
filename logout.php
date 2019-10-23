@@ -2,7 +2,9 @@
 session_start();
 session_unset();
 unset($_COOKIE["username"]);
+setcookie("username", time() - 3600);
 unset($_COOKIE["password"]);
+setcookie("password", time() - 3600);
 header("Location: connexion.php");
 ?>
 <!DOCTYPE html>

@@ -1,38 +1,3 @@
-<?php
-//On vérifie que ce qu'on doit ajouter est set et pas vide avant d'accéder à la
-if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['email']) && $_POST['username']!="" && $_POST['password1']!="" && $_POST['email']!="" ) {
-  try{
-
-    //On se connecte à MySQL
-    $bdd = new PDO('mysql:host=localhost;dbname=Getflix;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-  }catch (Exception $e) {
-
-    //En cas d'erreur on affiche un message et on arrete tout
-    die('Erreur : ' . $e->getMessage());
-  }
-  if($_POST['password1']==$_POST['password2'] && valid_email($_POST['email']) ) {
-    $req = $bdd->prepare('INSERT INTO users(username,password,email,status) VALUES(:username,:password,:email,1)') or die(print_r($bdd->errorInfo()));
-
-    $req->execute(array(
-      'username'=>htmlspecialchars($_POST['username']),
-      'password'=>password_hash(htmlspecialchars($_POST['password1']), PASSWORD_DEFAULT),
-      'email'=>htmlspecialchars($_POST['email'])
-    ));
-
-    header("Location: connexion.php");
-
-  }
-  else {
-   
-  }
-
-
-}
-function valid_email($str) {
-return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -42,7 +7,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Inscription</title>
+    <title>Mot de passe oublié</title>
 </head>
 <body>
 <nav class="navbar navbar-light bg-transparent">
@@ -56,15 +21,12 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     </div>
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
-    <h3>S'inscrire</h3>
-    <form action="inscription.php" method="POST">
+    <h3>Mot de passe oublié</h3>
+    <form action="reset.php" method="POST">
             <input class="input" type="email" placeholder="  E-mail" name="email"><br>
-            <input class="input" type="text" placeholder="  Pseudo" name="username"><br>
-            <input class="input" type="password" placeholder="  Mot de passe" name="password1" id="password" onkeyup="check()"><br>
-            <input class="input" type="password" placeholder="  Confirmez votre mot de passe" name="password2" id="confirm_password" onkeyup="check()"><br>
             <span id='message'></span><br>
              
-            <input id="connect" type="submit" name="submit" value="Inscription">
+            <input id="connect" type="submit" name="submit" value="Envoyez un mail">
         </form>
     <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
 </div>
