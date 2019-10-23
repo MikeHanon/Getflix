@@ -25,7 +25,7 @@ session_start();
 <!--Collapse-->
 <div class="row d-flex justify-content-around mb-2 ml-1 mr-1">
   <div class="col">
-  <button class="btn" id="button" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Informations</button>
+  <button class="btn" id="button" data-toggle="collapse" href=".collapse.multi-collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Informations</button>
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
 <!--Information du film--> blablabla
@@ -33,16 +33,16 @@ session_start();
     </div>
   </div>
   <div class="col">
-  <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Reviews</button>
-    <div class="collapse multi-collapse"  id="multiCollapseExample2">
+  <button class="btn" id="button" type="button" data-toggle="collapse" href=".collapse.multi-collapse1" aria-expanded="false" aria-controls="multiCollapseExample2">Reviews</button>
+    <div class="collapse multi-collapse1"  id="multiCollapseExample2">
       <div class="card card-body">
 <!--Commentaires--> blabla
       </div>
     </div>
   </div>
   <div class="col">
-  <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">More like this</button>
-    <div class="collapse multi-collapse " id="multiCollapseExample3">
+  <button class="btn" id="button" type="button" data-toggle="collapse" href=".collapse.multi-collapse2" aria-expanded="false" aria-controls="multiCollapseExample3">More like this</button>
+    <div class="collapse multi-collapse2" id="multiCollapseExample3">
       <div class="card card-body">
 <!--Film Simmilaire-->
       </div>
