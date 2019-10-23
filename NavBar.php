@@ -58,8 +58,9 @@
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Compte1</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Compte2</a>
-                    <a class="dropdown-item" href="#">Compte3</a>
+                    
                 </div>
 
 
