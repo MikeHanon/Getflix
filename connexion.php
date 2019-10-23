@@ -53,7 +53,7 @@ else{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     
-    <title>Connexion</title>
+    <title>Connection</title>
 </head>
 <body>
 <nav class="navbar navbar-light bg-transparent">
@@ -67,16 +67,16 @@ else{
     </div>
     <div class="col-md col-sm-12">
 <div id="main">
-    <h3>Se connecter</h3>
+    <h3>Sign in</h3>
         <form method="POST" action="connexion.php" >
-        <input class="input" type ="name" name="username" placeholder="  Pseudo" autocomplete="off"><br>
-        <input class="input" type ="password" name="password" placeholder="  Mot de passe"><br>
-        <input type="checkbox" name="remember"> <label>Se souvenir de moi</label> <br>
-        <a href="reset.php">Mot de passe oublié? </a><br>
+        <input class="input" type ="name" name="username" placeholder="Nick" autocomplete="off"><br>
+        <input class="input" type ="password" name="password" placeholder="Password"><br>
+        <input type="checkbox" name="remember"> <label>Remember me</label> <br>
+        <a href="reset.php">Forgot password ? </a><br>
         <input id="connect" type="submit" name="submit" value="Connexion">
         </form>
         <?php echo $error; ?>
-    <p>Pas encore de compte ? <a href="inscription.php">Inscrivez vous</a> </p>
+    <p> New to SeriesAddict ? <a href="inscription.php">Sign up now</a> </p>
     
 </div>
     </div>

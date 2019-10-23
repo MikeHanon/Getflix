@@ -43,7 +43,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Inscription</title>
+    <title>Sign up</title>
 </head>
 <body>
 <nav class="navbar navbar-light bg-transparent">
@@ -65,19 +65,17 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     </div>
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
-    <h3>S'inscrire</h3>
-    <p style="color:red;padding:0;margin:0;"><?php echo $msg ?></p>
+    <h3>Sign up</h3>
     <form action="inscription.php" method="POST">
-            <input class="input" type="email" placeholder="  E-mail" name="email"><br>
-            <input class="input" type="text" placeholder="  Pseudo" name="username"><br>
-            <input class="input" type="password" placeholder="  Mot de passe" name="password1" id="password" onkeyup="check()"><br>
-            <input class="input" type="password" placeholder="  Confirmez votre mot de passe" name="password2" id="confirm_password" onkeyup="check()"><br>
+            <input class="input" type="email" placeholder="E-mail" name="email"><br>
+            <input class="input" type="text" placeholder="Nick" name="username"><br>
+            <input class="input" type="password" placeholder="Password" name="password1" id="password" onkeyup="check()"><br>
+            <input class="input" type="password" placeholder="Confirm password" name="password2" id="confirm_password" onkeyup="check()"><br>
             <span id='message'></span><br>
 
             <input id="connect" type="submit" name="submit" value="Inscription">
         </form>
-
-    <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
+    <p>Already SeriesAddict's account ? <a href="connexion.php">Sign in</a> </p>
 </div>
     </div>
     <div class="col-md">

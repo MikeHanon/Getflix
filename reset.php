@@ -21,14 +21,14 @@
     </div>
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
-    <h3>Mot de passe oublié</h3>
+    <h3>Forgot password</h3>
     <form action="reset.php" method="POST">
             <input class="input" type="email" placeholder="  E-mail" name="email"><br>
             <span id='message'></span><br>
              
             <input id="connect" type="submit" name="submit" value="Envoyez un mail">
         </form>
-    <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
+    <p>Already an account ? <a href="connexion.php">Sign in</a> </p>
 </div>
     </div>
     <div class="col-md">

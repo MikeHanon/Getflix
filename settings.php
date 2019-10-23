@@ -100,6 +100,8 @@ session_start();
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <title>Your account settings</title>
    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/style3.css">
+
  </head>
  <body>
 
@@ -124,7 +126,7 @@ session_start();
               </select>
             </div>
             <div class="col-auto my-1">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn" id="submit">Submit</button>
             </div>
           </div>
         </form>
@@ -137,7 +139,7 @@ session_start();
         <div class="card ">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <button class="btn btn-link" id="button1" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 Your name : <?php echo $name; ?>
               </button>
             </h2>
@@ -145,7 +147,7 @@ session_start();
 
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-              <form class="" action="settings.php" method="post">
+              <form class="" id="button1" action="settings.php" method="post">
                 <label>New name :</label><br>
                 <input type="text" name="name" value="" id="name" onkeyup="checkSubmit('name','name1')"><br><br>
                 <input type="submit" name="submit" value=" Submit " id="name1" disabled="disabled">
@@ -154,9 +156,9 @@ session_start();
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingTwo">
+          <div class="card-header" id="headingTwo" >
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link collapsed" id="button1" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Change your password
               </button>
             </h2>
@@ -178,7 +180,7 @@ session_start();
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link collapsed" id="button1" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 Your email : <?php echo $email; ?>
               </button>
             </h2>

@@ -1,3 +1,5 @@
+/*Style Page Video*/
+
 #button{
     background-color: #8C1C25;
     color: white;
@@ -9,4 +11,18 @@ body{
 footer{
     font-family: 'Bree Serif', serif;
 
+}
+/*Style Settings*/
+
+.a{
+color: inherit;
+}
+
+#button1{
+color: #8C1C25;
+}
+
+#submit{
+    background-color: #59151A;
+    color:white; 
 }

@@ -33,16 +33,16 @@ $user=$_SESSION['username'];
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Accueil</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Séries TV</a>
+                    <a class="nav-link" href="#">Series TV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Films</a>
+                    <a class="nav-link" href="#">Film</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ajouts récents</a>
+                    <a class="nav-link" href="#">Recently Added</a>
                 </li>
             </ul>
 
@@ -62,7 +62,7 @@ $user=$_SESSION['username'];
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="settings.php">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
+                    <a class="dropdown-item" href="#">Sign out</a>
                    
 
                 </div>

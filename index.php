@@ -54,7 +54,7 @@ session_start();
                 </div>
             </div>
 <!--  Récents -->
-            <h2 class=>Récents</h2>
+            <h2 class=>Recently added</h2>
             <div class="row">
                 <div class="col-md-2">
                     <iframe class='film' src="https://www.youtube.com/embed/inAFW2CluQ4" frameborder="0" 
