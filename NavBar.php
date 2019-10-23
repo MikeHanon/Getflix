@@ -16,7 +16,7 @@
 <body>
 <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <img src="css/media/logo.gif">
         </a>
 
@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil</a>
+                    <a class="nav-link" href="index.php">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Séries TV</a>
@@ -40,20 +40,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Ajouts récents</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ma liste</a>
-                </li>
             </ul>
 
             <!-- Button Search -->
 
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline ml- 2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search">
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
             </form>
 
             <!-- Button déroulant -->
-            <li class="nav-item form-inline dropdown">
+            <li class="nav-item form-inline dropleft">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
                     User
                 </a>
@@ -65,6 +62,8 @@
                    
 
                 </div>
+                
+
 
 
 
