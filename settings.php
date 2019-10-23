@@ -33,7 +33,7 @@ session_start();
     $req = $bdd->prepare('UPDATE users SET password = :password WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
     $req->execute(array(
-      'password'=>htmlspecialchars(trim($_POST['password'])),
+      'password'=>password_hash(htmlspecialchars(trim($_POST['password'])), PASSWORD_DEFAULT),
       'username'=>htmlspecialchars($_SESSION['username'])
     ));
 
