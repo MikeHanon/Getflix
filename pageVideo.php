@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="col">
-  <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Commentaires</button>
+  <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Reviews</button>
     <div class="collapse multi-collapse"  id="multiCollapseExample2">
       <div class="card card-body">
 <!--Commentaires-->
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="col">
-  <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Vidéo Simmilaire</button>
+  <button class="btn" id="button" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">More like this</button>
     <div class="collapse multi-collapse " id="multiCollapseExample3">
       <div class="card card-body">
 <!--Film Simmilaire-->

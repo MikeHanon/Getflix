@@ -19,9 +19,9 @@
         <div class="col-md-4 mt-md-0 mt-3">
   
       
-          <h5 class="text-uppercase">SeriesAddicts</h5>
-          <p>Une question ? une recommandation ? une plainte?</p>
-          <a href="contact.php"><button type="button" class="btn btn-outline-danger">Contactez nous</button></a>
+          <h4 class="text">SeriesAddicts</h4>
+          <p class=span>A question, recommendation <br>or complaint?</p>
+          <a href="contact.php"><button type="button" class="btn btn-outline-danger">Contact us</button></a>
         </div>
     
             <hr class="clearfix w-100 d-md-none pb-3">
@@ -32,16 +32,16 @@
 
 <ul class="list-unstyled">
   <li>
-    <a href="#!">Link 1</a>
+    <a href="#!">Privacy</a>
   </li>
   <li>
-    <a href="#!">Link 2</a>
+    <a href="#!">Help Center</a>
   </li>
   <li>
-    <a href="#!">Link 3</a>
+    <a href="#!">Terms of use</a>
   </li>
   <li>
-    <a href="#!">Link 4</a>
+    <a href="#!">Media center</a>
   </li>
 </ul>
         
@@ -50,7 +50,7 @@
         
         <div class="col-md-4 mb-md-0 mb-3">
   
-          <h5 class="text-uppercase">Réseaux sociaux</h5>
+          <h4 class="text">Social Networks</h4>
           <span>
           <a href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>
           <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>

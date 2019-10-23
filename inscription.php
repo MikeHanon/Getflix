@@ -56,17 +56,17 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     </div>
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
-    <h3>S'inscrire</h3>
+    <h3>Sing up</h3>
     <form action="inscription.php" method="POST">
-            <input class="input" type="email" placeholder="  E-mail" name="email"><br>
-            <input class="input" type="text" placeholder="  Pseudo" name="username"><br>
-            <input class="input" type="password" placeholder="  Mot de passe" name="password1" id="password" onkeyup="check()"><br>
-            <input class="input" type="password" placeholder="  Confirmez votre mot de passe" name="password2" id="confirm_password" onkeyup="check()"><br>
+            <input class="input" type="email" placeholder="E-mail" name="email"><br>
+            <input class="input" type="text" placeholder="Nick" name="username"><br>
+            <input class="input" type="password" placeholder="Password" name="password1" id="password" onkeyup="check()"><br>
+            <input class="input" type="password" placeholder="Confirm password" name="password2" id="confirm_password" onkeyup="check()"><br>
             <span id='message'></span><br>
              
             <input id="connect" type="submit" name="submit" value="Inscription">
         </form>
-    <p>Déja un compte ? <a href="connexion.php">Connectez vous</a> </p>
+    <p>Already SeriesAddict's account ? <a href="connexion.php">Sing in</a> </p>
 </div>
     </div>
     <div class="col-md">
