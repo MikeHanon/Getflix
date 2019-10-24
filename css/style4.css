@@ -1,0 +1,25 @@
+body{
+    background-image: url("media/cine.jpg");
+    background-size: cover;
+    font-family: 'Bree Serif', serif;
+}
+h3 {
+    color:white;
+}
+h4{
+    color: #59151A;
+}
+.navbar{
+    color: white;
+    font-family: 'Bree Serif', serif;
+
+}
+#main{
+    padding-top: 90px;
+    height: 150%;
+    width: 100%;
+    background-color: black;
+    opacity:0.9;
+    text-align: center;
+    border-radius: 5%;
+}
