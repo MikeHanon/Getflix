@@ -13,6 +13,35 @@ session_start();
     <title>Accueil</title>
 </head>
 <body>
+<script>
+            function afficherFilm(nombre,url,id){
+                var content=document.getElementById(id);
+                page=1;
+                id="";
+                nombre=8;
+                genre="";
+                url1=url+page;
+                function movie(page){
+                    fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    console.log(data.results['1']);
+                    for(var i=0;i<nombre;i++){
+                    var test  =data.results[i].poster_path;
+                    var id = data.results[i].id;
+                    content.innerHTML+="<a href='pageVideo.php?id="+id+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a>" );
+                    console.log(test);
+                    }
+                    // var test  =data.results[i].poster_path;
+                    // content.innerHTML="<img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img>");
+                    // console.log(test);
+                    })
+
+                    }
+            movie();
+            }
+
+</script>
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->
         <section class='corps'>
@@ -23,132 +52,60 @@ session_start();
 <!-- Fin Vidéo Principale -->
 <!-- Top Film -->
         <section class="container-fluid corps">   
-            <h2 class=>Top-films</h2>
-            <div class="row">
-                <div class="col-md-2">
-                    <iframe class='film' src="https://www.youtube.com/embed/inAFW2CluQ4" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen >
-                    </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class='film' src="https://www.youtube.com/embed/wV-Q0o2OQjQ" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class ='film'src="https://www.youtube.com/embed/cMRqlDBkdwo" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/Q1cdiNgoPq0" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/h6GdOpjD3Oc" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                    <iframe class="film" src="https://www.youtube.com/embed/xlWaVQ6T6BU" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <h2 class=>Top-rated</h2>
+            <div id="topRated" class="row">
+
             </div>
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
+            </script>
 <!--  Récents -->
             <h2 class=>Recently added</h2>
-            <div class="row">
-                <div class="col-md-2">
-                    <iframe class='film' src="https://www.youtube.com/embed/inAFW2CluQ4" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen >
-                    </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class='film' src="https://www.youtube.com/embed/wV-Q0o2OQjQ" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class ='film'src="https://www.youtube.com/embed/cMRqlDBkdwo" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/Q1cdiNgoPq0" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/h6GdOpjD3Oc" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                    <iframe class="film" src="https://www.youtube.com/embed/xlWaVQ6T6BU" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <div id="recently" class="row">
+                
             </div>
-<!-- Drama -->
-            <h2 class=>Drama</h2>
-            <div class="row">
-                <div class="col-md-2">
-                    <iframe class='film' src="https://www.youtube.com/embed/inAFW2CluQ4" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen >
-                    </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class='film' src="https://www.youtube.com/embed/wV-Q0o2OQjQ" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class ='film'src="https://www.youtube.com/embed/cMRqlDBkdwo" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/Q1cdiNgoPq0" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/h6GdOpjD3Oc" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                    <iframe class="film" src="https://www.youtube.com/embed/xlWaVQ6T6BU" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","recently");
+            </script>
+            
+            <h2 class=>Action movies</h2>
+            <div id="action" class="row">
+                
             </div>
-<!--Action-->
-            <h2 class=>Action</h2>
-            <div class="row">
-                <div class="col-md-2">
-                    <iframe class='film' src="https://www.youtube.com/embed/inAFW2CluQ4" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen >
-                    </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class='film' src="https://www.youtube.com/embed/wV-Q0o2OQjQ" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class ='film'src="https://www.youtube.com/embed/cMRqlDBkdwo" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/Q1cdiNgoPq0" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                <iframe class="film" src="https://www.youtube.com/embed/h6GdOpjD3Oc" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-2">
-                    <iframe class="film" src="https://www.youtube.com/embed/xlWaVQ6T6BU" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28","action");
+            </script>
+            <h2 class=>Adventure movies</h2>
+            <div id="adventure" class="row">
+                
             </div>
-
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=12","adventure");
+            </script>
+            <h2 class=>Comedy movies</h2>
+            <div id="comedy" class="row">
+                
+            </div>
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=35","comedy");
+            </script>
+            <h2 class=>Horror movies</h2>
+            <div id="horror" class="row">
+                
+            </div>
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=27","horror");
+            </script>
+            <h2 class=>Romance movies</h2>
+            <div id="romance" class="row">
+                
+            </div>
+            <script>
+                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=10749","romance");
+            </script>
         </section>
         <?php include('footer.php'); ?>
+
     
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
