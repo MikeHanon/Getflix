@@ -29,7 +29,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var id = data.results[i].id;
-                    content.innerHTML+="<a href='pageVideo.php?id="+id+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a>" );
+                    content.innerHTML+="<a class='pochette' href='pageVideo.php?id="+id+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a>" );
                     }
                     // var test  =data.results[i].poster_path;
                     // content.innerHTML="<img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img>");

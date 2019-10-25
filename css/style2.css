@@ -38,8 +38,14 @@ section{
 }
 
 
-a {
+.pochette{
     color: inherit;
+    transition: all 0.7s ease;
+    
+}
+.pochette:hover{
+    background-size: 400px;
+    transform: scale(1.2) rotate(1deg);
 }
 a:hover{
     color: #8C1C25;
@@ -61,4 +67,8 @@ a:hover{
 }
 img{
     padding-left: 12px;
+}
+h2{
+    text-align: center;
+    margin :25px;
 }
