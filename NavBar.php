@@ -48,9 +48,11 @@ $user=$_SESSION['username'];
 
             <!-- Button Search -->
 
-            <form class="form-inline ml- 2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" >
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" onclick="search('search')">Search</button>
+            <form class="form-inline ml- 2 my-lg-0" id="dropdown" action="pageVideo.php?id=">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" onselect="submit('input')">
+                <datalist id="movies">
+                </datalist>
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Search</button>
             </form>
 
             <!-- Button déroulant -->
@@ -75,12 +77,45 @@ $user=$_SESSION['username'];
     </nav>
 
     <script type="text/javascript">
-      function search(str){
-        fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query='str'&include_adult=false").then(response => response.json()).then(
-          data=>{
-            console.log(data)
+
+      var id = 0;
+      const input = document.getElementById('search')
+      input.onkeyup = (e)=>recherche(e)
+
+      function recherche(e){
+        if(e.key != 'ArrowDown' && e.key != 'ArrowUp'){
+          var elemt = [],nb = 0;
+          if(document.getElementById('search').value.length != 0 && nb != document.getElementById('search').value.length) {
+            var str = document.getElementById('search').value;
+            nb = document.getElementById('search').value.length;
+            fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json())
+            .then(data=>{
+                for (var i = 0; i < data.results.length; i++) {
+                  elemt[i] = data.results[i];
+                }
+                affiche(elemt);
+              });
           }
-        )
+        }
+      }
+
+      function affiche(array){
+        var msg="";
+        for (var i = 0; i < 5; i++) {
+          console.log(array[i].id)
+          msg += "<option value='" + array[i].title +"' id='" + array[i].id + "'>";
+        }
+        document.getElementById('movies').innerHTML = msg;
+      }
+
+      function submit(str){
+        console.log(sumit)
+        if(str.length != 0){
+          console.log(1)
+          fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json()).then(data=>{
+            document.getElementById('dropdown').action += data.results[0].id;
+          })
+        }
       }
     </script>
 

@@ -21,26 +21,11 @@ session_start();
 <!--Video à ajouter-->
 
 
-
-<!--Collapse-->
-<div class="row d-flex justify-content-around mb-2 ml-1 mr-1">
-  <div class="col">
-  <button class="btn" id="button" data-toggle="collapse" href=".collapse.multi-collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Informations</button>
-    <div class="collapse multi-collapse" id="multiCollapseExample1">
-      <div class="card card-body">
-<!--Information du film--> blablabla
-      </div>
-    </div>
-  </div>
-  <div class="col">
-  <button class="btn" id="button" type="button" data-toggle="collapse" href=".collapse.multi-collapse1" aria-expanded="false" aria-controls="multiCollapseExample2">Reviews</button>
-    <div class="collapse multi-collapse1"  id="multiCollapseExample2">
-      <div class="card card-body">
 <!--Commentaires-->
         <?php //Ajout du php pour les commentaires
 //on verifie que le com existe
 $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$id5=1;
+$id5=$_GET['id'];
         if(isset($_POST['com']) AND !empty($_POST['com'])){
 
           $userid=$_SESSION['id_user'];
@@ -63,28 +48,18 @@ $id5=1;
             </form>
         <h2>Commentaires:</h2>
         <?php
-      $requete=$bdd->prepare('SELECT * FROM comments WHERE id_vid =1 ORDER BY date_comment DESC '); 
+      $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
+      ON c.id_user= u.id WHERE id_vid =1 ORDER BY date_comment DESC'); 
+
       $requete->execute(array($id5));
       while($ligne = $requete->fetch()){
-        echo "<article> <section> "./*à changer*/$_SESSION['username']." - ".$ligne['date_comment'].
+        echo "<article> <section> ".$ligne['username']." - ".$ligne['date_comment'].
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
 
 
     }
     ?>
 
-      </div>
-    </div>
-  </div>
-  <div class="col">
-  <button class="btn" id="button" type="button" data-toggle="collapse" href=".collapse.multi-collapse2" aria-expanded="false" aria-controls="multiCollapseExample3">More like this</button>
-    <div class="collapse multi-collapse2" id="multiCollapseExample3">
-      <div class="card card-body">
-<!--Film Simmilaire-->
-      </div>
-    </div>
-  </div>
-</div>
 
 <!--On inclut le footer-->
 <?php include('footer.php'); ?>

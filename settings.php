@@ -107,7 +107,7 @@ session_start();
 
    <?php include 'NavBar.php'; ?>
 
-   <div class="container mt-5 mb-5">
+   <div class="container-fluid mt-5 mb-5">
      <div class="row">
        <div class="col-md-4 col-ms">
          <img src=<?php echo "\"css/media/" .$img . "\"" ?> alt="profile picture"><br>
