@@ -59,7 +59,7 @@ $user=$_SESSION['username'];
         </div>
       </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Recently Added</a>
+                    <a class="nav-link btn-outline-danger" href="#">Recently Added</a>
                 </li>
             </ul>
 
@@ -72,7 +72,7 @@ $user=$_SESSION['username'];
 
             <!-- Button déroulant -->
             <li class="nav-item form-inline dropleft">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
+                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
                    <?php echo $user ;?>
                 </a>
 

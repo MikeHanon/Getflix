@@ -7,6 +7,9 @@
 }
 body{
     font-family: 'Bree Serif', serif;
+    background-color: black;
+    color:white;
+
 }
 footer{
     font-family: 'Bree Serif', serif;
@@ -25,4 +28,8 @@ color: #8C1C25;
 #enter{
     background-color: #59151A;
     color:white; 
+}
+.card.card-body{
+    background-color:#59151A;
+    color:white;
 }
