@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
     die('Erreur : ' . $e->getMessage());
   }
   
-  $req = $bdd->prepare('SELECT username , password FROM users WHERE username = :username');
+  $req = $bdd->prepare('SELECT id , username , password FROM users WHERE username = :username');
   $req->execute(array(
       'username' => $_POST['username']
       )); 
@@ -25,6 +25,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
 if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])){
   $_SESSION['username']=$_POST['username'];
   $_SESSION['password']=$_POST['password'];
+  $_SESSION['id_user']=$resultat['id'];
 
       //se souvenir de moi
       if($_POST['remember']=="on"){
