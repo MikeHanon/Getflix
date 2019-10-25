@@ -50,7 +50,7 @@ session_start();
 <!-- Fin Vidéo Principale -->
 <!-- Top Film -->
         <section class="container-fluid corps">   
-            <h2 class=>Top-rated</h2>
+            <h2 href="top.php" class=>Top-rated</h2>
             <div id="topRated" class="row">
 
             </div>
@@ -58,7 +58,7 @@ session_start();
                 afficherFilm(8,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
             </script>
 <!--  Récents -->
-            <h2 class=>Recently added</h2>
+            <h2 href="recently.php" class=>Recently added</h2>
             <div id="recently" class="row">
                 
             </div>
@@ -66,35 +66,35 @@ session_start();
                 afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","recently");
             </script>
             
-            <h2 class=>Action movies</h2>
+            <h2 href="action.php" class=>Action movies</h2>
             <div id="action" class="row">
                 
             </div>
             <script>
                 afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28","action");
             </script>
-            <h2 class=>Adventure movies</h2>
+            <h2 href="adventure.php" class=>Adventure movies</h2>
             <div id="adventure" class="row">
                 
             </div>
             <script>
                 afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=12","adventure");
             </script>
-            <h2 class=>Comedy movies</h2>
+            <h2 href="comedy.php" class=>Comedy movies</h2>
             <div id="comedy" class="row">
                 
             </div>
             <script>
                 afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=35","comedy");
             </script>
-            <h2 class=>Horror movies</h2>
+            <h2 href="horror.php" class=>Horror movies</h2>
             <div id="horror" class="row">
                 
             </div>
             <script>
                 afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=27","horror");
             </script>
-            <h2 class=>Romance movies</h2>
+            <h2 href="romantic.php" class=>Romance movies</h2>
             <div id="romance" class="row">
                 
             </div>
