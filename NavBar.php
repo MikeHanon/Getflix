@@ -49,8 +49,8 @@ $user=$_SESSION['username'];
             <!-- Button Search -->
 
             <form class="form-inline ml- 2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" onkeyup="search('search')">
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Search</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" >
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" onclick="search('search')">Search</button>
             </form>
 
             <!-- Button déroulant -->
