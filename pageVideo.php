@@ -69,6 +69,7 @@ for(var i = 4;i<get.length;i++){
     id+=get[i];
 }
 
+<<<<<<< HEAD
 //recuper le trailer
 var url = "https://api.themoviedb.org/3/movie/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
 function getTrailer(){
@@ -137,12 +138,17 @@ function getSimilar(){
   <button class="btn" id="button" type="button" data-toggle="collapse" href=".collapse.multi-collapse1" aria-expanded="false" aria-controls="multiCollapseExample2">Reviews</button>
     <div class="collapse multi-collapse1"  id="multiCollapseExample2">
       <div class="card card-body">
+=======
+>>>>>>> 61c4004114d906b81e9cbdef26ffe2d51ebc4b8a
 <!--Commentaires-->
         <?php //Ajout du php pour les commentaires
 //on verifie que le com existe
 $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $id5=$_GET['id'];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 61c4004114d906b81e9cbdef26ffe2d51ebc4b8a
         if(isset($_POST['com']) AND !empty($_POST['com'])){
 
           $userid=$_SESSION['id_user'];
@@ -169,16 +175,26 @@ $id5=$_GET['id'];
             </form>
         <h2>Commentaires:</h2>
         <?php
+<<<<<<< HEAD
       $requete=$bdd->prepare("SELECT * FROM comments WHERE id_vid =$id5 ORDER BY date_comment DESC "); 
       $requete->execute(array($id5));
       while($ligne = $requete->fetch()){
         echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
+=======
+      $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
+      ON c.id_user= u.id WHERE id_vid =1 ORDER BY date_comment DESC'); 
+
+      $requete->execute(array($id5));
+      while($ligne = $requete->fetch()){
+        echo "<article> <section> ".$ligne['username']." - ".$ligne['date_comment'].
+>>>>>>> 61c4004114d906b81e9cbdef26ffe2d51ebc4b8a
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
 
 
     }
     ?>
 
+<<<<<<< HEAD
       </div>
     </div>
   </div>
@@ -191,6 +207,8 @@ $id5=$_GET['id'];
     </div>
   </div>
 </div>
+=======
+>>>>>>> 61c4004114d906b81e9cbdef26ffe2d51ebc4b8a
 
 <!--On inclut le footer-->
 <?php include('footer.php'); ?>

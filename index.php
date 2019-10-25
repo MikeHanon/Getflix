@@ -35,11 +35,9 @@ session_start();
                     // content.innerHTML="<img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img>");
                     // console.log(test);
                     })
-
                     }
             movie();
             }
-
 </script>
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->

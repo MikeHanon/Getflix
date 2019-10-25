@@ -29,10 +29,10 @@ session_start();
 <div id="main">
    <h3>About Us</h3>
    <h4>GitHub</h4>
-   <p>https://github.com/pawelPrzewoznik</p>
-   <p>https://github.com/Hanioch </p>
-   <p>https://github.com/yassinassecoum</p>
-   <p>https://github.com/IsabelAguera</p>
+   <p><a href="https://github.com/pawelPrzewoznik">Pawel Przewoznik</a></p>
+   <p><a href="https://github.com/Hanioch">Hani</a></p>
+   <p><a href="https://github.com/yassinassecoum">Yassin Assecoum</a></p>
+   <p><a href="https://github.com/IsabelAguera">Isabel Aguera</a></p>
    <h4>Répertoire</h4>
    <p></p>
    <h4>Sources utilisés</h4>
@@ -49,7 +49,11 @@ session_start();
 </div>
 
 </body>
+<<<<<<< HEAD
 
 
 
 
+=======
+</html>
+>>>>>>> 61c4004114d906b81e9cbdef26ffe2d51ebc4b8a
