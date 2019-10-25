@@ -109,7 +109,7 @@ session_start();
 
    <div class="container mt-5 mb-5">
      <div class="row">
-       <div class="col-md-4">
+       <div class="col-md-4 col-ms">
          <img src=<?php echo "\"css/media/" .$img . "\"" ?> alt="profile picture"><br>
 
          <form action="settings.php" method="post">
@@ -132,10 +132,10 @@ session_start();
         </form>
 
        </div>
-       <div class="col-md-1">
+       <div class="col-md-1 col-ms">
 
        </div>
-       <div class="accordion text-center col-md-7" id="accordionExample">
+       <div class="accordion text-center col-md-7 col-ms" id="accordionExample">
         <div class="card ">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
@@ -223,6 +223,7 @@ session_start();
         document.getElementById(m).disabled = 'disabled';
       }
     }
+
   </script>
 
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
