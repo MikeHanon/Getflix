@@ -29,8 +29,8 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
 
       //se souvenir de moi
       if($_POST['remember']=="on"){
-        setcookie("username",$_POST['username'],time()+10000);
-        setcookie("password",$_POST['password'],time()+10000);
+        setcookie("username",$_POST['username'],time()+10000,null,null,false,true);
+        setcookie("password",$_POST['password'],time()+10000,null,null,false,true);
 
       }
       header("Location: index.php");
