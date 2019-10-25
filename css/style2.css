@@ -24,8 +24,14 @@ body{
 }
 
 
-a {
+.pochette{
     color: inherit;
+    transition: all 0.7s ease;
+    
+}
+.pochette:hover{
+    background-size: 400px;
+    transform: scale(1.2) rotate(1deg);
 }
 /*
 .footNav{
@@ -47,4 +53,8 @@ a {
 }
 img{
     padding-left: 12px;
+}
+h2{
+    text-align: center;
+    margin :25px;
 }
