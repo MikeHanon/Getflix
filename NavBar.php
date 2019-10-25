@@ -19,6 +19,7 @@ $user=$_SESSION['username'];
 
 <body>
 <!-- NavBar -->
+
     <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
         <a class="navbar-brand" href="index.php">
             <img src="css/media/logo.gif">
@@ -59,7 +60,7 @@ $user=$_SESSION['username'];
         </div>
       </li>
                 <li class="nav-item">
-                    <a class="nav-link btn-outline-danger" href="#">Recently Added</a>
+                    <a class="nav-link" href="#" href="#">Recently Added</a>
                 </li>
             </ul>
 
