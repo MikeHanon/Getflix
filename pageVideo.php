@@ -1,5 +1,32 @@
 <?php 
 session_start();
+try{
+
+  //On se connecte à MySQL
+  $bdd = new PDO('mysql:host=localhost;dbname=Getflix;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}catch (Exception $e) {
+
+  //En cas d'erreur on affiche un message et on arrete tout
+  die('Erreur : ' . $e->getMessage());
+}
+
+$req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
+$req->execute(array(
+    'id' => $_GET['id']
+    )); 
+$resultat = $req->fetch();
+//deja dans la table
+if($resultat){
+}
+// id pas repertorié dans la table ? => ajout
+  else{
+  $add = $bdd->prepare('INSERT INTO video(id) VALUES(:id)') or die(print_r($bdd->errorInfo()));
+  $add->execute(array(
+    'id'=> $_GET['id']
+
+  ));
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -19,15 +46,89 @@ session_start();
 <!--On inclut la NavBar-->
 <?php include('NavBar.php'); ?>
 <!--Video à ajouter-->
+<h3 id="titleMovie"></h3>
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2 ">
+
+</div>
+<div id ="trailer" class="col-sm-8 ">
+
+</div>
+</div>
+<div  class="col-sm-2 ">
+
+</div>
+
+</div>
+<script>
+//recuperation de du GET[id] en javascript
+var get = window.location.search ;
+var id="";
+for(var i = 4;i<get.length;i++){
+    id+=get[i];
+}
+
+//recuper le trailer
+var url = "https://api.themoviedb.org/3/movie/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+function getTrailer(){
+                    fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    var key=data.results[0].key;
+                    var trailer = document.getElementById('trailer');
+                    trailer.innerHTML+="<iframe width='800' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+
+                    })
+
+                    }
+
+function getTitre(){
+  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    var title=document.getElementById('titleMovie');
+                    title.innerHTML=data.title;
+})
+}
+function getInfo(){
+  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    var info=document.getElementById('infoMovie');
+                    info.innerHTML="<label>"+data.title+"</br> Budget : "+data.budget+"<br> Release date : "+data.release_date+" </label>";
+})
+}
+function getSimilar(){
+  var url = "https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                      console.log(data.results[0].title);
+                    var sim=document.getElementById('similarMovie');
+                    var idVid = data.results[0].id;
+                    sim.innerHTML+="<label>"+data.results[0].title+"<br> <a href='pageVideo.php?id="+idVid+"'><img src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></label>";
+})
+}
 
 
+
+
+                    getTrailer();
+                    getTitre();
+                    getInfo();
+                    getSimilar();
+
+</script>
 
 <!--Collapse-->
 <div class="row d-flex justify-content-around mb-2 ml-1 mr-1">
   <div class="col">
   <button class="btn" id="button" data-toggle="collapse" href=".collapse.multi-collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Informations</button>
     <div class="collapse multi-collapse" id="multiCollapseExample1">
-      <div class="card card-body">
+      <div id="infoMovie" class="card card-body">
 <!--Information du film--> blablabla
       </div>
     </div>
@@ -40,14 +141,19 @@ session_start();
         <?php //Ajout du php pour les commentaires
 //on verifie que le com existe
 $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$id5=1;
+$id5=$_GET['id'];
+
         if(isset($_POST['com']) AND !empty($_POST['com'])){
 
           $userid=$_SESSION['id_user'];
           $commentaire= htmlspecialchars($_POST['com']);
-            $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment) 
-            VALUES (?,?,?,NOW())');
-            $ins->execute(array($id5 , $userid ,$commentaire));
+            $ins = $bdd->prepare('INSERT INTO comments( id_vid, id_user, comment) VALUES(:id_vid,:id_user,:comment )');
+            $ins->execute(array(
+              'id_vid' => $id5 ,
+              'id_user' =>$userid ,
+              'comment' => $commentaire
+          ));
+
 
             $c_msg = "<span style='color:green'>Votre commentaire a bien été posté</span>";
         } else {
@@ -63,10 +169,10 @@ $id5=1;
             </form>
         <h2>Commentaires:</h2>
         <?php
-      $requete=$bdd->prepare('SELECT * FROM comments WHERE id_vid =1 ORDER BY date_comment DESC '); 
+      $requete=$bdd->prepare("SELECT * FROM comments WHERE id_vid =$id5 ORDER BY date_comment DESC "); 
       $requete->execute(array($id5));
       while($ligne = $requete->fetch()){
-        echo "<article> <section> "./*à changer*/$_SESSION['username']." - ".$ligne['date_comment'].
+        echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
 
 
@@ -79,7 +185,7 @@ $id5=1;
   <div class="col">
   <button class="btn" id="button" type="button" data-toggle="collapse" href=".collapse.multi-collapse2" aria-expanded="false" aria-controls="multiCollapseExample3">More like this</button>
     <div class="collapse multi-collapse2" id="multiCollapseExample3">
-      <div class="card card-body">
+      <div id="similarMovie" class="card card-body">
 <!--Film Simmilaire-->
       </div>
     </div>
