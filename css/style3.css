@@ -35,9 +35,6 @@ color: #8C1C25;
 }
 
 
-.onglet:hover{
-    color: red;
-}
 
 .listeCom{
     text-align: center;
@@ -86,4 +83,17 @@ padding-left: 20px;
     font-size: 60px;
     width:20px;
     z-index: 1;
+}
+
+
+.active {
+    color: #59151A
+}
+
+.disabled {
+    color: white
+}
+
+.disabled:hover{
+    color: #59151A;
 }

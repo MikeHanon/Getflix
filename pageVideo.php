@@ -112,18 +112,18 @@ getTrailer();
 <div class="row">
 
 <div class="col">
-<h2 onclick='info()' class="onglet">Information</h2>
+<h2 onclick='info()' id='information2' class="disabled">Information</h2>
 </div>
 <div class="col">
 
 
 
-<h2 onclick='com()' class="onglet">Commentaires</h2>
+<h2 onclick='com()' id='commentaire2' class="active">Commentaires</h2>
 </div>
 
 
 <div class="col ">
-<h2 onclick="vid()" class="onglet">Vidéo simmilaire</h2>
+<h2 onclick="vid()" id='video2' class="disabled">Vidéo simmilaire</h2>
 </div>
 </div>
 

@@ -35,7 +35,7 @@ session_start();
                     var idFilm = data.results[i].id;
                     // content.innerHTML+="<div class='col-md-2'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a></div>" );
                     // content.innerHTML+="<div class='carousel-caption'><h4 class='h4-responsive'>blabla<h4></div>";
-                    content.innerHTML+="<div class='col-md-2 film'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
+                    content.innerHTML+="<div class='col-md-2' id='movie'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
                     }
                     
                     })
