@@ -110,7 +110,7 @@ session_start();
    <div class="container mt-5 mb-5">
      <div class="row">
        <div class="col-md-4">
-         <img src=<?php echo "\"css/media/" .$img . "\"" ?> alt="profile picture"><br>
+         <img src=<?php echo "\"css/media/" .$img . "\"" ?> width="100%" alt="profile picture"><br>
 
          <form action="settings.php" method="post">
           <div class="form-row align-items-center">
