@@ -35,11 +35,21 @@ color: #8C1C25;
 }
 
 
-.onglet:hover{
-    color: red;
-}
 
 .listeCom{
     text-align: center;
 }
 
+
+
+.active {
+    color: #59151A
+}
+
+.disabled {
+    color: white
+}
+
+.disabled:hover{
+    color: #59151A;
+}
