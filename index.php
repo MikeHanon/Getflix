@@ -29,7 +29,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var id = data.results[i].id;
-                    content.innerHTML+="<a class='pochette' href='pageVideo.php?id="+id+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a>" );
+                    content.innerHTML+="<a class='pochette' href='pageVideo.php?id="+id+"'><img width= 100% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a>" );
                     }
                     // var test  =data.results[i].poster_path;
                     // content.innerHTML="<img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img>");
@@ -43,7 +43,7 @@ session_start();
 <!-- Vidéo Principale -->
         <section class='corps'>
         <iframe src="https://www.youtube.com/embed/RumjcP_9vuo" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter">
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter" style="width: 100%">
         </iframe>
         </section>
 <!-- Fin Vidéo Principale -->
