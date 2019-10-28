@@ -12,7 +12,7 @@
 <body>
 <nav class="navbar navbar-light bg-transparent">
   <a class="navbar-brand" href="connexion.php">
-    <img src="css/media/logo.gif" width="190" height="70" alt="">
+    <div class="logo"><img src="css/media/logo.gif" width="100%" alt="logo"></div>
   </a>
 </nav>
 <div class="container">
