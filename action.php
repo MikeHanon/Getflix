@@ -18,15 +18,43 @@ session_start();
           
 <body>
 <!--On inclut la NavBar-->
+<script>
+            function afficherFilm(nombre,url,id,page){
+                var content=document.getElementById(id);
+                page=1;
+                id="";
+                nombre=6;
+                genre="";
+                url1=url+"&page="+page;
+                function movie(page){
+                    fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    for(var i=0;i<nombre;i++){
+                    var test  =data.results[i].poster_path;
+                    var idFilm = data.results[i].id;
+                    // content.innerHTML+="<div class='col-md-2'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a></div>" );
+                    // content.innerHTML+="<div class='carousel-caption'><h4 class='h4-responsive'>blabla<h4></div>";
+                    content.innerHTML+="<div class='col-md-2 film'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
+                    }
+                    
+                    })
+                    }
+            movie();
+            }
+  
+</script>
 <?php include('NavBar.php'); ?>
-
+<h2>Action Movies</h2>
+<p class="genreDesc">An action story is similar to adventure, and the protagonist usually takes a risky turn, which leads to desperate situations (including explosions, fight scenes, daring escapes, etc.). Action and adventure are usually categorized together (sometimes even as "action-adventure") because they have much in common, and many stories fall under both genres simultaneously</p>
+<h4 id="genreTitle">Check our Action movies catalogue</h4>
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
   <!--Controls-->
   <div class="controls-top">
-    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+    <a id='btnLeft' class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+    <a id ='btnRight' class="btn-floating" href="#multi-item-example" data-slide="next"><i
         class="fas fa-chevron-right"></i></a>
   </div>
   <!--/.Controls-->
@@ -36,6 +64,8 @@ session_start();
     <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
     <li data-target="#multi-item-example" data-slide-to="1"></li>
     <li data-target="#multi-item-example" data-slide-to="2"></li>
+    <li data-target="#multi-item-example" data-slide-to="3"></li>
+    <li data-target="#multi-item-example" data-slide-to="4"></li>
   </ol>
   <!--/.Indicators-->
 
@@ -44,119 +74,44 @@ session_start();
 
     <!--First slide-->
     <div class="carousel-item active">
-    <div class="row">
-      <div class="col-md-2">
-        yi
-      </div>
-      <div class="col-md-2">
-    ya      
-      </div>
+    <div class="row" id="firstRow">
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28",'firstRow'); </script>
 
-      <div class="col-md-2">
-yu
-      </div>
-      <div class="col-md-2">
-yu
-      </div>
-      <div class="col-md-2">
-yu
-      </div>
-      <div class="col-md-2">
-yu
-      </div>
     </div>
     </div>
     <!--/.First slide-->
 
     <!--Second slide-->
     <div class="carousel-item">
-
-      <div class="col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
+    <div class="row" id="secondRow">
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=2",'secondRow'); </script>
 
     </div>
+    </div>
+
     <!--/.Second slide-->
 
     <!--Third slide-->
     <div class="carousel-item">
-
-      <div class="col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
+    <div class="row" id="thirdRow">
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=3",'thirdRow'); </script>
 
     </div>
-    <!--/.Third slide-->
+    </div>
+
+    <div class="carousel-item">
+    <div class="row" id="fourRow">
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=4",'fourRow'); </script>
+
+    </div>
+    </div>
+
+    <div class="carousel-item">
+    <div class="row" id="fiveRow">
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=5",'fiveRow'); </script>
+
+    </div>
+    </div>
 
   </div>
   <!--/.Slides-->
