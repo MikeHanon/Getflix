@@ -65,8 +65,8 @@ $user=$_SESSION['username'];
 
             <!-- Button Search -->
 
-            <form class="form-inline ml- 2 my-lg-0" id="dropdown" action="pageVideo.php?id=">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" onselect="submit('input')">
+            <form class="form-inline ml- 2 my-lg-0" id="dropdown" method="get" onsubmit="test()">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" >
                 <datalist id="movies">
                 </datalist>
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Search</button>
@@ -95,45 +95,76 @@ $user=$_SESSION['username'];
 
     <script type="text/javascript">
 
-      var id = 0;
+      var id = 0
+      var elemt = [[]]
       const input = document.getElementById('search')
       input.onkeyup = (e)=>recherche(e)
 
+      //Recherche e dans la db
       function recherche(e){
         if(e.key != 'ArrowDown' && e.key != 'ArrowUp'){
-          var elemt = [],nb = 0;
-          if(document.getElementById('search').value.length != 0 && nb != document.getElementById('search').value.length) {
+
+          if(document.getElementById('search').value.length != 0 ) {
             var str = document.getElementById('search').value;
-            nb = document.getElementById('search').value.length;
+            console.log(str)
             fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json())
             .then(data=>{
+              affiche(data.results)/*
                 for (var i = 0; i < data.results.length; i++) {
-                  elemt[i] = data.results[i];
+                  elemt[i] = data.results[i].title;
+                  elemt[i[i]] =data.results[i].id;
+                  console.log(elemt[i] + " " + elemt[i[i]])
                 }
-                affiche(elemt);
+                affiche(elemt);*/
+                console.log(elemt)
               });
           }
         }
       }
 
+      //Affiche les 5 premiers éléments du tableau dans la datalist, sous l'input
       function affiche(array){
-        var msg="";
+        /*var msg="";
         for (var i = 0; i < 5; i++) {
-          console.log(array[i].id)
-          msg += "<option value='" + array[i].title +"' id='" + array[i].id + "'>";
+          msg += "<option value='" + array[i] + "' id=" + array[i[i]] + ">";
         }
-        document.getElementById('movies').innerHTML = msg;
+        document.getElementById('movies').innerHTML += msg;*/
+        const list = array.map(elem=>{
+          console.log(window.location)
+          let option = "<option value='" + elem.title + "' id=" + elem.id + ">"
+          document.getElementById('movies').innerHTML += option
+
+          option.onload = () => {
+            option.onclick = () => {
+            window.location.href = `${window.location}?id=${elem.id}`
+            console.log('click', window.location)
+            }
+          }
+        })
+
       }
 
-      function submit(str){
-        console.log(sumit)
+      //Change de page en fonction de la valeur de l'input
+  /*    function test(){
+        alert("dans test")
+        var str = document.getElementById('search').value, id = -1;
         if(str.length != 0){
-          console.log(1)
-          fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json()).then(data=>{
-            document.getElementById('dropdown').action += data.results[0].id;
-          })
+          alert("dans le if")
+          for (var i = 0; i < elemt.length; i++) {
+            console.log(str + " " + elemt[i])
+            if (str == elemt[i] && str.length == elemt[i].length) {
+              id = elemt[i[i]];
+              alert("change id")
+            }
+          }
+          if(id !== -1){
+            var url = "http://localhost/Getflix/pageVideo.php?id="+id;
+            alert(url)
+            window.open(url);
+          }
+
         }
-      }
+      }*/
     </script>
 
   <script src="https://kit.fontawesome.com/75bed6266a.js"></script>

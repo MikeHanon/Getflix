@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
 
   $ok = true;
   while ($donnees = $req->fetch()) {
-    if($donnees['username'] == $_POST['username']){
+    if($donnees['username'] == trim($_POST['username'])){
       $ok = false; $msg .= " Username taken ";
     }
     if ($donnees['email'] == $_POST['email']) {
@@ -28,7 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
     $req = $bdd->prepare('INSERT INTO users(username,password,email,status) VALUES(:username,:password,:email,1)') or die(print_r($bdd->errorInfo()));
 
     $req->execute(array(
-      'username'=>htmlspecialchars($_POST['username']),
+      'username'=>htmlspecialchars(trim($_POST['username'])),
       'password'=>password_hash(htmlspecialchars($_POST['password1']), PASSWORD_DEFAULT),
       'email'=>htmlspecialchars($_POST['email'])
     ));
