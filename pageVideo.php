@@ -29,18 +29,18 @@ session_start();
 <div class="row">
 
 <div class="col">
-<h2 onclick='info()'>Information</h2>
+<h2 onclick='info()' class="onglet">Information</h2>
 </div>
 <div class="col">
 
 
 
-<h2>Commentaires</h2>
+<h2 onclick='com()' class="onglet">Commentaires</h2>
 </div>
 
 
 <div class="col ">
-<h2>Vidéo simmilaire</h2>
+<h2 onclick="vid()" class="onglet">Vidéo simmilaire</h2>
 </div>
 </div>
 
@@ -58,7 +58,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis porro, aperiam 
 $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $id5=$_GET['id'];
         if(isset($_POST['com']) AND !empty($_POST['com'])){
-
+//si le com existe et qu'il n'est pas vide:
         $userid=$_SESSION['id_user'];
         $commentaire= htmlspecialchars($_POST['com']);
             $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment) 
@@ -71,25 +71,31 @@ $id5=$_GET['id'];
         }
         
         ?>
-        <h3>Ajouter un commentaire:</h3>
+<div class="row">
+<div class="col-md-4">
+        <h4>Ajouter un commentaire:</h4>
         <form method="POST">
-            <textarea id="story" name='com'  rows="6" cols="97">
-            </textarea>
+            <textarea id="story" name='com'  rows="6" cols="80">
+            </textarea> <br>
             <input class="valider" type="submit">
             </form>
-        <h3>Commentaires:</h3>
+        </div>
+        <div class="col-md-4">
+        <h4 class='listeCom'> Anciens commentaires:</h4>
         <?php
     $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
     ON c.id_user= u.id WHERE id_vid =1 ORDER BY date_comment DESC'); 
 
     $requete->execute(array($id5));
     while($ligne = $requete->fetch()){
-        echo "<article> <section> ".$ligne['username']." - ".$ligne['date_comment'].
+        echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
-
-
     }
+
+
     ?>
+            </div>
+</div>
 
 
 </div>

@@ -7,6 +7,9 @@
 }
 body{
     font-family: 'Bree Serif', serif;
+    background-color: black;
+    color:white;
+
 }
 footer{
     font-family: 'Bree Serif', serif;
@@ -26,5 +29,17 @@ color: #8C1C25;
     background-color: #59151A;
     color:white; 
 }
+.card.card-body{
+    background-color:#59151A;
+    color:white;
+}
 
+
+.onglet:hover{
+    color: red;
+}
+
+.listeCom{
+    text-align: center;
+}
 

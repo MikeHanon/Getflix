@@ -3,6 +3,8 @@
 body{
     margin: 0;
     font-family: 'Bree Serif', serif;
+    background-color: black;
+    color:white;
 
 }
 
@@ -22,8 +24,14 @@ body{
 }
 
 
-a {
+.pochette{
     color: inherit;
+    transition: all 0.7s ease;
+    
+}
+.pochette:hover{
+    background-size: 400px;
+    transform: scale(1.2) rotate(1deg);
 }
 /*
 .footNav{
@@ -31,7 +39,7 @@ a {
 }
 */
 .corps{
-    background-color: rgb(128, 0, 0);
+    /* background-color: rgb(128, 0, 0); */
 
 }
 .page-footer{
@@ -45,4 +53,8 @@ a {
 }
 img{
     padding-left: 12px;
+}
+h2{
+    text-align: center;
+    margin :25px;
 }
