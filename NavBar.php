@@ -13,24 +13,24 @@ $user=$_SESSION['username'];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-
     <title>SeriesAddict</title>
 </head>
 
 <body>
 <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
-        <a class="navbar-brand" href="index.php">
-            <img src="css/media/logo.gif">
-        </a>
+
+<nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" data-toggle="collapse">
+        <a class="navbar-brand" href="index.php"></a>
+        <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%"></a>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="animation.php">Animation</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">Series TV</a>
+            <a class="nav-link" href="series.php">Series TV</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,7 +59,7 @@ $user=$_SESSION['username'];
         </div>
       </li>
                 <li class="nav-item">
-                    <a class="nav-link btn-outline-danger" href="#">Recently Added</a>
+                    <a class="nav-link" href="recently.php">Recently Added</a>
                 </li>
             </ul>
 
@@ -71,12 +71,12 @@ $user=$_SESSION['username'];
             </form>
 
             <!-- Button déroulant -->
-            <li class="nav-item form-inline dropleft">
+            <li class="nav-item form-inline">
                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
                    <?php echo $user ;?>
                 </a>
 
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-md-left dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="settings.php">Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="logout.php">Sign out</a>
@@ -90,6 +90,7 @@ $user=$_SESSION['username'];
 
         </div>
     </nav>
+    
 
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
