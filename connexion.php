@@ -1,5 +1,5 @@
-<?php 
-$error="";
+<?php
+$error = "";
 session_start();
 // verifie si ya un cookie , si oui il redirige directement vers index.php
 if(isset($_SESSION['username'])&& isset($_SESSION['password'])){
@@ -15,11 +15,11 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
     //En cas d'erreur on affiche un message et on arrete tout
     die('Erreur : ' . $e->getMessage());
   }
-  
+
   $req = $bdd->prepare('SELECT id , username , password FROM users WHERE username = :username');
   $req->execute(array(
       'username' => $_POST['username']
-      )); 
+      ));
   $resultat = $req->fetch();
   //verifie si $resultat est pas vide et que le mot de passe equivaut + creation session
 if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])){
@@ -46,59 +46,66 @@ else{
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Connection</title>
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/style.css">
+      <title>Connection</title>
+  </head>
+  <body>
 
-<nav class="navbar navbar-light bg-transparent">
-  <a class="navbar-brand" href="connexion.php">
-    <img src="css/media/logo.gif" width="190" height="70" alt="">
-  </a>
-</nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md">
-    </div>
-    <div class="col-md col-sm-12">
-<div id="main">
-    <h3>Sign in</h3>
-        <form method="POST" action="connexion.php" >
-        <input class="input" type ="name" name="username" placeholder="Username" autocomplete="off"><br>
-        <input class="input" type ="password" name="password" placeholder="Password"><br>
-        <input type="checkbox" name="remember"> <label>Remember me</label> <br>
-        <a href="reset.php">Forgot password ? </a><br>
-        <input id="connect" type="submit" name="submit" value="Connexion">
-        </form>
-        <?php echo $error; ?>
-    <p> New to SeriesAddict ? <a href="inscription.php">Sign up now</a> </p>
-    
-</div>
-    </div>
-    <div class="col-md">
-      
+  <nav class="navbar navbar-light bg-transparent">
+    <a class="navbar-brand" href="connexion.php">
+      <img src="css/media/logo.gif" width="190" height="70" alt="">
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md">
+
+      </div>
+      <div class="col-md col-sm-12">
+        <div id="main">
+          <?php if(isset($_SESSION['inscription']) && $_SESSION['inscription'] ) { ?>
+            <span style="color:green;font-weigth:bolder;font-size:200%;position:relative;">Successful registration !</span>
+          <?php
+            $_SESSION['inscription'] = false;
+          } ?>
+          <h3>Sign in</h3>
+          <form method="POST" action="connexion.php" >
+          <input class="input" type ="name" name="username" placeholder="Username" autocomplete="off"><br>
+          <input class="input" type ="password" name="password" placeholder="Password"><br>
+          <input type="checkbox" name="remember"> <label>Remember me</label> <br>
+          <a href="reset.php">Forgot password ? </a><br>
+          <input id="connect" type="submit" name="submit" value="Connexion">
+          </form>
+          <?php echo $error; ?>
+          <p> New to SeriesAddict ? <a href="inscription.php">Sign up now</a> </p>
+
+        </div>
+      </div>
+      <div class="col-md">
+
+      </div>
     </div>
   </div>
-</div>
-<footer>
-<div class="TMdb">
-<img src="css/media/logo.svg" width="20%"></br>
-"This product uses the TMDb API but </br> is not endorsed or certified by TMDb."
-</div>
-</footer>
+  <footer>
+    <div class="TMdb">
+      <img src="css/media/logo.svg" width="20%"></br>
+      "This product uses the TMDb API but </br> is not endorsed or certified by TMDb."
+    </div>
+  </footer>
 
 
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
