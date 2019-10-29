@@ -14,14 +14,12 @@ function info(){
         recupInfo2.className='active'
         recupCom2.className="disabled"
         recupVideo2.className="disabled";
-        console.log('je rentre dans le if')
     }else{
         recupInfo.style.display='none'
         recupCom.style.display='block'
         recupInfo2.className='disabled'
         recupCom2.className="active"
         recupVideo2.className="disabled";
-        console.log('je rentre dans le else')
     }
 }
 
@@ -33,7 +31,6 @@ function com(){
         recupInfo2.className='disabled'
         recupCom2.className="active"
         recupVideo2.className="disabled";
-        console.log('je rentre dans le if')
     }
 }
 
@@ -45,13 +42,11 @@ function vid(){
         recupInfo2.className='disabled'
         recupCom2.className="disabled"
         recupVideo2.className="active";
-        console.log('je rentre dans le if')
     }else{
         recupVideo.style.display='none'
         recupCom.style.display='block'
         recupInfo2.className='disabled'
         recupCom2.className="active"
         recupVideo2.className="disabled";
-        console.log('je rentre dans le else')
     }
 }
