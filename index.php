@@ -91,7 +91,7 @@ session_start();
             <h2 class="sousTitre"><a class="souTitre" href='adventure.php'>Adventure Movies</a></h2>
             <div id="adventure" class="row">
             <script>
-                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=12","adventure");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=12&page=2","adventure");
             </script>
             </div>
       
