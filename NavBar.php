@@ -65,7 +65,7 @@ $user=$_SESSION['username'];
 
             <!-- Button Search -->
 
-            <form class="form-inline ml- 2 my-lg-0" id="dropdown" method="get" onsubmit="test()">
+            <form class="form-inline ml- 2 my-lg-0" id="dropdown">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" >
                 <datalist id="movies">
                 </datalist>
@@ -92,32 +92,32 @@ $user=$_SESSION['username'];
 
         </div>
     </nav>
-    
+    <div id="recherche">
+
+    </div>
 
     <script type="text/javascript">
 
       var id = 0
-      var elemt = [[]]
+
       const input = document.getElementById('search')
       input.onkeyup = (e)=>recherche(e)
 
       //Recherche e dans la db
       function recherche(e){
         if(e.key != 'ArrowDown' && e.key != 'ArrowUp'){
-
+          var recu = ""
           if(document.getElementById('search').value.length != 0 ) {
+
             var str = document.getElementById('search').value;
             console.log(str)
             fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json())
             .then(data=>{
-              affiche(data.results)/*
+              affiche(data.results)
                 for (var i = 0; i < data.results.length; i++) {
-                  elemt[i] = data.results[i].title;
-                  elemt[i[i]] =data.results[i].id;
-                  console.log(elemt[i] + " " + elemt[i[i]])
+                  recu +="<a class='pochette' href='pageVideo.php?id="+data.results[i].id+"'><img width= 10% src=http://image.tmdb.org/t/p/w185//".concat(data.results[i].poster_path,"></img> </a>" )
                 }
-                affiche(elemt);*/
-                console.log(elemt)
+                document.getElementById("recherche").innerHTML = recu;
               });
           }
         }
