@@ -1,5 +1,32 @@
 <?php 
 session_start();
+try{
+
+  //On se connecte à MySQL
+  $bdd = new PDO('mysql:host=localhost;dbname=Getflix;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}catch (Exception $e) {
+
+  //En cas d'erreur on affiche un message et on arrete tout
+  die('Erreur : ' . $e->getMessage());
+}
+
+$req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
+$req->execute(array(
+    'id' => $_GET['id']
+    )); 
+$resultat = $req->fetch();
+//deja dans la table
+if($resultat){
+}
+// id pas repertorié dans la table ? => ajout
+  else{
+  $add = $bdd->prepare('INSERT INTO video(id) VALUES(:id)') or die(print_r($bdd->errorInfo()));
+  $add->execute(array(
+    'id'=> $_GET['id']
+
+  ));
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +48,63 @@ session_start();
 <!--Video à ajouter-->
 
 
+<script>
+//recuperation de du GET[id] en javascript
+var get = window.location.search ;
+var id="";
+for(var i = 4;i<get.length;i++){
+    id+=get[i];
+}
 
+//recuper le trailer
+var url = "https://api.themoviedb.org/3/movie/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+function getTrailer(){
+                    fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    var key=data.results[0].key;
+                    var trailer = document.getElementById('trailer');
+                    trailer.innerHTML+="<iframe width='800' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+
+                    })
+
+                    }
+
+function getTitre(){
+  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    var title=document.getElementById('titleMovie');
+                    title.innerHTML=data.title;
+})
+}
+function getInfo(){
+  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                    var info=document.getElementById('infoMovie');
+                    info.innerHTML="<label>"+data.title+"</br> Budget : "+data.budget+"<br> Release date : "+data.release_date+" </label>";
+})
+}
+function getSimilar(){
+  var url = "https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  fetch(url)
+                    .then(reponse =>reponse.json())
+                    .then (data => {
+                      console.log(data.results[0].title);
+                    var sim=document.getElementById('similarMovie');
+                    var idVid = data.results[0].id;
+                    sim.innerHTML+="<label>"+data.results[0].title+"<br> <a href='pageVideo.php?id="+idVid+"'><img src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></label>";
+})
+}
+getTrailer();
+                    getTitre();
+                    getInfo();
+                    getSimilar();
+
+</script>
 
 <!--les 3 sections -->
 
@@ -83,10 +166,18 @@ $id5=$_GET['id'];
         <div class="col-md-4">
         <h4 class='listeCom'> Anciens commentaires:</h4>
         <?php
+    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
+    ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC'); 
+
+    $requete->execute(array($id5));
+    while($ligne = $requete->fetch()){
+        echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
+=======
       $requete=$bdd->prepare("SELECT * FROM comments WHERE id_vid =$id5 ORDER BY date_comment DESC "); 
       $requete->execute(array($id5));
       while($ligne = $requete->fetch()){
         echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
+>>>>>>> db1f3a055854e2ae26d22de5b5d19cb8dd503690
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
     }
 

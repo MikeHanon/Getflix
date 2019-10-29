@@ -39,7 +39,7 @@ section{
 
 
 .pochette{
-    color: inherit;
+   
     transition: all 0.7s ease;
     
 }
@@ -72,8 +72,18 @@ img{
     padding-left: 12px;
 }
 h2{
+   
     text-align: center;
     margin :25px;
+<<<<<<< HEAD
+    /* color:white; */
+}
+a{
+    color: inherit;
+}
+a:hover{
+    color:#8C1C25;
+=======
 }
 }
 
@@ -115,4 +125,5 @@ h2{
         margin: 10%
        }
   
+>>>>>>> db1f3a055854e2ae26d22de5b5d19cb8dd503690
 }
