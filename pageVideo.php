@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 try{
 
@@ -13,7 +13,7 @@ try{
 $req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
 $req->execute(array(
     'id' => $_GET['id']
-    )); 
+    ));
 $resultat = $req->fetch();
 //deja dans la table
 if($resultat){
@@ -23,9 +23,7 @@ if($resultat){
   $add = $bdd->prepare('INSERT INTO video(id) VALUES(:id)') or die(print_r($bdd->errorInfo()));
   $add->execute(array(
     'id'=> $_GET['id']
-
   ));
-
 }
 
 ?>
@@ -64,7 +62,7 @@ function getTrailer(){
                     .then (data => {
                     var key=data.results[0].key;
                     var trailer = document.getElementById('trailer');
-                    trailer.innerHTML+="<iframe width='800' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                    trailer.innerHTML+="<iframe width='916' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
 
                     })
 
@@ -76,7 +74,7 @@ function getTitre(){
                     .then(reponse =>reponse.json())
                     .then (data => {
                     var title=document.getElementById('titleMovie');
-                    title.innerHTML=data.title;
+                    title.innerHTML="<h2>"+data.title+"</h2><i>\""+data.tagline+"\"</i>";
 })
 }
 function getInfo(){
@@ -84,8 +82,8 @@ function getInfo(){
   fetch(url)
                     .then(reponse =>reponse.json())
                     .then (data => {
-                    var info=document.getElementById('infoMovie');
-                    info.innerHTML="<label>"+data.title+"</br> Budget : "+data.budget+"<br> Release date : "+data.release_date+" </label>";
+                    var info=document.getElementById('infoContent');
+                    info.innerHTML="<label>"+data.title+"<br><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
 })
 }
 function getSimilar(){
@@ -93,10 +91,12 @@ function getSimilar(){
   fetch(url)
                     .then(reponse =>reponse.json())
                     .then (data => {
-                      console.log(data.results[0].title);
                     var sim=document.getElementById('similarMovie');
+                    var sim1=document.getElementById('similarMovie1');
                     var idVid = data.results[0].id;
-                    sim.innerHTML+="<label>"+data.results[0].title+"<br> <a href='pageVideo.php?id="+idVid+"'><img src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></label>";
+                    sim.innerHTML+="<label><br> <a href='pageVideo.php?id="+idVid+"'><img id='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].title+"</label>";
+                    var idVid = data.results[1].id;
+                    sim1.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img id='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].title+"</label>";
 })
 }
                     getTrailer();
@@ -107,32 +107,41 @@ function getSimilar(){
 </script>
 
 <!--les 3 sections -->
-
+<h2 id="titleMovie"></h2>
 <div class="container-fluid ">
 <div id="trailer" class="row justify-content-center">
 
 </div>
-<div class='row'>
-<div class="col">
-<h2 onclick='info()' id='information2' class="disabled">Information</h2>
+<div class='row justify-content-md-center'>
+<div class="col col-lg-2">
+<h3 onclick='info()' id='information2' class="disabled">Informations</h3>
 </div>
-<div class="col">
+<div class="col col-lg-2">
 
 
 
-<h2 onclick='com()' id='commentaire2' class="active">Commentaires</h2>
+<h3 onclick='com()' id='commentaire2' class="active">Comments</h3>
 </div>
 
 
-<div class="col ">
-<h2 onclick="vid()" id='video2' class="disabled">Vidéo simmilaire</h2>
+<div class="col col-lg-2 ">
+<h3 onclick="vid()" id='video2' class="disabled">Similar Movies</h3>
 </div>
 </div>
 
 <!--Information -->
 
 <div id="information" style='display:none' >
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis porro, aperiam ullam vero alias ipsum officia asperiores incidunt. Hic est omnis ex illum aspernatur odit veniam assumenda voluptatem mollitia sapiente?
+<div class="row">
+<div  id="infoContent" class="col-md-6">
+ 
+ </div>
+ <div class="col-md-3">
+ 
+        </div>
+  <div class="col-md-3">
+   </div>
+</div>
 </div>
 
 <!--Commentaires-->
@@ -146,7 +155,7 @@ $id5=$_GET['id'];
 //si le com existe et qu'il n'est pas vide:
         $userid=$_SESSION['id_user'];
         $commentaire= htmlspecialchars($_POST['com']);
-            $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment) 
+            $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment)
             VALUES (?,?,?,NOW())');
             $ins->execute(array($id5 , $userid ,$commentaire));
 
@@ -154,22 +163,23 @@ $id5=$_GET['id'];
         } else {
             $c_msg = "Erreur: Le commentaire n'a pas pu être enregistrer";
         }
-        
+
         ?>
 <div class="row">
 <div class="col-md-4">
-        <h4>Ajouter un commentaire:</h4>
-        <form method="POST">
-            <textarea id="story" name='com'  rows="6" cols="60">
-            </textarea> <br>
-            <input class="valider" type="submit">
-            </form>
+ 
         </div>
-        <div class="col-md-4">
-        <h4 class='listeCom'> Anciens commentaires:</h4>
+        <div id='bodySpace' class="col-md-4 listeCom">
+        <h4>Add a comment</h4>
+        <form method="POST">
+            <input type="text" id="story" name='com'  rows="3" cols="40">
+       <br>
+            <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
+            </form>
+        <h4 class='listeCom'> Other comments :</h4>
         <?php
-    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
-    ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC'); 
+    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u
+    ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC');
 
     $requete->execute(array($id5));
     while($ligne = $requete->fetch()){
@@ -180,6 +190,10 @@ $id5=$_GET['id'];
 
     ?>
             </div>
+            <div class="col-md-4">
+ 
+
+  </div>
 </div>
 
 
@@ -188,7 +202,17 @@ $id5=$_GET['id'];
 <!--Vidéo simmilaire-->
 
 <div id="video" style="display:none">
-
+<div class="row">
+<div class="col-md-3">
+ 
+ </div>
+ <div  class="col-md-3">
+ 
+ </div>
+  <div id="similarMovie" class="col-md-3">
+   </div>
+   <div id="similarMovie1" class="col-md-3">
+</div>
 </div>
 
 

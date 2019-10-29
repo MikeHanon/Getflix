@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="eng">
 
 <head>
     <meta charset="UTF-8">
@@ -17,18 +17,18 @@
     <div class="container-fluid text-center text-md-left">
       <div class="row">
         <div class="col-md-4 mt-md-0 mt-3">
-  
-      
+
+
           <h4 class="text">SeriesAddicts</h4>
           <p class=span>A question, recommendation <br>or complaint?</p>
           <a href="contact.php"><button type="button" class="btn btn-outline-danger">Contact us</button></a>
         </div>
-    
+
             <hr class="clearfix w-100 d-md-none pb-3">
         <div class="col-md-4 mt-md-0 mt-3">
-    
-        
-        
+
+
+
 
 <ul class="list-unstyled">
   <li>
@@ -44,12 +44,12 @@
     <a href="#!">Media center</a>
   </li>
 </ul>
-        
+
         </div>
- 
-        
+
+
         <div class="col-md-4 mb-md-0 mb-3">
-  
+
           <h4 class="text">Social Networks</h4>
           <span>
           <a href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>
@@ -57,16 +57,16 @@
           <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
         </span>
         </div>
-  
+
       </div>
-  
+
     </div>
 
-  
+
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="https://github.com/pawelPrzewoznik/Getflix"> SeriesAddict</a>
     </div>
-  
+
   </footer>
 </body>
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
