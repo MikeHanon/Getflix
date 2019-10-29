@@ -11,12 +11,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="./css/categorie.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>SeriesAddict</title>
 </head>
           
-<body>
+<body class="genre">
 <!--On inclut la NavBar-->
 <script>
             function afficherFilm(nombre,url,id,page){
@@ -45,7 +45,7 @@ session_start();
   
 </script>
 <?php include('NavBar.php'); ?>
-<h2>Adventures Movies</h2>
+<h2 class="titre">Adventures Movies</h2>
 <p class="genreDesc">An adventure story is about a protagonist who journeys to epic or distant places to accomplish something. It can have many other genre elements included within it, because it is a very open genre. The protagonist has a mission and faces obstacles to get to their destination. Also, adventure stories usually include unknown settings and characters with prized properties or features.</p>
 <h4 id="genreTitle">Check our Adventures movies catalogue</h4>
 <!--Carousel Wrapper-->

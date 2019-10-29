@@ -7,93 +7,11 @@
 }
 body{
     font-family: 'Bree Serif', serif;
-    background-color: black !important;
-    color:white !important;
+    background-color: black ;
+    color:white ;
 
 }
 footer{
     font-family: 'Bree Serif', serif;
 
-}
-/*Style Settings*/
-
-.a{
-color: inherit;
-}
-
-#button1{
-color: #8C1C25;
-}
-
-#enter{
-    background-color: #59151A;
-    color:white; 
-}
-.card.card-body{
-    background-color:#59151A;
-    color:white;
-}
-
-
-
-.listeCom{
-    text-align: center;
-}
-.genreDesc{
-    font-size: 20px;
-    text-align: center;
-    margin :25px;
-    color:white;
-}
-#genreTitle{
-    text-align: center;
-    margin-bottom: 50px;
-}
-#title{
-position: absolute;
-top:300px;
-text-align: center;
-padding-left: 20px;
-
-
-}
-.carousel{
-    height:450px
-}
-
-.col-md-2{
-    padding:0 !important;
-}
-.carousel-item{
-    height:450px;
-    padding-left: 50px;
-
-}
-#btnLeft{
-    position: absolute;
-    top:380px;
-    left:500px;
-    font-size: 60px;
-    z-index: 1;
-}
-#btnRight{
-    position: absolute;
-    top:380px;
-    right:500px;
-    font-size: 60px;
-    width:20px;
-    z-index: 1;
-}
-
-
-.active {
-    color: #59151A
-}
-
-.disabled {
-    color: white
-}
-
-.disabled:hover{
-    color: #59151A;
 }

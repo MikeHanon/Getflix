@@ -20,7 +20,7 @@ if (isset($_SESSION['username'])) {
 <body>
 <!-- NavBar -->
 
-<nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" data-toggle="collapse">
+<nav class="navbar navbar-expand-lg navbar-transparent" data-toggle="collapse">
         <a class="navbar-brand" href="index.php"></a>
         <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%"></a>
         </div>
@@ -70,7 +70,6 @@ if (isset($_SESSION['username'])) {
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" >
                 <datalist id="movies">
                 </datalist>
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Search</button>
             </form>
 
             <!-- Button déroulant -->

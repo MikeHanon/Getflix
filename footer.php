@@ -32,16 +32,16 @@
 
 <ul class="list-unstyled">
   <li>
-    <a href="#!">Privacy</a>
+  <a class="privacy" href="#!">Privacy</a>
   </li>
   <li>
-    <a href="#!">Help Center</a>
+    <a class="privacy" href="#!">Help Center</a>
   </li>
   <li>
-    <a href="#!">Terms of use</a>
+    <a class="privacy" href="#!">Terms of use</a>
   </li>
   <li>
-    <a href="#!">Media center</a>
+    <a class="privacy" href="#!">Media center</a>
   </li>
 </ul>
 
@@ -52,9 +52,9 @@
 
           <h4 class="text">Social Networks</h4>
           <span>
-          <a href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>
-          <a href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
-          <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+          <a class="privacy" href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>
+          <a class="privacy" href="https://twitter.com"><i class="fab fa-twitter fa-2x"></i></a>
+          <a class="privacy" href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
         </span>
         </div>
 
@@ -64,7 +64,7 @@
 
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-      <a href="https://github.com/pawelPrzewoznik/Getflix"> SeriesAddict</a>
+      <a class="privacy" href="https://github.com/pawelPrzewoznik/Getflix"> SeriesAddict</a>
     </div>
 
   </footer>

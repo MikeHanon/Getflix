@@ -100,14 +100,14 @@ session_start();
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <title>Your account settings</title>
    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="css/style3.css">
+   <link rel="stylesheet" href="css/categorie.css">
 
  </head>
- <body>
+ <body class="genre">
 
    <?php include 'NavBar.php'; ?>
 
-   <div class="container mt-5 mb-5">
+   <div class="container mt-5 mb-5 sett">
      <div class="row">
        <div class="col-md-4">
          <img src=<?php echo "\"css/media/" .$img . "\"" ?> width="100%" alt="profile picture"><br>
