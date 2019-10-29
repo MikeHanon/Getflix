@@ -59,7 +59,7 @@ session_start();
 <!-- Vidéo Principale -->
         <section class='corps'>
         <iframe src="https://www.youtube.com/embed/RumjcP_9vuo" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter" style="width: 100%">
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter" style="width: 100%; height:100%">
         </iframe>
         </section>
 <!-- Fin Vidéo Principale -->
