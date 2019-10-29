@@ -6,10 +6,7 @@ footer{
     background-color: black;
     color:white;
     margin-bottom: 0%;
-    position: absolute;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
+ 
 
 }
 nav{
@@ -25,7 +22,7 @@ nav{
 
 .page-footer{
     background-color: #261616;
-    color: #8C1C25;
+    color: white;
     font-family: 'Bree Serif', serif;
 }
 .span{
@@ -37,9 +34,11 @@ img{
 }
 .privacy{
     color: inherit;
-    color: #8C1C25;
+    color: white;
 }
-
+.privacy:hover{
+    color:#8C1C25;
+}
 
 }
 
@@ -80,3 +79,15 @@ img{
     }
 }
 
+.text{
+    color:#8C1C25;
+}
+.colMiddle{
+    text-align: center;
+}
+#recherche{
+    text-align: center;
+}
+#user{
+    color:white;
+}

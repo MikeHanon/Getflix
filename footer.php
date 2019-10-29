@@ -16,7 +16,7 @@
 <footer class="page-footer font-small pt-4 bg">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
-        <div class="col-md-4 mt-md-0 mt-3">
+        <div class="col-md-4 mt-md-0 mt-3 colMiddle">
 
 
           <h4 class="text">SeriesAddicts</h4>
@@ -25,7 +25,7 @@
         </div>
 
             <hr class="clearfix w-100 d-md-none pb-3">
-        <div class="col-md-4 mt-md-0 mt-3">
+        <div class="col-md-4 mt-md-0 mt-3 colMiddle">
 
 
 
@@ -48,8 +48,8 @@
         </div>
 
 
-        <div class="col-md-4 mb-md-0 mb-3">
-
+        <div class="col-md-4 mb-md-0 mb-3 colMiddle">
+ 
           <h4 class="text">Social Networks</h4>
           <span>
           <a class="privacy" href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>

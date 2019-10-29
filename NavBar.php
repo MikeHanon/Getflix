@@ -75,7 +75,7 @@ if (isset($_SESSION['username'])) {
             <!-- Button déroulant -->
             <li class="nav-item form-inline">
                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
-                   <?php echo $user ;?>
+                   <?php echo "<span id ='user'>".$user."</span>" ;?>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-md-left dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">

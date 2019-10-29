@@ -83,7 +83,7 @@ function getInfo(){
                     .then(reponse =>reponse.json())
                     .then (data => {
                     var info=document.getElementById('infoContent');
-                    info.innerHTML="<label>"+data.title+"<br><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
+                    info.innerHTML="<label><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
 })
 }
 function getSimilar(){
@@ -183,8 +183,8 @@ $id5=$_GET['id'];
 
     $requete->execute(array($id5));
     while($ligne = $requete->fetch()){
-        echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
-        "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
+        echo "<article class='listeCom'> <section id='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
+        "</section><section id='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
     }
 
 
@@ -219,7 +219,7 @@ $id5=$_GET['id'];
 
 
 
-
+  </div>
 </div>
 
 

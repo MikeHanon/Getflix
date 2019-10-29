@@ -1,7 +1,7 @@
 .sousTitre{
    
     text-align: center;
-    padding-top: 3%;
+    padding-top: 1%;
     padding-bottom:1%;
     /* color:white; */
 
@@ -12,11 +12,11 @@
 }
 
 .souTitre:hover{
-    color: #261616;
+    color: #8C1C25;
 }
 
 .corps{
-    background-color: #8C1C25;
+    background-color: rgb(75, 12, 17);
     color: seashell;
     font-family: 'Bree Serif', serif;
 
@@ -33,8 +33,7 @@
     
 }
 .pochette:hover{
-    background-size: 400px;
-    transform: scale(1.2) rotate(1deg);
+    transform: scale(1.1) rotate(0.5deg);
 }
 
 .enter{
