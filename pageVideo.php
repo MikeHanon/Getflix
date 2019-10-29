@@ -91,7 +91,6 @@ function getSimilar(){
   fetch(url)
                     .then(reponse =>reponse.json())
                     .then (data => {
-                      console.log(data.results[0].title);
                     var sim=document.getElementById('similarMovie');
                     var idVid = data.results[0].id;
                     sim.innerHTML+="<label>"+data.results[0].title+"<br> <a href='pageVideo.php?id="+idVid+"'><img src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></label>";

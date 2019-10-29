@@ -120,7 +120,9 @@ if (isset($_SESSION['username'])) {
             .then(data=>{
               affiche(data.results)
                 for (var i = 0; i < data.results.length; i++) {
-                  recu +="<a class='pochette' href='pageVideo.php?id="+data.results[i].id+"'><img width= 10% src=http://image.tmdb.org/t/p/w185//".concat(data.results[i].poster_path,"></img> </a>" )
+                  if(data.results[i].poster_path !=null){
+                    recu +="<a class='pochette' href='pageVideo.php?id="+data.results[i].id+"'><img width= 15% src=http://image.tmdb.org/t/p/w185//".concat(data.results[i].poster_path,"></img> </a>" )
+                  }
                 }
                 document.getElementById("recherche").innerHTML = recu;
               });

@@ -7,7 +7,6 @@ let recupVideo2 =document.getElementById('video2');
 
 
 function info(){
-    console.log('je rentre dans la fonction')
     if(recupInfo.style.display =='none'){
         recupInfo.style.display='block';
         recupVideo.style.display='none';
@@ -27,7 +26,6 @@ function info(){
 }
 
 function com(){
-    console.log('je rentre dans la fonction')
     if(recupCom.style.display=='none'){
         recupInfo.style.display='none';
         recupVideo.style.display='none';
@@ -40,7 +38,6 @@ function com(){
 }
 
 function vid(){
-    console.log('je rentre dans la fonction')
     if(recupVideo.style.display=='none'){
         recupInfo.style.display='none';
         recupVideo.style.display='block';
