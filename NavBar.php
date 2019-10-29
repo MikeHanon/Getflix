@@ -1,4 +1,5 @@
 <?php
+if (isset($_SESSION['username'])) {
 
 $user=$_SESSION['username'];
 ?>
@@ -105,12 +106,16 @@ $user=$_SESSION['username'];
 
       //Recherche e dans la db
       function recherche(e){
+        var recu = ""
         if(e.key != 'ArrowDown' && e.key != 'ArrowUp'){
-          var recu = ""
-          if(document.getElementById('search').value.length != 0 ) {
+          //Si le recherche est vide on n'affiche rien
+          if(document.getElementById('search').value.length == 0){
+            document.getElementById("recherche").innerHTML = recu;
+          }
+          //Si il a qqch a rechercher on affiche ce que la db renvoie
+          else if(document.getElementById('search').value.length != 0 ) {
 
             var str = document.getElementById('search').value;
-            console.log(str)
             fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json())
             .then(data=>{
               affiche(data.results)
@@ -125,47 +130,13 @@ $user=$_SESSION['username'];
 
       //Affiche les 5 premiers éléments du tableau dans la datalist, sous l'input
       function affiche(array){
-        /*var msg="";
+        var msg = "";
         for (var i = 0; i < 5; i++) {
-          msg += "<option value='" + array[i] + "' id=" + array[i[i]] + ">";
+          msg += "<option value='" + array[i].title + "'>";
         }
-        document.getElementById('movies').innerHTML += msg;*/
-        const list = array.map(elem=>{
-          console.log(window.location)
-          let option = "<option value='" + elem.title + "' id=" + elem.id + ">"
-          document.getElementById('movies').innerHTML += option
-
-          option.onload = () => {
-            option.onclick = () => {
-            window.location.href = `${window.location}?id=${elem.id}`
-            console.log('click', window.location)
-            }
-          }
-        })
-
+        document.getElementById('movies').innerHTML = msg;
       }
 
-      //Change de page en fonction de la valeur de l'input
-  /*    function test(){
-        alert("dans test")
-        var str = document.getElementById('search').value, id = -1;
-        if(str.length != 0){
-          alert("dans le if")
-          for (var i = 0; i < elemt.length; i++) {
-            console.log(str + " " + elemt[i])
-            if (str == elemt[i] && str.length == elemt[i].length) {
-              id = elemt[i[i]];
-              alert("change id")
-            }
-          }
-          if(id !== -1){
-            var url = "http://localhost/Getflix/pageVideo.php?id="+id;
-            alert(url)
-            window.open(url);
-          }
-
-        }
-      }*/
     </script>
 
   <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
@@ -176,3 +147,11 @@ $user=$_SESSION['username'];
 </body>
 
 </html>
+<?php
+}
+else {
+  header('Location: connexion.php');
+
+  exit;
+}
+ ?>

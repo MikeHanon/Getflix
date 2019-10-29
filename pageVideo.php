@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 try{
 
@@ -13,7 +13,7 @@ try{
 $req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
 $req->execute(array(
     'id' => $_GET['id']
-    )); 
+    ));
 $resultat = $req->fetch();
 //deja dans la table
 if($resultat){
@@ -23,9 +23,7 @@ if($resultat){
   $add = $bdd->prepare('INSERT INTO video(id) VALUES(:id)') or die(print_r($bdd->errorInfo()));
   $add->execute(array(
     'id'=> $_GET['id']
-
   ));
-
 }
 
 ?>
@@ -43,168 +41,147 @@ if($resultat){
 </head>
 
 <body>
-<!--On inclut la NavBar-->
-<?php include('NavBar.php'); ?>
-<!--Video à ajouter-->
+  <!--On inclut la NavBar-->
+  <?php include('NavBar.php'); ?>
+  <!--Video à ajouter-->
 
 
-<script>
-//recuperation de du GET[id] en javascript
-var get = window.location.search ;
-var id="";
-for(var i = 4;i<get.length;i++){
-    id+=get[i];
-}
+  <script>
+  //recuperation de du GET[id] en javascript
+  var get = window.location.search ;
+  var id="";
+  for(var i = 4;i<get.length;i++){
+      id+=get[i];
+  }
 
-//recuper le trailer
-var url = "https://api.themoviedb.org/3/movie/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
-function getTrailer(){
-                    fetch(url)
-                    .then(reponse =>reponse.json())
-                    .then (data => {
-                    var key=data.results[0].key;
-                    var trailer = document.getElementById('trailer');
-                    trailer.innerHTML+="<iframe width='800' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+  //recuper le trailer
+  var url = "https://api.themoviedb.org/3/movie/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  function getTrailer(){
+                      fetch(url)
+                      .then(reponse =>reponse.json())
+                      .then (data => {
+                      var key=data.results[0].key;
+                      var trailer = document.getElementById('trailer');
+                      trailer.innerHTML+="<iframe width='800' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
 
-                    })
+                      })
 
-                    }
+                      }
 
-function getTitre(){
-  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
-  fetch(url)
-                    .then(reponse =>reponse.json())
-                    .then (data => {
-                    var title=document.getElementById('titleMovie');
-                    title.innerHTML=data.title;
-})
-}
-function getInfo(){
-  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
-  fetch(url)
-                    .then(reponse =>reponse.json())
-                    .then (data => {
-                    var info=document.getElementById('infoMovie');
-                    info.innerHTML="<label>"+data.title+"</br> Budget : "+data.budget+"<br> Release date : "+data.release_date+" </label>";
-})
-}
-function getSimilar(){
-  var url = "https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
-  fetch(url)
-                    .then(reponse =>reponse.json())
-                    .then (data => {
-                      console.log(data.results[0].title);
-                    var sim=document.getElementById('similarMovie');
-                    var idVid = data.results[0].id;
-                    sim.innerHTML+="<label>"+data.results[0].title+"<br> <a href='pageVideo.php?id="+idVid+"'><img src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></label>";
-})
-}
-getTrailer();
-                    getTitre();
-                    getInfo();
-                    getSimilar();
+  function getTitre(){
+    var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+    fetch(url)
+                      .then(reponse =>reponse.json())
+                      .then (data => {
+                      var title=document.getElementById('titleMovie');
+                      title.innerHTML=data.title;
+  })
+  }
+  function getInfo(){
+    var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+    fetch(url)
+                      .then(reponse =>reponse.json())
+                      .then (data => {
+                      var info=document.getElementById('infoMovie');
+                      info.innerHTML="<label>"+data.title+"</br> Budget : "+data.budget+"<br> Release date : "+data.release_date+" </label>";
+  })
+  }
+  function getSimilar(){
+    var url = "https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+    fetch(url)
+                      .then(reponse =>reponse.json())
+                      .then (data => {
+                        console.log(data.results[0].title);
+                      var sim=document.getElementById('similarMovie');
+                      var idVid = data.results[0].id;
+                      sim.innerHTML+="<label>"+data.results[0].title+"<br> <a href='pageVideo.php?id="+idVid+"'><img src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></label>";
+  })
+  }
+  getTrailer();
+                      getTitre();
+                      getInfo();
+                      getSimilar();
 
-</script>
+  </script>
 
-<!--les 3 sections -->
+  <!--les 3 sections -->
 
-<div class="container-fluid ">
-<div class="row">
+  <div class="container-fluid ">
+    <div class="row">
 
-<div class="col">
-<h2 onclick='info()' id='information2' class="disabled">Information</h2>
-</div>
-<div class="col">
+      <div class="col">
+        <h2 onclick='info()' id='information2' class="disabled">Information</h2>
+      </div>
+      <div class="col">
+        <h2 onclick='com()' id='commentaire2' class="active">Commentaires</h2>
+      </div>
+      <div class="col ">
+        <h2 onclick="vid()" id='video2' class="disabled">Vidéo simmilaire</h2>
+      </div>
+    </div>
 
+    <!--Information -->
 
+    <div id="information" style='display:none' >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis porro, aperiam ullam vero alias ipsum officia asperiores incidunt. Hic est omnis ex illum aspernatur odit veniam assumenda voluptatem mollitia sapiente?
+    </div>
 
-<h2 onclick='com()' id='commentaire2' class="active">Commentaires</h2>
-</div>
+    <!--Commentaires-->
 
+    <div id="commentaire" style='display:block'>
+      <?php //Ajout du php pour les commentaires
+      //on verifie que le com existe
+      $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      $id5=$_GET['id'];
+              if(isset($_POST['com']) AND !empty($_POST['com'])){
+      //si le com existe et qu'il n'est pas vide:
+              $userid=$_SESSION['id_user'];
+              $commentaire= htmlspecialchars($_POST['com']);
+                  $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment)
+                  VALUES (?,?,?,NOW())');
+                  $ins->execute(array($id5 , $userid ,$commentaire));
 
-<div class="col ">
-<h2 onclick="vid()" id='video2' class="disabled">Vidéo simmilaire</h2>
-</div>
-</div>
+                  $c_msg = "<span style='color:green'>Votre commentaire a bien été posté</span>";
+              } else {
+                  $c_msg = "Erreur: Le commentaire n'a pas pu être enregistrer";
+              }
 
-<!--Information -->
+              ?>
+      <div class="row">
+      <div class="col-md-4">
+              <h4>Ajouter un commentaire:</h4>
+              <form method="POST">
+                  <textarea id="story" name='com'  rows="6" cols="80">
+                  </textarea> <br>
+                  <input class="valider" type="submit">
+                  </form>
+              </div>
+              <div class="col-md-4">
+              <h4 class='listeCom'> Anciens commentaires:</h4>
+              <?php
+          $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u
+          ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC');
 
-<div id="information" style='display:none' >
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis porro, aperiam ullam vero alias ipsum officia asperiores incidunt. Hic est omnis ex illum aspernatur odit veniam assumenda voluptatem mollitia sapiente?
-</div>
+          $requete->execute(array($id5));
 
-<!--Commentaires-->
+            while($ligne = $requete->fetch()){
+              echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
+              "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
+            }
+            ?>
+                </div>
+      </div>
+    </div>
 
-<div id="commentaire" style='display:block'>
-<?php //Ajout du php pour les commentaires
-//on verifie que le com existe
-$bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$id5=$_GET['id'];
-        if(isset($_POST['com']) AND !empty($_POST['com'])){
-//si le com existe et qu'il n'est pas vide:
-        $userid=$_SESSION['id_user'];
-        $commentaire= htmlspecialchars($_POST['com']);
-            $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment) 
-            VALUES (?,?,?,NOW())');
-            $ins->execute(array($id5 , $userid ,$commentaire));
+    <!--Vidéo simmilaire-->
 
-            $c_msg = "<span style='color:green'>Votre commentaire a bien été posté</span>";
-        } else {
-            $c_msg = "Erreur: Le commentaire n'a pas pu être enregistrer";
-        }
-        
-        ?>
-<div class="row">
-<div class="col-md-4">
-        <h4>Ajouter un commentaire:</h4>
-        <form method="POST">
-            <textarea id="story" name='com'  rows="6" cols="80">
-            </textarea> <br>
-            <input class="valider" type="submit">
-            </form>
-        </div>
-        <div class="col-md-4">
-        <h4 class='listeCom'> Anciens commentaires:</h4>
-        <?php
-    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
-    ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC'); 
-
-    $requete->execute(array($id5));
-    while($ligne = $requete->fetch()){
-        echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
-=======
-      $requete=$bdd->prepare("SELECT * FROM comments WHERE id_vid =$id5 ORDER BY date_comment DESC "); 
-      $requete->execute(array($id5));
-      while($ligne = $requete->fetch()){
-        echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
->>>>>>> db1f3a055854e2ae26d22de5b5d19cb8dd503690
-        "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
-    }
-
-
-    ?>
-            </div>
-</div>
+    <div id="video" style="display:none">
+    </div>
+  </div>
 
 
-</div>
-
-<!--Vidéo simmilaire-->
-
-<div id="video" style="display:none">
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-<!--On inclut le footer-->
-<?php include('footer.php'); ?>
+  <!--On inclut le footer-->
+  <?php include('footer.php'); ?>
 
 
 </body>
