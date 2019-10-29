@@ -7,8 +7,8 @@
 }
 body{
     font-family: 'Bree Serif', serif;
-    background-color: black;
-    color:white;
+    background-color: black !important;
+    color:white !important;
 
 }
 footer{

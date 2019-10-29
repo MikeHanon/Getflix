@@ -86,7 +86,12 @@ else{
     </div>
   </div>
 </div>
-  
+<footer>
+<div class="TMdb">
+<img src="css/media/logo.svg" width="20%"></br>
+"This product uses the TMDb API but </br> is not endorsed or certified by TMDb."
+</div>
+</footer>
 
 
 
