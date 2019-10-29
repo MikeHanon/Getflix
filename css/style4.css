@@ -1,5 +1,5 @@
 body{
-    background-image: url("media/cine.jpg");
+    background-image: url("media/cinee.jpg");
     background-size: cover;
     font-family: 'Bree Serif', serif;
 }
@@ -19,7 +19,7 @@ h4{
     height: 150%;
     width: 100%;
     background-color: black;
-    opacity:0.9;
+    opacity: 0.95;
     text-align: center;
     border-radius: 5%;
 }
