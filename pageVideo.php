@@ -158,7 +158,7 @@ $id5=$_GET['id'];
 <div class="col-md-4">
         <h4>Ajouter un commentaire:</h4>
         <form method="POST">
-            <textarea id="story" name='com'  rows="6" cols="80">
+            <textarea id="story" name='com'  rows="6" cols="60">
             </textarea> <br>
             <input class="valider" type="submit">
             </form>
@@ -172,12 +172,6 @@ $id5=$_GET['id'];
     $requete->execute(array($id5));
     while($ligne = $requete->fetch()){
         echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
-=======
-      $requete=$bdd->prepare("SELECT * FROM comments WHERE id_vid =$id5 ORDER BY date_comment DESC "); 
-      $requete->execute(array($id5));
-      while($ligne = $requete->fetch()){
-        echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
->>>>>>> db1f3a055854e2ae26d22de5b5d19cb8dd503690
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
     }
 
