@@ -66,11 +66,10 @@ if (isset($_SESSION['username'])) {
 
             <!-- Button Search -->
 
-            <form class="form-inline ml- 2 my-lg-0" id="dropdown">
+            <form class="form-inline ml- 2 my-lg-0" id="dropdown" action="#">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" >
                 <datalist id="movies">
                 </datalist>
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Search</button>
             </form>
 
             <!-- Button déroulant -->
