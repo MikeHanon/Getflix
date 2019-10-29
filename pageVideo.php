@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 try{
 
@@ -13,7 +13,7 @@ try{
 $req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
 $req->execute(array(
     'id' => $_GET['id']
-    )); 
+    ));
 $resultat = $req->fetch();
 //deja dans la table
 if($resultat){
@@ -23,9 +23,7 @@ if($resultat){
   $add = $bdd->prepare('INSERT INTO video(id) VALUES(:id)') or die(print_r($bdd->errorInfo()));
   $add->execute(array(
     'id'=> $_GET['id']
-
   ));
-
 }
 
 ?>
@@ -144,7 +142,7 @@ $id5=$_GET['id'];
 //si le com existe et qu'il n'est pas vide:
         $userid=$_SESSION['id_user'];
         $commentaire= htmlspecialchars($_POST['com']);
-            $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment) 
+            $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment)
             VALUES (?,?,?,NOW())');
             $ins->execute(array($id5 , $userid ,$commentaire));
 
@@ -152,13 +150,13 @@ $id5=$_GET['id'];
         } else {
             $c_msg = "Erreur: Le commentaire n'a pas pu être enregistrer";
         }
-        
+
         ?>
 <div class="row">
 <div class="col-md-4">
         <h4>Ajouter un commentaire:</h4>
         <form method="POST">
-            <textarea id="story" name='com'  rows="6" cols="80">
+            <textarea id="story" name='com'  rows="6" cols="60">
             </textarea> <br>
             <input class="valider" type="submit">
             </form>
@@ -166,13 +164,12 @@ $id5=$_GET['id'];
         <div class="col-md-4">
         <h4 class='listeCom'> Anciens commentaires:</h4>
         <?php
-    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u  
-    ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC'); 
+    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u
+    ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC');
 
-      $requete=$bdd->prepare("SELECT * FROM comments WHERE id_vid =$id5 ORDER BY date_comment DESC "); 
-      $requete->execute(array($id5));
-      while($ligne = $requete->fetch()){
-        echo "<article> <section> "./*à changer*/$_SESSION ['username']." - ".$ligne['date_comment'].
+    $requete->execute(array($id5));
+    while($ligne = $requete->fetch()){
+        echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
         "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
     }
 
