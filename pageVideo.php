@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_GET['id'] > 1 ) {
+if ($_GET['id'] > 1 && is_numeric($_GET['id'])) {
 
 try{
 
