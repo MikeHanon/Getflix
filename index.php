@@ -35,7 +35,7 @@ session_start();
                     }
             movie();
             }
-  
+
 </script>
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->
@@ -46,13 +46,8 @@ session_start();
         </section>
 <!-- Fin Vidéo Principale -->
 <!-- Top Film -->
-<<<<<<< HEAD
         <section class="container-fluid corps">
-            <h2 class="sousTitre"><a class="souTitre" href='top.php'>Top-rated</a></h2>
-=======
-        <section class="container-fluid corps">   
             <h2 class="sousTitre"><a class="souTitre" href=''>Top-rated</a></h2>
->>>>>>> 473601e3993cc2d332b5dafe6727d9d3e4652120
             <div id="topRated" class="row">
             <script>
                 afficherFilm(6,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
