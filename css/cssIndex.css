@@ -77,11 +77,17 @@ html, body {
  .row{
      padding-bottom: 30px;
  }
- a{
+ .sousTitre{
     color: white !important;
 
 }
 
-a:hover{
+.souTitre:hover{
+    color: #8C1C25 !important;
+}
+#titr{
+    color: white !important;
+}
+#titr:hover{
     color: #8C1C25 !important;
 }

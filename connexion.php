@@ -3,7 +3,7 @@ $error = "";
 session_start();
 // verifie si ya un cookie , si oui il redirige directement vers index.php
 if(isset($_SESSION['username'])&& isset($_SESSION['password'])){
-  header("Location: index.php");
+  header("Location: ./index.php");
 }
 if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] !="" && $_POST['password'] !="" ) {
   try{
@@ -33,7 +33,7 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
         setcookie("password",$_POST['password'],time()+10000,null,null,false,true);
 
       }
-      header("Location: index.php");
+      header("Location: ./index.php");
 }
 //affichage message d'erreur
 else{
