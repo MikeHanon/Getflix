@@ -20,7 +20,7 @@ if (isset($_SESSION['username'])) {
 <body>
 <!-- NavBar -->
 
-<nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" data-toggle="collapse">
+<nav class="navbar navbar-expand-lg navbar-transparent" data-toggle="collapse">
         <a class="navbar-brand" href="index.php"></a>
         <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%"></a>
         </div>
@@ -75,7 +75,7 @@ if (isset($_SESSION['username'])) {
             <!-- Button déroulant -->
             <li class="nav-item form-inline">
                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
-                   <?php echo $user ;?>
+                   <?php echo "<span id ='user'>".$user."</span>" ;?>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-md-left dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">

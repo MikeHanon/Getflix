@@ -11,12 +11,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="./css/categorie.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>SeriesAddict</title>
 </head>
           
-<body>
+<body class="genre">
 <!--On inclut la NavBar-->
 <script>
             function afficherFilm(nombre,url,id,page){
@@ -45,7 +45,7 @@ session_start();
   
 </script>
 <?php include('NavBar.php'); ?>
-<h2>Drama Movies</h2>
+<h2 class="titre">Drama Movies</h2>
 <p class="genreDesc">Within film, television and radio (but not theatre), drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone,[2] focusing on in-depth development of realistic characters who must deal with realistic emotional struggles. A drama is commonly considered the opposite of a comedy, but may also be considered separate from other works of some broad genre, such as a fantasy.</p>
 <h4 id="genreTitle">Check our Drama movies catalogue</h4>
 <!--Carousel Wrapper-->

@@ -1,5 +1,7 @@
 <?php
 session_start();
+if ($_GET['id'] > 1 ) {
+
 try{
 
   //On se connecte à MySQL
@@ -83,7 +85,7 @@ function getInfo(){
                     .then(reponse =>reponse.json())
                     .then (data => {
                     var info=document.getElementById('infoContent');
-                    info.innerHTML="<label>"+data.title+"<br><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
+                    info.innerHTML="<label><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
 })
 }
 function getSimilar(){
@@ -134,10 +136,10 @@ function getSimilar(){
 <div id="information" style='display:none' >
 <div class="row">
 <div  id="infoContent" class="col-md-6">
- 
+
  </div>
  <div class="col-md-3">
- 
+
         </div>
   <div class="col-md-3">
    </div>
@@ -167,7 +169,7 @@ $id5=$_GET['id'];
         ?>
 <div class="row">
 <div class="col-md-4">
- 
+
         </div>
         <div id='bodySpace' class="col-md-4 listeCom">
         <h4>Add a comment</h4>
@@ -183,15 +185,15 @@ $id5=$_GET['id'];
 
     $requete->execute(array($id5));
     while($ligne = $requete->fetch()){
-        echo "<article class='listeCom'> <section> ".$ligne['username']." - ".$ligne['date_comment'].
-        "</section><section>". $ligne['comment']." <br> </section> </article> <br>";
+        echo "<article class='listeCom'> <section id='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
+        "</section><section id='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
     }
 
 
     ?>
             </div>
             <div class="col-md-4">
- 
+
 
   </div>
 </div>
@@ -204,10 +206,10 @@ $id5=$_GET['id'];
 <div id="video" style="display:none">
 <div class="row">
 <div class="col-md-3">
- 
+
  </div>
  <div  class="col-md-3">
- 
+
  </div>
   <div id="similarMovie" class="col-md-3">
    </div>
@@ -219,7 +221,7 @@ $id5=$_GET['id'];
 
 
 
-
+  </div>
 </div>
 
 
@@ -237,3 +239,12 @@ $id5=$_GET['id'];
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
 
 </html>
+
+<?php
+}
+else {
+  header("Location: 404.html");
+
+  exit;
+}
+ ?>

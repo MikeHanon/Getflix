@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style2.css"> 
+    <link rel="stylesheet" href="css/cssIndex.css"> 
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>Accueil</title>
 </head>
@@ -19,7 +19,7 @@ session_start();
                 var content=document.getElementById(id);
                 page=1;
                 id="";
-                nombre=8;
+                nombre=6;
                 genre="";
                 url1=url+page;
                 function movie(page){
@@ -29,7 +29,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var id = data.results[i].id;
-                    content.innerHTML+="<a class='pochette' href='pageVideo.php?id="+id+"'><img width= 100% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a>" );
+                    content.innerHTML+="<div class='col-md-2 pochette'><a href='pageVideo.php?id="+id+"'><img width= 80% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a></div>" );
                     }
                     // var test  =data.results[i].poster_path;
                     // content.innerHTML="<img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img>");
@@ -58,64 +58,64 @@ session_start();
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->
         <section class='corps'>
-        <iframe src="https://www.youtube.com/embed/RumjcP_9vuo" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter" style="width: 100%; height:100%">
+        <iframe src="https://www.youtube.com/embed/AbyJignbSj0" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter" style="width: 100%; ">
         </iframe>
         </section>
 <!-- Fin Vidéo Principale -->
 <!-- Top Film -->
         <section class="container-fluid corps">   
-            <h2><a href='top.php'>Top-rated</a></h2>
+            <h2 class="sousTitre"><a class="souTitre" href='top.php'>Top-rated</a></h2>
             <div id="topRated" class="row">
+            <script>
+                afficherFilm(6,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
+            </script>
+            </div>
 
-            </div>
-            <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
-            </script>
 <!--  Récents -->
-            <h2><a href='recently.php'>Recently Added</a></h2>
+            <h2 class="sousTitre"><a class="souTitre" href='recently.php'>Recently Added</a></h2>
             <div id="recently" class="row">
-                
-            </div>
             <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","recently");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","recently");
             </script>
+            </div>
+
             
-            <h2><a href='action.php'>Action Movies</a></h2>
+            <h2 class="sousTitre"><a class="souTitre" href='action.php'>Action Movies</a></h2>
             <div id="action" class="row">
-                
-            </div>
             <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28","action");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28","action");
             </script>
-            <h2><a href='adventure.php'>Adventure Movies</a></h2>
+            </div>
+      
+            <h2 class="sousTitre"><a class="souTitre" href='adventure.php'>Adventure Movies</a></h2>
             <div id="adventure" class="row">
-                
-            </div>
             <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=12","adventure");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=12&page=2","adventure");
             </script>
-            <h2><a href='comedy.php'>Comedy Movies</a></h2>
+            </div>
+      
+            <h2 class="sousTitre"><a class="souTitre" href='comedy.php'>Comedy Movies</a></h2>
             <div id="comedy" class="row">
-                
-            </div>
             <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=35","comedy");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=35","comedy");
             </script>
-            <h2><a href='horror.php'>Horror Movies</a></h2>
+            </div>
+
+            <h2 class="sousTitre"><a class="souTitre" href='horror.php'>Horror Movies</a></h2>
             <div id="horror" class="row">
-                
-            </div>
             <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=27","horror");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=27","horror");
             </script>
-            <h2><a href='romantic.php'>Romantic Movies</a></h2>
-            <div id="romance" class="row">
-                
             </div>
+     
+            <h2 class="sousTitre"><a class="souTitre" href='romantic.php'>Romantic Movies</a></h2>
+            <div id="romance" class="row bas">
             <script>
-                afficherFilm(8,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=10749","romance");
+                afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=10749","romance");
             </script>
+            </div>
+
         </section>
         <?php include('footer.php'); ?>
 
