@@ -103,7 +103,7 @@ if (isset($_SESSION['username'])) {
       const input = document.getElementById('search')
       input.onkeyup = (e)=>recherche(e)
 
-      //Recherche e dans la db
+      //Recherche dans la db, e = touche pressée
       function recherche(e){
         var recu = ""
         if(e.key != 'ArrowDown' && e.key != 'ArrowUp'){
@@ -151,7 +151,7 @@ if (isset($_SESSION['username'])) {
 <?php
 }
 else {
-  header('Location: connexion.php');
+  header('Location: ./connexion.php');
 
   exit;
 }

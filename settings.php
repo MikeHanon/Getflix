@@ -234,7 +234,7 @@ session_start();
 <?php
 }
 else{
-  header('Location: connexion.php');
+  header('Location: ./connexion.php');
 
   exit;
 }

@@ -36,7 +36,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
       'email'=>htmlspecialchars($_POST['email'])
     ));
     $_SESSION['inscription'] = true;
-    header("Location: connexion.php");
+    header("Location: ./connexion.php");
 
   }
 }

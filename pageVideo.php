@@ -161,9 +161,9 @@ $id5=$_GET['id'];
             VALUES (?,?,?,NOW())');
             $ins->execute(array($id5 , $userid ,$commentaire));
 
-            $c_msg = "<span style='color:green'>Votre commentaire a bien été posté</span>";
+            $c_msg = "<span style='color:green'>Your comment has been successfully posted</span>";
         } else {
-            $c_msg = "Erreur: Le commentaire n'a pas pu être enregistrer";
+            $c_msg = "<span style='color:red'>Error: Something went wrong</span>";
         }
 
         ?>
@@ -243,7 +243,7 @@ $id5=$_GET['id'];
 <?php
 }
 else {
-  header("Location: 404.html");
+  header("Location: ./404.html");
 
   exit;
 }

@@ -5,7 +5,7 @@ unset($_COOKIE["username"]);
 setcookie("username", time() - 3600);
 unset($_COOKIE["password"]);
 setcookie("password", time() - 3600);
-header("Location: connexion.php");
+header("Location: ./connexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +16,6 @@ header("Location: connexion.php");
     <title>Logout</title>
 </head>
 <body>
-    
+
 </body>
 </html>
