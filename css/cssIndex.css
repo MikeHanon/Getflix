@@ -33,6 +33,7 @@ html, body {
 .pochette{
    
     transition: all 0.7s ease;
+    text-align: center;
     
 }
 .pochette:hover{
@@ -73,4 +74,14 @@ html, body {
         }
    
  }
- 
+ .row{
+     padding-bottom: 30px;
+ }
+ a{
+    color: white !important;
+
+}
+
+a:hover{
+    color: #8C1C25 !important;
+}
