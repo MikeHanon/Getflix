@@ -20,7 +20,7 @@ if (isset($_SESSION['username'])) {
 <body>
 <!-- NavBar -->
 
-<nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" data-toggle="collapse">
+<nav class="navbar navbar-expand-lg navbar-transparent" data-toggle="collapse">
         <a class="navbar-brand" href="index.php"></a>
         <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%"></a>
         </div>
