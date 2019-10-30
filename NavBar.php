@@ -4,7 +4,7 @@ if (isset($_SESSION['username'])) {
   $user=$_SESSION['username'];
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
