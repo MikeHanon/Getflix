@@ -26,14 +26,7 @@ if (isset($_SESSION['username'])) {
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="animation.php">Animation</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="series.php">Series TV</a>
-        </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item active dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Film
             </a>
@@ -59,6 +52,15 @@ if (isset($_SESSION['username'])) {
             <a class="dropdown-item" href="romantic.php">Romantic</a>
         </div>
       </li>
+      <li class="nav-item">
+            <a class="nav-link" href="series.php">Series TV</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="animation.php">Animation</a>
+        </li>
+
+ 
+        
                 <li class="nav-item">
                     <a class="nav-link" href="recently.php">Recently Added</a>
                 </li>
