@@ -28,7 +28,7 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
   $_SESSION['id_user']=$resultat['id'];
 
       //se souvenir de moi
-      if($_POST['remember']=="on"){
+    if(isset($_POST['remember'])){
         setcookie("username",$_POST['username'],time()+10000,null,null,false,true);
         setcookie("password",$_POST['password'],time()+10000,null,null,false,true);
 
@@ -37,7 +37,7 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
 }
 //affichage message d'erreur
 else{
-  $error="<span id='error' style='color:red;font-size:24px;position:relative;top:40px;'> Wrong password !</span>";
+  $error="<span id='error' style='color:red;font-size:24px;position:relative;top:10px;'> Wrong password !</span>";
 }
 
 }
