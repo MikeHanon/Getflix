@@ -33,7 +33,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var idFilm = data.results[i].id;
-                    content.innerHTML+="<div class='col-md-2' id='movie'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
+                    content.innerHTML+="<div class='col-md-2' id='movie'><a alt ='"+data.results[i].title+"' class='pochette' href='pageVideo.php?id="+idFilm+"'><img alt='Movie poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
                     }
 
                     })

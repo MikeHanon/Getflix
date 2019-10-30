@@ -97,7 +97,7 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 
 
 
-    <script type="text/javascript">
+    <script>
       var check = function() {
         if (document.getElementById('password').value ==
           document.getElementById('confirm_password').value && document.getElementById('password').value != "") {
