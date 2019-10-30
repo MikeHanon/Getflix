@@ -20,22 +20,22 @@ session_start();
 <!--On inclut la NavBar-->
 <?php include('NavBar.php'); ?>
 </header>
-<body>
+<body class="contact">
 <div class="container">
   <div class="row">
     <div class="col-md">
     </div>
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
-   <h3>About Us</h3>
-   <h4>GitHub</h4>
+   <h3 class="title1">About Us</h3>
+   <h4 class="title2">GitHub</h4>
    <p><a href="https://github.com/pawelPrzewoznik">Pawel Przewoznik</a></p>
    <p><a href="https://github.com/Hanioch">Hani</a></p>
    <p><a href="https://github.com/yassinassecoum">Yassin Assecoum</a></p>
    <p><a href="https://github.com/IsabelAguera">Isabel Aguera</a></p>
-   <h4>Répertoire</h4>
+   <h4 class="title2">Répertoire</h4>
    <p></p>
-   <h4>Sources utilisés</h4>
+   <h4 class="title2">Sources utilisés</h4>
    <p></p>
    
 </div>
