@@ -23,7 +23,6 @@ html, body {
     background-color: rgb(75, 12, 17);
     color: seashell;
     font-family: 'Bree Serif', serif;
-
 }
 
 .bas{
@@ -34,6 +33,7 @@ html, body {
 .pochette{
    
     transition: all 0.7s ease;
+    text-align: center;
     
 }
 .pochette:hover{
@@ -74,4 +74,20 @@ html, body {
         }
    
  }
- 
+ .row{
+     padding-bottom: 30px;
+ }
+ .sousTitre{
+    color: white !important;
+
+}
+
+.souTitre:hover{
+    color: #8C1C25 !important;
+}
+#titr{
+    color: white !important;
+}
+#titr:hover{
+    color: #8C1C25 !important;
+}

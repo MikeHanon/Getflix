@@ -29,7 +29,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var id = data.results[i].id;
-                    content.innerHTML+="<div class='col-md-2 pochette'><a href='pageVideo.php?id="+id+"'><img width= 80% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a></div>" );
+                    content.innerHTML+="<div class='col-md-2 pochette'><a href='pageVideo.php?id="+id+"'><img width= 80% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><br><a id='titr' href='pageVideo.php?id="+id+"'>"+data.results[i].title+"</a><br>"+data.results[i].vote_average+"/10</div>" );
                     }
                     })
                     }
@@ -46,8 +46,13 @@ session_start();
         </section>
 <!-- Fin Vidéo Principale -->
 <!-- Top Film -->
+<<<<<<< HEAD
         <section class="container-fluid corps">
             <h2 class="sousTitre"><a class="souTitre" href='top.php'>Top-rated</a></h2>
+=======
+        <section class="container-fluid corps">   
+            <h2 class="sousTitre"><a class="souTitre" href=''>Top-rated</a></h2>
+>>>>>>> 473601e3993cc2d332b5dafe6727d9d3e4652120
             <div id="topRated" class="row">
             <script>
                 afficherFilm(6,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
