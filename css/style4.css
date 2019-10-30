@@ -1,13 +1,13 @@
 /*Page contact*/
-body{
+.contact{
     background-image: url("media/cinee.jpg");
     background-size: cover;
     font-family: 'Bree Serif', serif;
 }
-h3 {
+.title1 {
     color:white;
 }
-h4{
+.title2{
     color: #59151A;
 }
 .navbar{
