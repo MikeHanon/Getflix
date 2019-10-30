@@ -66,17 +66,16 @@ if (isset($_SESSION['username'])) {
 
             <!-- Button Search -->
 
-            <form class="form-inline ml- 2 my-lg-0" id="dropdown">
+            <form class="form-inline ml- 2 my-lg-0" id="dropdown" action="#">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search" name="input"  list="movies" >
                 <datalist id="movies">
                 </datalist>
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" >Search</button>
             </form>
 
             <!-- Button déroulant -->
             <li class="nav-item form-inline">
                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"></a>
-                   <?php echo $user ;?>
+                   <?php echo "<span id ='user'>".$user."</span>" ;?>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-md-left dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
@@ -120,7 +119,9 @@ if (isset($_SESSION['username'])) {
             .then(data=>{
               affiche(data.results)
                 for (var i = 0; i < data.results.length; i++) {
-                  recu +="<a class='pochette' href='pageVideo.php?id="+data.results[i].id+"'><img width= 10% src=http://image.tmdb.org/t/p/w185//".concat(data.results[i].poster_path,"></img> </a>" )
+                  if(data.results[i].poster_path !=null){
+                    recu +="<a class='pochette' href='pageVideo.php?id="+data.results[i].id+"'><img width= 15% src=http://image.tmdb.org/t/p/w185//".concat(data.results[i].poster_path,"></img> </a>" )
+                  }
                 }
                 document.getElementById("recherche").innerHTML = recu;
               });

@@ -4,19 +4,19 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="./css/categorie.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>SeriesAddict</title>
 </head>
           
-<body>
+<body class="genre">
 <!--On inclut la NavBar-->
 <script>
             function afficherFilm(nombre,url,id,page){
@@ -45,8 +45,8 @@ session_start();
   
 </script>
 <?php include('NavBar.php'); ?>
-<h2>Action Movies</h2>
-<p class="genreDesc">An action story is similar to adventure, and the protagonist usually takes a risky turn, which leads to desperate situations (including explosions, fight scenes, daring escapes, etc.). Action and adventure are usually categorized together (sometimes even as "action-adventure") because they have much in common, and many stories fall under both genres simultaneously</p>
+<h2 class='titre'>Action Movies</h2>
+<p class="genreDesc">An action story is similar to adventure, and the protagonist usually takes a risky turn, <br> which leads to desperate situations (including explosions, fight scenes, daring escapes, etc.).</p>
 <h4 id="genreTitle">Check our Action movies catalogue</h4>
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">

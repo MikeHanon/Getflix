@@ -11,12 +11,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="./css/categorie.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>SeriesAddict</title>
 </head>
           
-<body>
+<body class="genre">
 <!--On inclut la NavBar-->
 <script>
             function afficherFilm(nombre,url,id,page){
@@ -45,7 +45,7 @@ session_start();
   
 </script>
 <?php include('NavBar.php'); ?>
-<h2>THriller Movies</h2>
+<h2 class="titre">THriller Movies</h2>
 <p class="genreDesc">A Thriller is a story that is usually a mix of fear and excitement. It has traits from the suspense genre and often from the action, adventure or mystery genres, but the level of terror makes it borderline horror fiction at times as well. It generally has a dark or serious theme, which also makes it similar to drama</p>
 <h4 id="genreTitle">Check our Thriller movies catalogue</h4>
 <!--Carousel Wrapper-->
