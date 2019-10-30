@@ -75,7 +75,7 @@ else{
           } ?>
           <h3>Sign in</h3>
           <form method="POST" action="connexion.php" >
-          <input class="input" type ="name" name="username" placeholder="Username" autocomplete="off"><br>
+          <input class="input" type ="text" name="username" placeholder="Username" autocomplete="off"><br>
           <input class="input" type ="password" name="password" placeholder="Password"><br>
           <input type="checkbox" name="remember"> <label>Remember me</label> <br>
           <a href="reset.php">Forgot password ? </a><br>
@@ -93,8 +93,8 @@ else{
   </div>
   <footer>
     <div class="TMdb">
-      <img src="css/media/logo.svg" width="20%"></br>
-      "This product uses the TMDb API but </br> is not endorsed or certified by TMDb."
+      <img src="css/media/logo.svg" width="20%" alt="logo"><br>
+      "This product uses the TMDb API but <br> is not endorsed or certified by TMDb."
     </div>
   </footer>
 

@@ -22,7 +22,7 @@ if (isset($_SESSION['username'])) {
 
 <nav class="navbar navbar-expand-lg navbar-transparent" data-toggle="collapse">
         <a class="navbar-brand" href="index.php"></a>
-        <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%"></a>
+        <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%" alt='logo'></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -98,7 +98,7 @@ if (isset($_SESSION['username'])) {
 
     </div>
 
-    <script type="text/javascript">
+    <script >
 
       var id = 0
 

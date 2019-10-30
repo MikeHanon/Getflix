@@ -29,7 +29,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var id = data.results[i].id;
-                    content.innerHTML+="<div class='col-md-2 pochette'><a href='pageVideo.php?id="+id+"'><img width= 80% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><br><a id='titr' href='pageVideo.php?id="+id+"'>"+data.results[i].title+"</a><br>"+data.results[i].vote_average+"/10</div>" );
+                    content.innerHTML+="<div class='col-md-2 pochette'><a alt='"+data.results[i].title+"' href='pageVideo.php?id="+id+"'><img width= 80% alt='Movie poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><br><a id='titr' href='pageVideo.php?id="+id+"'>"+data.results[i].title+"</a><br>"+data.results[i].vote_average+"/10</div>" );
                     }
                     })
                     }
@@ -40,7 +40,7 @@ session_start();
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->
         <section class='corps'>
-        <iframe src="https://www.youtube.com/embed/AbyJignbSj0" frameborder="0"
+        <iframe title="Trailer Gemini" src="https://www.youtube.com/embed/AbyJignbSj0" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="enter" style="width: 100%; ">
         </iframe>
         </section>
