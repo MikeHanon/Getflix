@@ -7,7 +7,7 @@
 }
 
 .sett{
-    padding-top: 10%; 
+    padding-top: 10%;
 }
 
 
@@ -30,7 +30,7 @@
     text-align: center;
     padding-left: 20px;
     color: white;
-    
+
     }
 
     #btnLeft{
@@ -56,22 +56,22 @@
 .a{
     color: inherit;
     }
-    
+
     #button1{
     color: #8C1C25;
     }
-    
+
     #enter{
         background-color: #261616;
-        color:white; 
+        color:white;
     }
     .card.card-body{
         background-color:#59151A;
         color:white;
     }
-    
-    
-    
+
+
+
     .listeCom{
         text-align: center;
     }
@@ -86,13 +86,16 @@
     .carousel{
         height:500px
     }
-    
+
     .col-md-2{
         padding:0 !important;
     }
     .carousel-item{
         height:450px;
         padding-left: 50px;
-    
+
     }
 
+    .card{
+      display:flex;
+    }

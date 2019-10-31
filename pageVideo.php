@@ -27,7 +27,14 @@ if($resultat){
     'id'=> $_GET['id']
   ));
 }
+// si on a cliqué pour supp un comm, supp de la bd
+if(isset($_POST['delete'])){
+  $req = $bdd->prepare('DELETE FROM comments WHERE id = :id') or die(print_r($bdd->errorInfo()));
 
+  $req->execute(array(
+    'id'=>$_POST['id_comm']
+  ));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -180,24 +187,38 @@ $id5=$_GET['id'];
 
         </div>
         <div id='bodySpace' class="col-md-4 listeCom">
-        
-        <form method="POST">
-        <label>Add comment</label>
-            <input type="text" id="story" name='com'  rows="3" cols="40">
-       <br>
-            <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
-            </form>
+
+        <?php if($_SESSION['status'] != 3){ ?>
+          <form method="POST">
+          <label>Add comment</label>
+              <input type="text" id="story" name='com'  rows="3" cols="40">
+         <br>
+              <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
+          </form>
+        <?php } ?>
         <h4 class='listeCom'> Other comments :</h4>
         <?php
-    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u
+    $requete=$bdd->prepare('SELECT comment , date_comment, username, c.id FROM comments c INNER JOIN users u
     ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC');
 
     $requete->execute(array($id5));
-    while($ligne = $requete->fetch()){
-        echo "<article class='listeCom'> <section class='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
-        "</section><section class='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
+    //Vision non admin
+    if($_SESSION['status'] != 2){
+      while($ligne = $requete->fetch()){
+          echo "<article class='listeCom'> <section id='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
+          "</section><section class='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
+      }
+    //Vision admin
+    }else {
+      while($ligne = $requete->fetch()){
+          echo "<article class='listeCom'> <section id='eachCom'>
+          <form action='' method='post'>
+          <input style='visibility:hidden;display:none;' name='id_comm' value='" . $ligne['id'] . "' />
+          <input style='padding:0;margin-left:60%;' type='submit' name='delete' value='delete' />
+          </form> ".$ligne['username']." - ".$ligne['date_comment'].
+          "</section><section class='eachCom'>". $ligne['comment']."  <br> </section> </article> <br>";
+      }
     }
-
 
     ?>
             </div>
