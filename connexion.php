@@ -21,6 +21,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
       'username' => $_POST['username']
       ));
   $resultat = $req->fetch();
+  if($resultat[1]==""){
+    $error="<span id='error' style='color:red;font-size:24px;position:relative;top:10px;'> Username not registered. !</span>";
+  }
+  else{
+
+
   //verifie si $resultat est pas vide et que le mot de passe equivaut + creation session
 if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])){
   $_SESSION['username']=$_POST['username'];
@@ -39,7 +45,7 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
 else{
   $error="<span id='error' style='color:red;font-size:24px;position:relative;top:10px;'> Wrong password !</span>";
 }
-
+}
 }
 
 
@@ -53,7 +59,7 @@ else{
       <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="css/style.css">
-      <title>Connection</title>
+      <title>Sign in</title>
   </head>
   <body>
 
