@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -32,16 +32,16 @@
 
 <ul class="list-unstyled">
   <li>
-  <a class="privacy" href="#!">Privacy</a>
+  <a  alt='github' class="privacy" href="#!">Privacy</a>
   </li>
   <li>
-    <a class="privacy" href="#!">Help Center</a>
+    <a alt='github' class="privacy" href="#!">Help Center</a>
   </li>
   <li>
-    <a class="privacy" href="#!">Terms of use</a>
+    <a alt='github' class="privacy" href="#!">Terms of use</a>
   </li>
   <li>
-    <a class="privacy" href="#!">Media center</a>
+    <a alt='github' class="privacy" href="#!">Media center</a>
   </li>
 </ul>
 

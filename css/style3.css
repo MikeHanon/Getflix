@@ -55,7 +55,7 @@ body{
     text-align: center;
     margin-top:20px;
 }
-#eachCom{
+.eachCom{
     background-color: #59151A;
 }
 
@@ -69,4 +69,7 @@ body{
 
 #video2{
     cursor: pointer;
+}
+label{
+    font-size: 20px;
 }

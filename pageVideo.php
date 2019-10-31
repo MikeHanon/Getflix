@@ -1,5 +1,7 @@
 <?php
 session_start();
+if ($_GET['id'] > 1 && is_numeric($_GET['id'])) {
+
 try{
 
   //On se connecte à MySQL
@@ -33,6 +35,7 @@ if($resultat){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Getflix , the new Netflix">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style3.css">
@@ -62,7 +65,7 @@ function getTrailer(){
                     .then (data => {
                     var key=data.results[0].key;
                     var trailer = document.getElementById('trailer');
-                    trailer.innerHTML+="<iframe width='916' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                    trailer.innerHTML+="<iframe title='trailer' width='916' height='515' src='https://www.youtube.com/embed/"+key+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
 
                     })
 
@@ -83,7 +86,7 @@ function getInfo(){
                     .then(reponse =>reponse.json())
                     .then (data => {
                     var info=document.getElementById('infoContent');
-                    info.innerHTML="<label><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
+                    info.innerHTML="<label><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a rel='noreferrer' id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
 })
 }
 function getSimilar(){
@@ -94,9 +97,9 @@ function getSimilar(){
                     var sim=document.getElementById('similarMovie');
                     var sim1=document.getElementById('similarMovie1');
                     var idVid = data.results[0].id;
-                    sim.innerHTML+="<label><br> <a href='pageVideo.php?id="+idVid+"'><img id='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].title+"</label>";
+                    sim.innerHTML+="<label><br> <a href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].title+"</label>";
                     var idVid = data.results[1].id;
-                    sim1.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img id='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].title+"</label>";
+                    sim1.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].title+"</label>";
 })
 }
                     getTrailer();
@@ -134,10 +137,10 @@ function getSimilar(){
 <div id="information" style='display:none' >
 <div class="row">
 <div  id="infoContent" class="col-md-6">
- 
+
  </div>
  <div class="col-md-3">
- 
+
         </div>
   <div class="col-md-3">
    </div>
@@ -159,19 +162,20 @@ $id5=$_GET['id'];
             VALUES (?,?,?,NOW())');
             $ins->execute(array($id5 , $userid ,$commentaire));
 
-            $c_msg = "<span style='color:green'>Votre commentaire a bien été posté</span>";
+            $c_msg = "<span style='color:green'>Your comment has been successfully posted</span>";
         } else {
-            $c_msg = "Erreur: Le commentaire n'a pas pu être enregistrer";
+            $c_msg = "<span style='color:red'>Error: Something went wrong</span>";
         }
 
         ?>
 <div class="row">
 <div class="col-md-4">
- 
+
         </div>
         <div id='bodySpace' class="col-md-4 listeCom">
-        <h4>Add a comment</h4>
+        
         <form method="POST">
+        <label>Add comment</label>
             <input type="text" id="story" name='com'  rows="3" cols="40">
        <br>
             <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
@@ -184,14 +188,14 @@ $id5=$_GET['id'];
     $requete->execute(array($id5));
     while($ligne = $requete->fetch()){
         echo "<article class='listeCom'> <section id='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
-        "</section><section id='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
+        "</section><section class='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
     }
 
 
     ?>
             </div>
             <div class="col-md-4">
- 
+
 
   </div>
 </div>
@@ -204,10 +208,10 @@ $id5=$_GET['id'];
 <div id="video" style="display:none">
 <div class="row">
 <div class="col-md-3">
- 
+
  </div>
  <div  class="col-md-3">
- 
+
  </div>
   <div id="similarMovie" class="col-md-3">
    </div>
@@ -237,3 +241,12 @@ $id5=$_GET['id'];
 <script src="https://kit.fontawesome.com/75bed6266a.js"></script>
 
 </html>
+
+<?php
+}
+else {
+  header("Location: ./404.html");
+
+  exit;
+}
+ ?>

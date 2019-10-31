@@ -23,7 +23,6 @@ html, body {
     background-color: rgb(75, 12, 17);
     color: seashell;
     font-family: 'Bree Serif', serif;
-
 }
 
 .bas{
@@ -34,6 +33,7 @@ html, body {
 .pochette{
    
     transition: all 0.7s ease;
+<<<<<<< HEAD
     position: relative; 
     overflow: hidden;  
 }
@@ -43,6 +43,10 @@ html, body {
     position: relative; 
 width: 100%;
 
+=======
+    text-align: center;
+    
+>>>>>>> de4d895edbf12844139b5e8015a7c2802d2dfa13
 }
 .pochette:hover{
     transform: scale(1.1) rotate(0.5deg);
@@ -93,4 +97,20 @@ width: 100%;
         }
    
  }
- 
+ .row{
+     padding-bottom: 30px;
+ }
+ .sousTitre{
+    color: white !important;
+
+}
+
+.souTitre:hover{
+    color: #8C1C25 !important;
+}
+#titr{
+    color: white !important;
+}
+#titr:hover{
+    color: #8C1C25 !important;
+}
