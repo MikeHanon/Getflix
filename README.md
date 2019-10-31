@@ -5,7 +5,7 @@ In this project we created a streaming site inspired by Netflix. The goal of our
 
 We have created a session system: registration, login / logout. A search bar, and different sort by genre of the film. Different rights like Administrator who can change the status of the users, the password, the mail ... erase comments on the films and block users to make comments.
 
-** What does it look like? ** [Demo] (https: // pawelPrzewoznik / Getflix)
+** What does it look like? **  (https: // pawelPrzewoznik / Getflix)
 
 <img src = "css / media / index.png" style = "width: 30%;">
 <img src = "css / media / admin.png" style = "width: 30%;">
