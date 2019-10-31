@@ -103,10 +103,17 @@ function getSimilar(){
                     .then (data => {
                     var sim=document.getElementById('similarMovie');
                     var sim1=document.getElementById('similarMovie1');
+                    var sim2=document.getElementById('similarMovie2');
+                    var sim3=document.getElementById('similarMovie3');
                     var idVid = data.results[0].id;
                     sim.innerHTML+="<label><br> <a href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].title+"</label>";
                     var idVid = data.results[1].id;
                     sim1.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].title+"</label>";
+                    var idVid = data.results[2].id;
+                    sim2.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[2].poster_path+"></img></a><br>"+data.results[2].title+"</label>";
+                    var idVid = data.results[3].id;
+                    sim3.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[3].poster_path+"></img></a><br>"+data.results[3].title+"</label>";
+                    
 })
 }
                     getTrailer();
@@ -228,10 +235,10 @@ $id5=$_GET['id'];
 
 <div id="video" style="display:none">
 <div class="row">
-<div class="col-md-3">
+<div id="similarMovie2" class="col-md-3">
 
  </div>
- <div  class="col-md-3">
+ <div id="similarMovie3" class="col-md-3">
 
  </div>
   <div id="similarMovie" class="col-md-3">

@@ -99,7 +99,7 @@ if (isset($_SESSION['username'])) {
     </div>
 
     <script >
-
+     
       var id = 0
 
       const input = document.getElementById('search')
@@ -115,7 +115,7 @@ if (isset($_SESSION['username'])) {
           }
           //Si il a qqch a rechercher on affiche ce que la db renvoie
           else if(document.getElementById('search').value.length != 0 ) {
-
+            
             var str = document.getElementById('search').value;
             fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json())
             .then(data=>{
