@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -12,6 +13,7 @@ if(isset($_POST['recup_submit']) && isset($_POST['recup_mail']) && $_POST['recup
       $etape1=false;
   $recup_mail = htmlspecialchars($_POST['recup_mail']); //check if mail have the good characteres
       if(filter_var($recup_mail,FILTER_VALIDATE_EMAIL)) {   //mail validation
+        echo $recup_mail;
          $mailexist = $bdd->prepare('SELECT email FROM users WHERE email = ?'); //verfy mail exits in our bdd
          $mailexist->execute(array($recup_mail));
          if($mailexist) {
@@ -22,6 +24,12 @@ if(isset($_POST['recup_submit']) && isset($_POST['recup_mail']) && $_POST['recup
             for($i=0; $i < 8; $i++) { 
               $recup_code .= mt_rand(0,9);
             }
+            echo $recup_code;
+          }
+          mail($recup_mail,"Password lost from GETFLIX",$recup_code);
+        }
+      }
+            /*
             $recup_insert = $bdd->prepare('INSERT INTO recuperation(email,code) VALUES (?, ?)');
             $recup_insert->execute(array($recup_mail,$recup_code));
             $mail_recup_exist = $bdd->prepare('SELECT * FROM recuperation WHERE email = ?');
@@ -116,9 +124,10 @@ if(isset($_POST['change_submit'])) {
 
    }
 }
-//
-?>
+*/
 
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -145,31 +154,26 @@ if(isset($_POST['change_submit'])) {
     <div class="col-md col-sm-12 col-xs-12">
 <div id="main">
   <h3>Forgot password</h3>
-      <?php if($etape1==true) {
+      <?php /* if($etape1==true) {
        
        echo "  <form method='POST' action='reset.php'>
        <input type='text' placeholder='Code de vérification' name='verif_code'/><br/>
        <input type='submit' value='Valider' name='verif_submit'/>
      </form>";        
-      }?>
+      } */ ?>
 
-          <?php if (isset($_POST['verif_submit'])){ ?>
-      New password for:  <?= $_SESSION['recup_mail'] ?>
+
   <form method="post">
     <input type="password" placeholder="Nouveau mot de passe" name="change_mdp"/><br/>
     <input type="password" placeholder="Confirmation du mot de passe" name="change_mdpc"/><br/>
     <input type="submit" value="Valider" name="change_submit"/>
   </form>
-                <?php if (isset($_POST['change_submit'])) { 
-                header('location:connexion.php')
-                ?>
-   <?php }} else{ ?>
+
     <form action="reset.php" method="POST">
     <input class="input" type="email" placeholder="  E-mail" name="recup_mail"><br>
       <span id='message'></span><br>
     <input id="connect" type="submit" name="recup_submit" value="Envoyez un mail">
   </form>
-      <?php if(isset($error)) { echo '<span style="color:red">'.$error.'</span>'; } else { echo ""; } ?>
       <p>Already an account ? <a href="connexion.php">Sign in</a> </p>
   </div>
     </div>
@@ -177,8 +181,8 @@ if(isset($_POST['change_submit'])) {
     </div>
   </div>
 </div>
-   <?php }?>        
-<script type="text/javascript">
+    
+<script>
     var check = function() {
       if (document.getElementById('password').value ==
         document.getElementById('confirm_password').value) {
