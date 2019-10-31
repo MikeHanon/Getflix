@@ -22,18 +22,11 @@ if (isset($_SESSION['username'])) {
 
 <nav class="navbar navbar-expand-lg navbar-transparent" data-toggle="collapse">
         <a class="navbar-brand" href="index.php"></a>
-        <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%"></a>
+        <div class="logo"><a href="index.php"><img src="css/media/logo.gif" width="80%" alt='logo'></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="animation.php">Animation</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="series.php">Series TV</a>
-        </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item active dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Film
             </a>
@@ -59,6 +52,15 @@ if (isset($_SESSION['username'])) {
             <a class="dropdown-item" href="romantic.php">Romantic</a>
         </div>
       </li>
+      <li class="nav-item">
+            <a class="nav-link" href="series.php">Series TV</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="animation.php">Animation</a>
+        </li>
+
+ 
+        
                 <li class="nav-item">
                     <a class="nav-link" href="recently.php">Recently Added</a>
                 </li>
@@ -96,14 +98,14 @@ if (isset($_SESSION['username'])) {
 
     </div>
 
-    <script type="text/javascript">
-
+    <script >
+     
       var id = 0
 
       const input = document.getElementById('search')
       input.onkeyup = (e)=>recherche(e)
 
-      //Recherche e dans la db
+      //Recherche dans la db, e = touche pressée
       function recherche(e){
         var recu = ""
         if(e.key != 'ArrowDown' && e.key != 'ArrowUp'){
@@ -113,7 +115,7 @@ if (isset($_SESSION['username'])) {
           }
           //Si il a qqch a rechercher on affiche ce que la db renvoie
           else if(document.getElementById('search').value.length != 0 ) {
-
+            
             var str = document.getElementById('search').value;
             fetch("https://api.themoviedb.org/3/search/movie?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&query=" + str + "&include_adult=false").then(response => response.json())
             .then(data=>{
@@ -151,7 +153,7 @@ if (isset($_SESSION['username'])) {
 <?php
 }
 else {
-  header('Location: connexion.php');
+  header('Location: ./connexion.php');
 
   exit;
 }

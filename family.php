@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 ?>
@@ -15,7 +15,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>SeriesAddict</title>
 </head>
-          
+
 <body class="genre">
 <!--On inclut la NavBar-->
 <script>
@@ -33,16 +33,14 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var idFilm = data.results[i].id;
-                    // content.innerHTML+="<div class='col-md-2'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a></div>" );
-                    // content.innerHTML+="<div class='carousel-caption'><h4 class='h4-responsive'>blabla<h4></div>";
-                    content.innerHTML+="<div class='col-md-2' id='movie'><a class='pochette' href='pageVideo.php?id="+idFilm+"'><img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
+                    content.innerHTML+="<div class='col-md-2' id='movie'><a alt ='"+data.results[i].title+"' class='pochette' href='pageVideo.php?id="+idFilm+"'><img alt='Movie poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
                     }
-                    
+
                     })
                     }
             movie();
             }
-  
+
 </script>
 <?php include('NavBar.php'); ?>
 <h2 class="titre">Family Movies</h2>

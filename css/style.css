@@ -17,6 +17,7 @@ h3{
     opacity:0.9;
     text-align: center;
     border-radius: 5%;
+    height:530px;
 }
 form{
     padding-top: 40px;
@@ -35,7 +36,7 @@ label{
 }
 p{
     font-size: 20px;
-    padding-top: 100px;
+    padding-top: 15px;
     color:white;
 }
 #connect{
