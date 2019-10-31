@@ -14,47 +14,8 @@ session_start();
     <title>Accueil</title>
 </head>
 <body>
-<script>
-            function afficherFilm(nombre,url,id){
-                var content=document.getElementById(id);
-                page=1;
-                id="";
-                nombre=6;
-                genre="";
-                url1=url+page;
-                function movie(page){
-                    fetch(url)
-                    .then(reponse =>reponse.json())
-                    .then (data => {
-                    for(var i=0;i<nombre;i++){
-                    var test  =data.results[i].poster_path;
-                    var id = data.results[i].id;
-                    content.innerHTML+="<div class='col-md-2 pochette'><a href='pageVideo.php?id="+id+"'><img width= 80% src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a></div>" );
-                    }
-                    // var test  =data.results[i].poster_path;
-                    // content.innerHTML="<img src=http://image.tmdb.org/t/p/w185//".concat(test,"></img>");
-                    // console.log(test);
-                    })
-                    }
-            movie();
-            }
-    
-    //mettre titre a chaque pochette quand mouseOver       /pas fonctionnel
-//     var titre = document.getElementByClassname("pochette");
-  
-  
-//   // ce gestionnaire sera exécuté une seule fois lorsque le curseur passera au dessus de la liste non ordonnée
-//   test.addEventListener("mouseover", function( event ) {   
-//     // met en surbrillance la cible de mouseenter
-//     event.target.style.color = "purple";
+<script src='jsindex.js'></script>
 
-//     // réinitialise la couleur après un court moment
-//     setTimeout(function() {
-//       event.target.style.color = "";
-//     }, 500);
-//   }, false);
-  
-</script>
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->
         <section class='corps'>
@@ -66,9 +27,9 @@ session_start();
 <!-- Top Film -->
         <section class="container-fluid corps">   
             <h2 class="sousTitre"><a class="souTitre" href='top.php'>Top-rated</a></h2>
-            <div id="topRated" class="row">
+            <div id="topRated 1" class="row">
             <script>
-                afficherFilm(6,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated");
+                afficherFilm(6,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated",);
             </script>
             </div>
 
@@ -124,7 +85,6 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

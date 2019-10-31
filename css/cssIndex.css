@@ -34,10 +34,29 @@ html, body {
 .pochette{
    
     transition: all 0.7s ease;
-    
+    position: relative; 
+    overflow: hidden;  
+}
+
+.koko{
+    z-index: 1;           
+    position: relative; 
+width: 100%;
+
 }
 .pochette:hover{
     transform: scale(1.1) rotate(0.5deg);
+}
+
+.soupan{
+    width: 70%;
+    z-index: 2;
+    display: block;
+  position: absolute;
+  color: #eee;          /* couleur du texte à ajuster suivant le besoin */
+  background: #069;     /* couleur du fond à ajuster suivant le besoin */
+  transition: all .5s;  
+
 }
 
 .enter{

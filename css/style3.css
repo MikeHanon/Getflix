@@ -58,3 +58,15 @@ body{
 #eachCom{
     background-color: #59151A;
 }
+
+#information2{
+    cursor: pointer;
+}
+
+#commentaire2{
+    cursor: pointer;
+}
+
+#video2{
+    cursor: pointer;
+}
