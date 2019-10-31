@@ -32,16 +32,16 @@
 
 <ul class="list-unstyled">
   <li>
-  <a  alt='github' class="privacy" href="#!">Privacy</a>
+  <a  alt='github' class="privacy" href="https://github.com/IsabelAguera">Isabel Aguera</a>
   </li>
   <li>
-    <a alt='github' class="privacy" href="#!">Help Center</a>
+    <a alt='github' class="privacy" href="https://github.com/yassinassecoum">Yassin Assecoum</a>
   </li>
   <li>
-    <a alt='github' class="privacy" href="#!">Terms of use</a>
+    <a alt='github' class="privacy" href="https://github.com/Hanioch">Juste Hani</a>
   </li>
   <li>
-    <a alt='github' class="privacy" href="#!">Media center</a>
+    <a alt='github' class="privacy" href="https://github.com/pawelPrzewoznik">Pawel Przewoznik</a>
   </li>
 </ul>
 
@@ -49,7 +49,7 @@
 
 
         <div class="col-md-4 mb-md-0 mb-3 colMiddle">
- 
+
           <h4 class="text">Social Networks</h4>
           <span>
           <a class="privacy" href="https://facebook.com"><i class="fab fa-facebook-f fa-2x"></i></a>

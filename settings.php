@@ -22,7 +22,7 @@ session_start();
     //Show all users in cards with possiblity to ban and change rigths
     while ($donnees = $req->fetch()) {
       $card .="
-            <div class='col-auto'>
+            <div class='col-auto ml-2 mt-2 mb-2'>
               <div class='card' style='width: 18rem;'>
                 <div class='card-body'>
                   <h5 class='card-title'>" . $donnees['username'] ."</h5>
@@ -56,23 +56,27 @@ session_start();
   //If btn ban is set, ban user
   if(isset($_POST['ban'])  && $_SESSION['status'] == 2 ){
 
-    $req = $bdd->prepare('DELETE FROM users WHERE id = :id');
+    $req = $bdd->prepare('DELETE FROM users WHERE id = :id')or die(print_r($bdd->errorInfo()));
 
     $req->execute(array(
       'id'=>$_POST['id_user']
     ));
+
+    $req->closeCursor();
 
   }
 
   //If condition ok, update user rigths
   if(isset($_POST['rigth']) && $_POST['rigth'] != "Change status" && $_SESSION['status'] == 2){
 
-    $req = $bdd->prepare('UPDATE users SET status = :status WHERE id = :id');
+    $req = $bdd->prepare('UPDATE users SET status = :status WHERE id = :id')or die(print_r($bdd->errorInfo()));
 
     $req->execute(array(
       'id'=>$_POST['id_user'],
       'status'=>$_POST['rigth']
     ));
+
+    $req->closeCursor();
 
   }
   //Check if we need to change the username, and if it's ok to do so
