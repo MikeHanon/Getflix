@@ -14,10 +14,6 @@ session_start();
     <title>Accueil</title>
 </head>
 <body>
-<<<<<<< HEAD
-<script src='jsindex.js'></script>
-
-=======
 <script>
             function afficherFilm(nombre,url,id){
                 var content=document.getElementById(id);
@@ -41,7 +37,6 @@ session_start();
             }
 
 </script>
->>>>>>> de4d895edbf12844139b5e8015a7c2802d2dfa13
 <?php include('NavBar.php'); ?>
 <!-- Vidéo Principale -->
         <section class='corps'>
@@ -51,15 +46,9 @@ session_start();
         </section>
 <!-- Fin Vidéo Principale -->
 <!-- Top Film -->
-<<<<<<< HEAD
-        <section class="container-fluid corps">   
-            <h2 class="sousTitre"><a class="souTitre" href='top.php'>Top-rated</a></h2>
-            <div id="topRated 1" class="row">
-=======
         <section class="container-fluid corps">
             <h2 class="sousTitre"><a class="souTitre" href=''>Top-rated</a></h2>
             <div id="topRated" class="row">
->>>>>>> de4d895edbf12844139b5e8015a7c2802d2dfa13
             <script>
                 afficherFilm(6,"https://api.themoviedb.org/3/movie/top_rated?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=","topRated",);
             </script>
