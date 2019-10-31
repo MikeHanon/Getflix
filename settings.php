@@ -168,6 +168,10 @@ session_start();
    <title>Your account settings</title>
    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/categorie.css">
+   <link rel="apple-touch-icon" sizes="180x180" href="css/media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/media/favicon/site.webmanifest">
 
  </head>
  <body class="genre">

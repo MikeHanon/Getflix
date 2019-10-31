@@ -59,6 +59,10 @@ return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="css/media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/media/favicon/site.webmanifest">
       <title>Sign up</title>
   </head>
   <body>

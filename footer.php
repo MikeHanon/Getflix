@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
 
+
     <title>SeriesAddict</title>
 </head>
 
