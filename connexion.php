@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
     die('Erreur : ' . $e->getMessage());
   }
 
-  $req = $bdd->prepare('SELECT id , username , password FROM users WHERE username = :username');
+  $req = $bdd->prepare('SELECT id , username , password , status FROM users WHERE username = :username');
   $req->execute(array(
       'username' => $_POST['username']
       ));
@@ -26,11 +26,13 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
   $_SESSION['username']=$_POST['username'];
   $_SESSION['password']=$_POST['password'];
   $_SESSION['id_user']=$resultat['id'];
+  $_SESSION['status']=$resultat['status'];
 
       //se souvenir de moi
     if(isset($_POST['remember'])){
         setcookie("username",$_POST['username'],time()+10000,null,null,false,true);
         setcookie("password",$_POST['password'],time()+10000,null,null,false,true);
+        setcookie("status",$_POST['status'],time()+10000,null,null,false,true);
 
       }
       header("Location: ./index.php");
