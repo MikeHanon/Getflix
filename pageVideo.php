@@ -27,7 +27,14 @@ if($resultat){
     'id'=> $_GET['id']
   ));
 }
+// si on a cliqué pour supp un comm, supp de la bd
+if(isset($_POST['delete'])){
+  $req = $bdd->prepare('DELETE FROM comments WHERE id = :id') or die(print_r($bdd->errorInfo()));
 
+  $req->execute(array(
+    'id'=>$_POST['id_comm']
+  ));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,10 +107,17 @@ function getSimilar(){
                     .then (data => {
                     var sim=document.getElementById('similarMovie');
                     var sim1=document.getElementById('similarMovie1');
+                    var sim2=document.getElementById('similarMovie2');
+                    var sim3=document.getElementById('similarMovie3');
                     var idVid = data.results[0].id;
                     sim.innerHTML+="<label><br> <a href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].title+"</label>";
                     var idVid = data.results[1].id;
                     sim1.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].title+"</label>";
+                    var idVid = data.results[2].id;
+                    sim2.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[2].poster_path+"></img></a><br>"+data.results[2].title+"</label>";
+                    var idVid = data.results[3].id;
+                    sim3.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[3].poster_path+"></img></a><br>"+data.results[3].title+"</label>";
+                    
 })
 }
                     getTrailer();
@@ -177,24 +191,38 @@ $id5=$_GET['id'];
 
         </div>
         <div id='bodySpace' class="col-md-4 listeCom">
-        
-        <form method="POST">
-        <label>Add comment</label>
-            <input type="text" id="story" name='com'  rows="3" cols="40">
-       <br>
-            <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
-            </form>
+
+        <?php if($_SESSION['status'] != 3){ ?>
+          <form method="POST">
+          <label>Add comment</label>
+              <input type="text" id="story" name='com'  rows="3" cols="40">
+         <br>
+              <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
+          </form>
+        <?php } ?>
         <h4 class='listeCom'> Other comments :</h4>
         <?php
-    $requete=$bdd->prepare('SELECT comment , date_comment, username FROM comments c INNER JOIN users u
+    $requete=$bdd->prepare('SELECT comment , date_comment, username, c.id FROM comments c INNER JOIN users u
     ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC');
 
     $requete->execute(array($id5));
-    while($ligne = $requete->fetch()){
-        echo "<article class='listeCom'> <section id='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
-        "</section><section class='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
+    //Vision non admin
+    if($_SESSION['status'] != 2){
+      while($ligne = $requete->fetch()){
+          echo "<article class='listeCom'> <section id='eachCom'> ".$ligne['username']." - ".$ligne['date_comment'].
+          "</section><section class='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
+      }
+    //Vision admin
+    }else {
+      while($ligne = $requete->fetch()){
+          echo "<article class='listeCom'> <section id='eachCom'>
+          <form action='' method='post'>
+          <input style='visibility:hidden;display:none;' name='id_comm' value='" . $ligne['id'] . "' />
+          <input style='padding:0;margin-left:60%;' type='submit' name='delete' value='delete' />
+          </form> ".$ligne['username']." - ".$ligne['date_comment'].
+          "</section><section class='eachCom'>". $ligne['comment']."  <br> </section> </article> <br>";
+      }
     }
-
 
     ?>
             </div>
@@ -211,10 +239,10 @@ $id5=$_GET['id'];
 
 <div id="video" style="display:none">
 <div class="row">
-<div class="col-md-3">
+<div id="similarMovie2" class="col-md-3">
 
  </div>
- <div  class="col-md-3">
+ <div id="similarMovie3" class="col-md-3">
 
  </div>
   <div id="similarMovie" class="col-md-3">

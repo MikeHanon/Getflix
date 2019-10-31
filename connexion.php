@@ -16,21 +16,29 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username']
     die('Erreur : ' . $e->getMessage());
   }
 
-  $req = $bdd->prepare('SELECT id , username , password FROM users WHERE username = :username');
+  $req = $bdd->prepare('SELECT id , username , password , status FROM users WHERE username = :username');
   $req->execute(array(
       'username' => $_POST['username']
       ));
   $resultat = $req->fetch();
+  if($resultat[1]==""){
+    $error="<span id='error' style='color:red;font-size:24px;position:relative;top:10px;'> Username not registered. !</span>";
+  }
+  else{
+
+
   //verifie si $resultat est pas vide et que le mot de passe equivaut + creation session
 if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])){
   $_SESSION['username']=$_POST['username'];
   $_SESSION['password']=$_POST['password'];
   $_SESSION['id_user']=$resultat['id'];
+  $_SESSION['status']=$resultat['status'];
 
       //se souvenir de moi
     if(isset($_POST['remember'])){
         setcookie("username",$_POST['username'],time()+10000,null,null,false,true);
         setcookie("password",$_POST['password'],time()+10000,null,null,false,true);
+        setcookie("status",$_POST['status'],time()+10000,null,null,false,true);
 
       }
       header("Location: ./index.php");
@@ -39,7 +47,7 @@ if ($resultat !="" &&  password_verify($_POST['password'],$resultat['password'])
 else{
   $error="<span id='error' style='color:red;font-size:24px;position:relative;top:10px;'> Wrong password !</span>";
 }
-
+}
 }
 
 
@@ -53,7 +61,11 @@ else{
       <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="css/style.css">
-      <title>Connection</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="css/media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/media/favicon/site.webmanifest">
+      <title>Sign in</title>
   </head>
   <body>
 

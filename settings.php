@@ -11,7 +11,70 @@ session_start();
     //If an issue occurs, show a message and stop
     die('Erreur : ' . $e->getMessage());
   }
+  //Get all users from db if Admin
+  if ($_SESSION['status'] == 2) {
 
+    $card = "<div class='row'>";
+    $cardEnd = "</div>";
+
+    $req = $bdd->query('SELECT id,username,email,status FROM users');
+
+    //Show all users in cards with possiblity to ban and change rigths
+    while ($donnees = $req->fetch()) {
+      $card .="
+            <div class='col-auto'>
+              <div class='card' style='width: 18rem;'>
+                <div class='card-body'>
+                  <h5 class='card-title'>" . $donnees['username'] ."</h5>
+                  <p class='card-text'>User email : " . $donnees['email'] ."<br>User status is : " . rigths($donnees['status']) . "</p>
+                  <form action='' method='post'>
+                    <input style='visibility:hidden;display:none;' name='id_user' value='" . $donnees['id'] . "' />
+                    <div class='form-row align-items-center'>
+                      <div class='col-8 my-1'>
+                        <label class='mr-sm-2 sr-only' for='inlineFormCustomSelect'>Preference</label>
+                        <select name='rigth' class='custom-select mr-sm-2' id='inlineFormCustomSelect'>
+                          <option selected>Change status</option>
+                          <option value='1'>User</option>
+                          <option value='2'>Admin</option>
+                          <option value='3'>Ban from commenting</option>
+                        </select>
+                      </div>
+                      <div class='col-1 my-1'>
+                        <input style='background-color:#dc3545;color:#fff;border-color:#dc3545' type='submit' class='btn btn-danger' id='enter' value='Change'/>
+                      </div>
+                    </div>
+                  </form>
+                  <form class='aligne-item-center' action='' method='post'>
+                    <input style='visibility:hidden;display:none;' name='id_user' value='" . $donnees['id'] . "' />
+                    <input type='submit' name='ban' value='ban' class='btn btn-danger' />
+                  </form>
+                </div>
+              </div>
+            </div>";
+    }
+  }
+  //If btn ban is set, ban user
+  if(isset($_POST['ban'])  && $_SESSION['status'] == 2 ){
+
+    $req = $bdd->prepare('DELETE FROM users WHERE id = :id');
+
+    $req->execute(array(
+      'id'=>$_POST['id_user']
+    ));
+
+  }
+
+  //If condition ok, update user rigths
+  if(isset($_POST['rigth']) && $_POST['rigth'] != "Change status" && $_SESSION['status'] == 2){
+
+    $req = $bdd->prepare('UPDATE users SET status = :status WHERE id = :id');
+
+    $req->execute(array(
+      'id'=>$_POST['id_user'],
+      'status'=>$_POST['rigth']
+    ));
+
+  }
   //Check if we need to change the username, and if it's ok to do so
   if(isset($_POST['name']) && trim($_POST['name']) != "" ) {
 
@@ -101,6 +164,10 @@ session_start();
    <title>Your account settings</title>
    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="css/categorie.css">
+   <link rel="apple-touch-icon" sizes="180x180" href="css/media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/media/favicon/site.webmanifest">
 
  </head>
  <body class="genre">
@@ -195,6 +262,25 @@ session_start();
             </div>
           </div>
         </div>
+          <?php
+          if ($_SESSION['status'] == 2) {
+           ?>
+           <div class="card">
+             <div class="card-header" id="headingFour">
+               <h2 class="mb-0">
+                 <button class="btn btn-link collapsed" id="button1" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                   Admin powers !
+                 </button>
+               </h2>
+             </div>
+             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+               <?php echo $card;echo $cardEnd; ?>
+             </div>
+           </div>
+           <?php
+          }
+            ?>
+
       </div>
 
     </div>
@@ -242,5 +328,16 @@ else{
 //Check if the string look like an email address
 function valid_email($str) {
   return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
+}
+function rigths($num){
+  if($num == 2){
+    return "Admin";
+  }
+  elseif ($num == 3) {
+    return "banned from commenting";
+  }
+  else {
+    return "User";
+  }
 }
  ?>
