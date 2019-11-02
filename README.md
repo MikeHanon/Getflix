@@ -17,19 +17,19 @@ To create our site, we used html / css, bootstrap, JS, Jquery, php, sql and mysq
 ## Autheurs
 
 
-* **Name Lastname** - *Aguera, Isabel* - [IsabelAguera](https://github.com/IsabelAguera)
+* **Aguera, Isabel** - [IsabelAguera](https://github.com/IsabelAguera)
 
 * **Link LinkedIn** : (https://www.linkedin.com/in/isabel-aguera-b12071191/)
 
-* **Name Lastname** - *Przewoznik, Pawel* - [pawelPrzewoznik](https://github.com/pawelPrzewoznik)
+* **Przewoznik, Pawel** - [pawelPrzewoznik](https://github.com/pawelPrzewoznik)
 
 * **Link LinkedIn** : (https://www.linkedin.com/in/pawel-przewoznik-9aa074191/)
 
-* **Name Lastname** - *Boubker, Hani* - [Hanioch](https://github.com/Hanioch)
+* **Boubker Hani** - [Hanioch](https://github.com/Hanioch)
 
 * **Link LinkedIn** : (https://www.linkedin.com/in/hani-boubker/)
 
-* **Name Lastname** - *Assecoum, Yassin* - [yassinassecoum](https://github.com/yassinassecoum)
+* **Assecoum, Yassin** - [yassinassecoum](https://github.com/yassinassecoum)
 
 * **Link LinkedIn** : (https://www.linkedin.com/in/yassin-assecoum/)
 
