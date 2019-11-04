@@ -55,7 +55,7 @@ CREATE TABLE `users` (
   `password` text NOT NULL,
   `email` text NOT NULL,
   `status` int(11) NOT NULL,
-  `img` text NOT NULL
+  `img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -73,10 +73,10 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `status`, `img`) VAL
 
 CREATE TABLE `video` (
   `id` int(11) NOT NULL,
-  `title` varchar(250) NOT NULL,
-  `codeYT` text NOT NULL,
-  `theme` varchar(250) NOT NULL,
-  `release_date` date NOT NULL
+  `title` varchar(250) DEFAULT NULL,
+  `codeYT` text DEFAULT NULL,
+  `theme` varchar(250) DEFAULT NULL,
+  `release_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
