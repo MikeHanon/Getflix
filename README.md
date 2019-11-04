@@ -7,8 +7,8 @@ We have created a session system: registration, login / logout. A search bar, an
 
 ** What does it look like? **  (https: // pawelPrzewoznik / Getflix)
 
-<img src = "css / media / index.png" style = "width: 30%;">
-<img src = "css / media / admin.png" style = "width: 30%;">
+<img src = "css/media/index.png" style = "width: 30%;">
+<img src = "css/media/admin.png" style = "width: 30%;">
 
 ## Built with
 
