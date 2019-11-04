@@ -35,18 +35,17 @@
 
     #btnLeft{
         position: absolute;
-        top:380px;
-        left:500px;
+        top:40vh;/*modification*/
+        left:25%;/*modification*/
         font-size: 60px;
         z-index: 1;
         color: #8C1C25;
     }
     #btnRight{
         position: absolute;
-        top:380px;
-        right:500px;
+        top:40vh;/*modification*/
+        right:25%;/*modification*/
         font-size: 60px;
-        width:20px;
         z-index: 1;
         color: #8C1C25;
     }
@@ -99,3 +98,36 @@
     .card{
       display:flex;
     }
+
+
+    /*RESPONSIVE SMARTPHONE*/
+
+    @media screen and (max-width: 375px)
+{
+    .fiche1, .fiche2 , .fiche3 , .fiche4 , .fiche5{
+        display: none;
+    }
+
+
+    #btnLeft{
+        top:50vh;/*modification*/
+        left:25%;/*modification*/
+        font-size: 40px;
+
+    }
+    #btnRight{
+        position: absolute;
+        top:50vh;/*modification*/
+        right:25%;/*modification*/
+        font-size: 40px;
+    }
+
+    .imageFilm{
+        text-align: center;
+    }
+
+    #title{
+        position: absolute;
+        left: 26%;
+    }
+}
