@@ -1,0 +1,101 @@
+/*Style Settings*/
+.genre{
+    background-color:  rgb(75, 12, 17);
+    max-height: 100vh;
+    font-family: 'Bree Serif', serif;
+
+}
+
+.sett{
+    padding-top: 10%;
+}
+
+
+/*Categorie de film*/
+.titre{
+    padding-top: 2%;
+    text-align: center;
+    color: white;
+}
+
+#genreTitle{
+    text-align: center;
+    margin-bottom: 50px;
+    color: white;
+}
+
+#title{
+    position: absolute;
+    top:300px;
+    text-align: center;
+    padding-left: 20px;
+    color: white;
+
+    }
+
+    #btnLeft{
+        position: absolute;
+        top:380px;
+        left:500px;
+        font-size: 60px;
+        z-index: 1;
+        color: #8C1C25;
+    }
+    #btnRight{
+        position: absolute;
+        top:380px;
+        right:500px;
+        font-size: 60px;
+        width:20px;
+        z-index: 1;
+        color: #8C1C25;
+    }
+
+
+/*anciens*/
+.a{
+    color: inherit;
+    }
+
+    #button1{
+    color: #8C1C25;
+    }
+
+    #enter{
+        background-color: #261616;
+        color:white;
+    }
+    .card.card-body{
+        background-color:#59151A;
+        color:white;
+    }
+
+
+
+    .listeCom{
+        text-align: center;
+    }
+    .genreDesc{
+        font-size: 20px;
+        text-align: center;
+        margin :25px;
+        color:white;
+    }
+
+
+    .carousel{
+        height:500px
+    }
+
+    .col-md-2{
+        padding:0 !important;
+    }
+    .carousel-item{
+        height:450px;
+        padding-left: 50px;
+
+    }
+
+    .card{
+      display:flex;
+    }
