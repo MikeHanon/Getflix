@@ -11,6 +11,32 @@ session_start();
     //If an issue occurs, show a message and stop
     die('Erreur : ' . $e->getMessage());
   }
+  //If btn ban is set, ban user
+  if(isset($_POST['ban'])  && $_SESSION['status'] == 2 ){
+
+    $req = $bdd->prepare('DELETE FROM users WHERE id = :id')or die(print_r($bdd->errorInfo()));
+
+    $req->execute(array(
+      'id'=>$_POST['id_user']
+    ));
+
+    $req->closeCursor();
+
+  }
+
+  //If condition ok, update user rigths
+  if(isset($_POST['rigth']) && $_POST['rigth'] != "Change status" && $_SESSION['status'] == 2){
+
+    $req = $bdd->prepare('UPDATE users SET status = :status WHERE id = :id')or die(print_r($bdd->errorInfo()));
+
+    $req->execute(array(
+      'id'=>$_POST['id_user'],
+      'status'=>$_POST['rigth']
+    ));
+
+    $req->closeCursor();
+
+  }
   //Get all users from db if Admin
   if ($_SESSION['status'] == 2) {
 
@@ -53,45 +79,27 @@ session_start();
             </div>";
     }
   }
-  //If btn ban is set, ban user
-  if(isset($_POST['ban'])  && $_SESSION['status'] == 2 ){
 
-    $req = $bdd->prepare('DELETE FROM users WHERE id = :id')or die(print_r($bdd->errorInfo()));
-
-    $req->execute(array(
-      'id'=>$_POST['id_user']
-    ));
-
-    $req->closeCursor();
-
-  }
-
-  //If condition ok, update user rigths
-  if(isset($_POST['rigth']) && $_POST['rigth'] != "Change status" && $_SESSION['status'] == 2){
-
-    $req = $bdd->prepare('UPDATE users SET status = :status WHERE id = :id')or die(print_r($bdd->errorInfo()));
-
-    $req->execute(array(
-      'id'=>$_POST['id_user'],
-      'status'=>$_POST['rigth']
-    ));
-
-    $req->closeCursor();
-
-  }
   //Check if we need to change the username, and if it's ok to do so
   if(isset($_POST['name']) && trim($_POST['name']) != "" ) {
+    $req = $bdd->prepare('SELECT username FROM users WHERE username = :username') or die(print_r($bdd->errorInfo()));
+    $req->bindValue('username',$_POST['name']);
+    $req->execute();
+    $resultat = $req->fetch();
+    //If the username isn't in the db update username
+    if($resultat[0] == false ){
+      $req = $bdd->prepare('UPDATE users SET username = :name WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
-    $req = $bdd->prepare('UPDATE users SET username = :name WHERE username = :username') or die(print_r($bdd->errorInfo()));
+      $req->execute(array(
+        'name'=>htmlspecialchars(trim($_POST['name'])),
+        'username'=>htmlspecialchars($_SESSION['username'])
+      ));
 
-    $req->execute(array(
-      'name'=>htmlspecialchars(trim($_POST['name'])),
-      'username'=>htmlspecialchars($_SESSION['username'])
-    ));
+      $req->closeCursor();
 
-    $req->closeCursor();
+      $_SESSION['username'] = htmlspecialchars(trim($_POST['name']));
+    }
 
-    $_SESSION['username'] = htmlspecialchars(trim($_POST['name']));
   }
 
   //Check if we need to change the password, and if it's ok to do so
@@ -110,14 +118,22 @@ session_start();
   //Check if we need to change the email, and if it's ok to do so
   if (isset($_POST['email']) && valid_email($_POST['email']) ) {
 
-    $req = $bdd->prepare('UPDATE users SET email = :email WHERE username = :username') or die(print_r($bdd->errorInfo()));
+    $req = $bdd->prepare('SELECT email FROM users WHERE email = :email') or die(print_r($bdd->errorInfo()));
+    $req->bindValue('email',$_POST['email']);
+    $req->execute();
+    $resultat = $req->fetch();
+    //if the email isn't in the db update email
+    if($resultat[0] == false) {
+      $req = $bdd->prepare('UPDATE users SET email = :email WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
-    $req->execute(array(
-      'email'=>htmlspecialchars($_POST['email']),
-      'username'=>htmlspecialchars($_SESSION['username'])
-    ));
+      $req->execute(array(
+        'email'=>htmlspecialchars($_POST['email']),
+        'username'=>htmlspecialchars($_SESSION['username'])
+      ));
 
-    $req->closeCursor();
+      $req->closeCursor();
+    }
+
   }
 
   //Check if we need to change the profile picture
@@ -133,6 +149,7 @@ session_start();
     $req->closeCursor();
   }
 
+  //Verify if user can get acces to the data
   $ok = false;
   $req = $bdd->query('SELECT username FROM users') or die(print_r($bdd->errorInfo()));
   while ($donnees = $req->fetch()) {
@@ -293,6 +310,7 @@ session_start();
   <?php include 'footer.php'; ?>
 
   <script type="text/javascript">
+    //Check if passwords are matching before submiting
     var check = function() {
       if (document.getElementById('password').value ==  document.getElementById('confirm_password').value && document.getElementById('password').value.length != 0 ) {
         document.getElementById('message').style.color = 'green';
@@ -305,6 +323,7 @@ session_start();
         document.getElementById('submit').disabled = 'disabled';
       }
     }
+    //Disable submit btn if input empty
     function checkSubmit(n, m){
       if (document.getElementById(n).value.length != 0) {
         document.getElementById(m).disabled = '';
@@ -333,6 +352,7 @@ else{
 function valid_email($str) {
   return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
 }
+//return a string with user status
 function rigths($num){
   if($num == 2){
     return "Admin";
