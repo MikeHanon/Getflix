@@ -11,7 +11,7 @@ try{
   //En cas d'erreur on affiche un message et on arrete tout
   die('Erreur : ' . $e->getMessage());
 }
-
+//On affiche le film 
 $req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
 $req->execute(array(
     'id' => $_GET['id']
@@ -57,8 +57,6 @@ if(isset($_POST['delete'])){
 <body>
 <!--On inclut la NavBar-->
 <?php include('NavBar.php'); ?>
-<!--Video à ajouter-->
-
 
 <script>
 //recuperation de du GET[id] en javascript
@@ -81,7 +79,7 @@ function getTrailer(){
                     })
 
                     }
-
+//on recupere le titre
 function getTitre(){
   var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
   fetch(url)
@@ -91,6 +89,7 @@ function getTitre(){
                     title.innerHTML="<h2>"+data.title+"</h2><i>\""+data.tagline+"\"</i>";
 })
 }
+//On recupere les informations
 function getInfo(){
   var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
   fetch(url)
@@ -100,6 +99,7 @@ function getInfo(){
                     info.innerHTML="<label><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a rel='noreferrer' id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
 })
 }
+//on recupere les films simillaires
 function getSimilar(){
   var url = "https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
   fetch(url)
@@ -120,6 +120,8 @@ function getSimilar(){
                     
 })
 }
+
+//on affiche chaque info 
                     getTrailer();
                     getTitre();
                     getInfo();
@@ -131,20 +133,22 @@ function getSimilar(){
 <h2 id="titleMovie"></h2>
 <div class="container-fluid ">
 <div id="trailer" class="row justify-content-center">
-
 </div>
+
+<!--section Informations -->
+
 <div class='row justify-content-md-center'>
 <div class="col col-lg-2">
 <h3 onclick='info()' id='information2' class="disabled">Informations</h3>
 </div>
+
+<!--sections Commentaires-->
+
 <div class="col col-lg-2">
-
-
-
 <h3 onclick='com()' id='commentaire2' class="active">Comments</h3>
 </div>
 
-
+<!--sections  films simmilaire-->
 <div class="col col-lg-2 ">
 <h3 onclick="vid()" id='video2' class="disabled">Similar Movies</h3>
 </div>
@@ -169,21 +173,25 @@ function getSimilar(){
 
 <div id="commentaire" style='display:block'>
 <?php //Ajout du php pour les commentaires
-//on verifie que le com existe
 $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $id5=$_GET['id'];
-        if(isset($_POST['com']) AND !empty($_POST['com'])){
+        if(isset($_POST['com'])){
+          if (!empty($_POST['com'])){
 //si le com existe et qu'il n'est pas vide:
         $userid=$_SESSION['id_user'];
         $commentaire= htmlspecialchars($_POST['com']);
             $ins = $bdd->prepare('INSERT INTO comments(id_vid, id_user, comment, date_comment)
             VALUES (?,?,?,NOW())');
+            //on insere le commentaire
             $ins->execute(array($id5 , $userid ,$commentaire));
 
             $c_msg = "<span style='color:green'>Your comment has been successfully posted</span>";
+            //message qui signale si le commentaire à bien été poster
         } else {
             $c_msg = "<span style='color:red'>Error: Something went wrong</span>";
-        }
+        }  //message qui signale si le commentaire n'a pas été posté    
+          }
+
 
         ?>
 <div class="row">
@@ -192,10 +200,11 @@ $id5=$_GET['id'];
         </div>
         <div id='bodySpace' class="col-md-4 listeCom">
 
-        <?php if($_SESSION['status'] != 3){ ?>
+        <?php if($_SESSION['status'] != 3){ // si on est pas ban des commentaires on peut en poster?>
           <form method="POST">
           <label>Add comment</label>
-              <input type="text" id="story" name='com'  rows="3" cols="40">
+          <?php  if(isset($c_msg)){echo "<p>".$c_msg."</p>";}// si les message de signalement existe, on l'affiche ?>
+              <input type="text" id="story" name='com'>
          <br>
               <button type="submit" class="btn btn-outline-danger valider">Send comment</button>
           </form>
@@ -204,7 +213,7 @@ $id5=$_GET['id'];
         <?php
     $requete=$bdd->prepare('SELECT comment , date_comment, username, c.id FROM comments c INNER JOIN users u
     ON c.id_user= u.id WHERE id_vid =? ORDER BY date_comment DESC');
-
+    //On affiche les anciens commentaires
     $requete->execute(array($id5));
     //Vision non admin
     if($_SESSION['status'] != 2){
@@ -213,7 +222,7 @@ $id5=$_GET['id'];
           "</section><section class='eachCom'>". $ligne['comment']." <br> </section> </article> <br>";
       }
     //Vision admin
-    }else {
+    }else {//l'admin peut supprimer des commentaires
       while($ligne = $requete->fetch()){
           echo "<article class='listeCom'> <section id='eachCom'>
           <form action='' method='post'>
