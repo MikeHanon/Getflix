@@ -39,7 +39,7 @@
     <a alt='github' class="privacy" href="https://github.com/yassinassecoum">Yassin Assecoum</a>
   </li>
   <li>
-    <a alt='github' class="privacy" href="https://github.com/Hanioch">Juste Hani</a>
+    <a alt='github' class="privacy" href="https://github.com/Hanioch">Boubker Hani</a>
   </li>
   <li>
     <a alt='github' class="privacy" href="https://github.com/pawelPrzewoznik">Pawel Przewoznik</a>

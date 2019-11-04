@@ -48,7 +48,7 @@ session_start();
 </script>
 <?php include('NavBar.php'); ?>
 <h2 class="titre">Animation</h2>
-<p class="genreDesc">Anim</p>
+<p class="genreDesc">Animation is a  really important thing about the story of humanity. It's the better thing maked by men. <br> I think it's the most good thing in our world.</p>
 <h4 id="genreTitle">Check our Animation catalogue</h4>
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">

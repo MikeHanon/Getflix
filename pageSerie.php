@@ -11,6 +11,7 @@ try{
   //En cas d'erreur on affiche un message et on arrete tout
   die('Erreur : ' . $e->getMessage());
 }
+
 $req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
 $req->execute(array(
     'id' => $_GET['id']
@@ -68,7 +69,7 @@ for(var i = 4;i<get.length;i++){
 }
 
 //recuper le trailer
-var url = "https://api.themoviedb.org/3/movie/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+var url = "https://api.themoviedb.org/3/tv/"+id+"/videos?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
 function getTrailer(){
                     fetch(url)
                     .then(reponse =>reponse.json())
@@ -82,25 +83,25 @@ function getTrailer(){
                     }
 
 function getTitre(){
-  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  var url = "https://api.themoviedb.org/3/tv/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
   fetch(url)
                     .then(reponse =>reponse.json())
                     .then (data => {
                     var title=document.getElementById('titleMovie');
-                    title.innerHTML="<h2>"+data.title+"</h2><i>\""+data.tagline+"\"</i>";
+                    title.innerHTML="<h2>"+data.original_name+"</h2><i>Last episode : "+data.last_episode_to_air.name+"</i>";
 })
 }
 function getInfo(){
-  var url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  var url = "https://api.themoviedb.org/3/tv/"+id+"?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
   fetch(url)
                     .then(reponse =>reponse.json())
                     .then (data => {
                     var info=document.getElementById('infoContent');
-                    info.innerHTML="<label><br><ins><strong> Release Date : </strong></ins>"+data.release_date+"<br><ins><strong>Budget : </strong></ins>"+data.budget+"$<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a rel='noreferrer' id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
+                    info.innerHTML="<label><br><ins><strong> Number of Seasons : </strong></ins>"+data.number_of_seasons+"<br><ins><strong>Number of Episode : </strong></ins>"+data.number_of_episodes+"<br><ins><strong>Vote average : </strong></ins>"+data.vote_average+"/10 <br>  <ins><strong>Vote count : </strong> </ins> "+data.vote_count+" <br><br> <ins><strong> Overview :</strong></ins>"+data.overview+"<br><a rel='noreferrer' id='website'href='"+data.homepage+"' target='_blank'><br>Official Website </a></label>";
 })
 }
 function getSimilar(){
-  var url = "https://api.themoviedb.org/3/movie/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
+  var url = "https://api.themoviedb.org/3/tv/"+id+"/similar?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US";
   fetch(url)
                     .then(reponse =>reponse.json())
                     .then (data => {
@@ -109,13 +110,13 @@ function getSimilar(){
                     var sim2=document.getElementById('similarMovie2');
                     var sim3=document.getElementById('similarMovie3');
                     var idVid = data.results[0].id;
-                    sim.innerHTML+="<label><br> <a href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].title+"</label>";
+                    sim.innerHTML+="<label><br> <a href='pageSerie.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[0].poster_path+"></img></a><br>"+data.results[0].original_name+"</label>";
                     var idVid = data.results[1].id;
-                    sim1.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].title+"</label>";
+                    sim1.innerHTML+="<label><br> <a  href='pageSerie.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[1].poster_path+"></img></a><br>"+data.results[1].original_name+"</label>";
                     var idVid = data.results[2].id;
-                    sim2.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[2].poster_path+"></img></a><br>"+data.results[2].title+"</label>";
+                    sim2.innerHTML+="<label><br> <a  href='pageSerie.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[2].poster_path+"></img></a><br>"+data.results[2].original_name+"</label>";
                     var idVid = data.results[3].id;
-                    sim3.innerHTML+="<label><br> <a  href='pageVideo.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[3].poster_path+"></img></a><br>"+data.results[3].title+"</label>";
+                    sim3.innerHTML+="<label><br> <a  href='pageSerie.php?id="+idVid+"'><img class='simPoch' src=http://image.tmdb.org/t/p/w185//"+data.results[3].poster_path+"></img></a><br>"+data.results[3].original_name+"</label>";
                     
 })
 }
@@ -145,7 +146,7 @@ function getSimilar(){
 
 
 <div class="col col-lg-2 ">
-<h3 onclick="vid()" id='video2' class="disabled">Similar Movies</h3>
+<h3 onclick="vid()" id='video2' class="disabled">Similar Series</h3>
 </div>
 </div>
 

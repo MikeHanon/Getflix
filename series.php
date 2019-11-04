@@ -37,7 +37,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var idFilm = data.results[i].id;
-                    content.innerHTML+="<div class='col-md-2' id='movie'><a alt ='"+data.results[i].name+"' class='pochette' href='pageVideo.php?id='><img alt='TV poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].name+"</p></div>" );
+                    content.innerHTML+="<div class='col-md-2' id='movie'><a alt ='"+data.results[i].name+"' class='pochette' href='pageSerie.php?id="+idFilm+"'><img alt='TV poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].name+"</p></div>" );
                     }
 
                     })
@@ -47,9 +47,9 @@ session_start();
 
 </script>
 <?php include('NavBar.php'); ?>
-<h2 class="titre">Animation</h2>
+<h2 class="titre">Series</h2>
 <p class="genreDesc">Anim</p>
-<h4 id="genreTitle">Check our Animation catalogue</h4>
+<h4 id="genreTitle">Check our Series catalogue</h4>
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
@@ -77,7 +77,7 @@ session_start();
     <!--First slide-->
     <div class="carousel-item active">
     <div class="row" id="firstRow">
-        <script> afficherFilm(6," https://api.themoviedb.org/3/discover/tv?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false",'firstRow'); </script>
+        <script> afficherFilm(6," https://api.themoviedb.org/3/tv/popular?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=1",'firstRow'); </script>
 
     </div>
     </div>
@@ -86,7 +86,7 @@ session_start();
     <!--Second slide-->
     <div class="carousel-item">
     <div class="row" id="secondRow">
-        <script> afficherFilm(6," https://api.themoviedb.org/3/discover/tv?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&sort_by=popularity.desc&page=2&include_null_first_air_dates=false",'secondRow'); </script>
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/tv/popular?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=2",'secondRow'); </script>
 
     </div>
     </div>
@@ -96,21 +96,21 @@ session_start();
     <!--Third slide-->
     <div class="carousel-item">
     <div class="row" id="thirdRow">
-        <script> afficherFilm(6," https://api.themoviedb.org/3/discover/tv?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&sort_by=popularity.desc&page=3&include_null_first_air_dates=false",'thirdRow'); </script>
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/tv/popular?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=3",'thirdRow'); </script>
 
     </div>
     </div>
 
     <div class="carousel-item">
     <div class="row" id="fourRow">
-        <script> afficherFilm(6," https://api.themoviedb.org/3/discover/tv?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&sort_by=popularity.desc&page=4&include_null_first_air_dates=false",'fourRow'); </script>
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/tv/popular?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=4",'fourRow'); </script>
 
     </div>
     </div>
 
     <div class="carousel-item">
     <div class="row" id="fiveRow">
-        <script> afficherFilm(6," https://api.themoviedb.org/3/discover/tv?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&sort_by=popularity.desc&page=5&include_null_first_air_dates=false",'fiveRow'); </script>
+        <script> afficherFilm(6,"https://api.themoviedb.org/3/tv/popular?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US&page=5",'fiveRow'); </script>
 
     </div>
     </div>
