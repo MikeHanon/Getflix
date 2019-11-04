@@ -82,14 +82,17 @@ session_start();
 
   //Check if we need to change the username, and if it's ok to do so
   if(isset($_POST['name']) && trim($_POST['name']) != "" ) {
-
-    if(!$bdd->query('SELECT username FROM users')){
+    $req = $bdd->prepare('SELECT username FROM users WHERE username = :username') or die(print_r($bdd->errorInfo()));
+    $req->bindValue('username',$_POST['name']);
+    $req->execute();
+    $resultat = $req->fetch();
+    //If the username isn't in the db update username
+    if($resultat[0] == false ){
       $req = $bdd->prepare('UPDATE users SET username = :name WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
       $req->execute(array(
         'name'=>htmlspecialchars(trim($_POST['name'])),
-        'username'=>htmlspecialchars($_SESSION['username']),
-        'password'=>$_SESSION['password']
+        'username'=>htmlspecialchars($_SESSION['username'])
       ));
 
       $req->closeCursor();
@@ -115,7 +118,12 @@ session_start();
   //Check if we need to change the email, and if it's ok to do so
   if (isset($_POST['email']) && valid_email($_POST['email']) ) {
 
-    if(!$bdd->query('SELECT email FROM users')){
+    $req = $bdd->prepare('SELECT email FROM users WHERE email = :email') or die(print_r($bdd->errorInfo()));
+    $req->bindValue('email',$_POST['email']);
+    $req->execute();
+    $resultat = $req->fetch();
+    //if the email isn't in the db update email
+    if($resultat[0] == false) {
       $req = $bdd->prepare('UPDATE users SET email = :email WHERE username = :username') or die(print_r($bdd->errorInfo()));
 
       $req->execute(array(
@@ -141,6 +149,7 @@ session_start();
     $req->closeCursor();
   }
 
+  //Verify if user can get acces to the data
   $ok = false;
   $req = $bdd->query('SELECT username FROM users') or die(print_r($bdd->errorInfo()));
   while ($donnees = $req->fetch()) {
@@ -301,6 +310,7 @@ session_start();
   <?php include 'footer.php'; ?>
 
   <script type="text/javascript">
+    //Check if passwords are matching before submiting
     var check = function() {
       if (document.getElementById('password').value ==  document.getElementById('confirm_password').value && document.getElementById('password').value.length != 0 ) {
         document.getElementById('message').style.color = 'green';
@@ -313,6 +323,7 @@ session_start();
         document.getElementById('submit').disabled = 'disabled';
       }
     }
+    //Disable submit btn if input empty
     function checkSubmit(n, m){
       if (document.getElementById(n).value.length != 0) {
         document.getElementById(m).disabled = '';
@@ -341,6 +352,7 @@ else{
 function valid_email($str) {
   return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
 }
+//return a string with user status
 function rigths($num){
   if($num == 2){
     return "Admin";
