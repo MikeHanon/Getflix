@@ -37,7 +37,7 @@ session_start();
                     for(var i=0;i<nombre;i++){
                     var test  =data.results[i].poster_path;
                     var idFilm = data.results[i].id;
-                    content.innerHTML+="<div class='col-md-2' id='movie'><a alt ='"+data.results[i].title+"' class='pochette' href='pageVideo.php?id="+idFilm+"'><img alt='Movie poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
+                    content.innerHTML+="<div class='col-md-2 fiche"+i+"' id='movie'><a alt ='"+data.results[i].title+"' class='pochette' href='pageVideo.php?id="+idFilm+"'><img alt='Movie poster' src=http://image.tmdb.org/t/p/w185//".concat(test,"></img> </a><p id='title'>"+data.results[i].title+"</p></div>" );
                     }
 
                     })
@@ -76,7 +76,7 @@ session_start();
 
     <!--First slide-->
     <div class="carousel-item active">
-    <div class="row" id="firstRow">
+    <div class="row imageFilm" id="firstRow">
         <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28",'firstRow'); </script>
 
     </div>
@@ -85,7 +85,7 @@ session_start();
 
     <!--Second slide-->
     <div class="carousel-item">
-    <div class="row" id="secondRow">
+    <div class="row imageFilm" id="secondRow">
         <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=2",'secondRow'); </script>
 
     </div>
@@ -95,21 +95,21 @@ session_start();
 
     <!--Third slide-->
     <div class="carousel-item">
-    <div class="row" id="thirdRow">
+    <div class="row imageFilm" id="thirdRow">
         <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=3",'thirdRow'); </script>
 
     </div>
     </div>
 
     <div class="carousel-item">
-    <div class="row" id="fourRow">
+    <div class="row imageFilm" id="fourRow">
         <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=4",'fourRow'); </script>
 
     </div>
     </div>
 
     <div class="carousel-item">
-    <div class="row" id="fiveRow">
+    <div class="row imageFilm" id="fiveRow">
         <script> afficherFilm(6,"https://api.themoviedb.org/3/discover/movie?api_key=b53ba6ff46235039543d199b7fdebd90&with_genres=28&page=5",'fiveRow'); </script>
 
     </div>
