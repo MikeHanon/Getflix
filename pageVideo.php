@@ -11,10 +11,7 @@ try{
   //En cas d'erreur on affiche un message et on arrete tout
   die('Erreur : ' . $e->getMessage());
 }
-<<<<<<< HEAD
-=======
 //On affiche le film 
->>>>>>> d49fe1c91e5846528fce751b74822d82c810e026
 $req = $bdd->prepare('SELECT id FROM video WHERE id = :id');
 $req->execute(array(
     'id' => $_GET['id']
