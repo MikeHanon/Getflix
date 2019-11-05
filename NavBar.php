@@ -84,6 +84,8 @@ if (isset($_SESSION['username'])) {
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-md-left dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="settings.php">Settings</a>
                     <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="eshopB.php">Eshop</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="logout.php">Sign out</a>
 
 
