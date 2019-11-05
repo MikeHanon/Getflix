@@ -20,12 +20,12 @@ $result=$statement->fetchAll()
     <th>prix</th>
   </tr>
 <?php
-foreach($result as $row){
+foreach($result as $row){?>
   
-  echo '<tr><td>'.$row['id_vid'].'</td>'. 
-  '<td>'.$row['qty'].'</td>'. 
-  '<td>'.$row['prix'].'</td>';
-}
+  <tr><td><?=$row['id_vid']?></td> 
+  <td><?=$row['qty']?></td> 
+  <td><?=$row['prix'];?></td>;
+<?php } ?>
 ?>
 </table>
   <h1 class="m-0 px-5 pt-3">Eshop</h1>
