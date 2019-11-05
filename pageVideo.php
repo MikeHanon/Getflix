@@ -35,6 +35,7 @@ if(isset($_POST['delete'])){
     'id'=>$_POST['id_comm']
   ));
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,6 +153,9 @@ function getSimilar(){
 <div class="col col-lg-2 ">
 <h3 onclick="vid()" id='video2' class="disabled">Similar Movies</h3>
 </div>
+<div class="col col-lg-2">
+  <h3 onclick="order3()" id='order2'class="disabled">Order</h3>
+</div>
 </div>
 
 <!--Information -->
@@ -243,7 +247,44 @@ $id5=$_GET['id'];
 
 
 </div>
+<section id="commande" class="col col-md-3 offset-md-4" style='display:none'>
 
+<form action="" method="post">
+  <label for="qty">quantité</label>
+ <select name="qty" id="">
+   <option value="1">1</option>
+   <option value="2">2</option>
+   <option value="3">3</option>
+   <option value="4">4</option>
+   <option value="5">5</option>
+   <option value="6">6</option>
+   <option value="7">7</option>
+   <option value="8">8</option>
+   <option value="9">9</option>
+   <option value="10">10</option>
+ </select>
+ <select name="type" id="">
+   <option value="25">DVD</option>
+   <option value="50">Bluray</option>
+ </select>
+ <button type="submit" class="btn btn-outline-danger valider">Commander</button>
+</form>
+</section>
+<?php
+if(isset($_POST['qty'])){
+  $data =[
+    ':id' => $_SESSION['id_user'],
+    'id_vid' => $_GET['id'],
+    ':qty' => $_POST['qty'],
+    ':prix' => $_POST['type'] * $_POST['qty'],
+  ];
+  $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+  $sql = "INSERT INTO commande (id,id_vid,qty,prix) VALUES (:id, :id_vid, :qty, :prix) ";
+  $statement = $bdd->prepare($sql);
+  $statement->execute($data);
+
+}
+?>
 <!--Vidéo simmilaire-->
 
 <div id="video" style="display:none">
