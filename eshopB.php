@@ -8,7 +8,7 @@ $id=$_SESSION['id_user'];
 $sql = "SELECT * FROM commande WHERE id = $id";
 
 $statement=$bdd->query($sql);
-$result=$statement->fetchAll()
+$result=$statement->fetchAll();
 
 ?>
 <?php include('NavBar.php'); ?>
@@ -25,6 +25,12 @@ $result=$statement->fetchAll()
   </tr>
 <?php
 foreach($result as $row){?>
+<script>
+let data = [];
+let push = "<?= $row['id_vid']; ?>"
+data.push(push)
+console.log(data)
+</script>
   <tr>
   <td><?=$row['id_vid']?></td>
   <td id="moviePoster" style="width: 30%"></td>
@@ -59,7 +65,9 @@ foreach($result as $row){?>
     <button type="submit" class="mt-4 w-25">Valider la commande</button>
   </form>
   <script>
-   
+
+  
+  console.log(data)
   function id (){
     let id = "<?=$row['id_vid'] ?>"
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US`)
