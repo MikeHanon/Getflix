@@ -54,6 +54,7 @@ test2.push(test)
         <option value="10"<?=($row['qty'] === '10' ? 'selected' : '');?>>10</option>
       </select></td>
   <td><?=$row['prix'];?></td>
+  <td><a href="deleteItem.php?id=<?=($row['id_vid']);?>"><i class="far fa-trash-alt"></i></a></td>
   </tr>
 <?php $i++ ;
 } ?>
