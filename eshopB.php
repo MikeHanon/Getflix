@@ -92,5 +92,6 @@ test2.push(test)
   };
   id(test2);
   </script>
+  <h3></h3>
 <?php include('footer.php'); ?>
 
