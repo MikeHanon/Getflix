@@ -3,6 +3,21 @@ if (isset($_SESSION['username'])) {
 
   $user=$_SESSION['username'];
 ?>
+<?php
+$bdd = new PDO('mysql:host=localhost;dbname=Getflix;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+$id=$_SESSION['id_user'];
+$sql = "SELECT * FROM commande WHERE id = $id";
+
+$statement = $bdd->prepare($sql);
+ $statement->execute();
+ $count = $statement->rowCount();
+ $output = '';
+ if($count > 0)
+ {
+$output = '<span class="badge badge-pill badge-danger">'.$count.'</span>';
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +103,7 @@ if (isset($_SESSION['username'])) {
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-md-left dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="settings.php">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="eshopB.php">Eshop</a>
+                    <a class="dropdown-item" href="eshopB.php">Eshop <?= $output ?></a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="logout.php">Sign out</a>
 
