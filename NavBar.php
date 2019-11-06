@@ -13,6 +13,7 @@ if (isset($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="./css/style2.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="css/media/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="css/media/favicon/favicon-32x32.png">

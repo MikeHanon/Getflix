@@ -12,6 +12,8 @@ $result=$statement->fetchAll();
 
 ?>
 <?php include('NavBar.php'); ?>
+<link rel="stylesheet" href="css/styleEshop.css">
+<link rel="stylesheet" href="css/cssIndex.css">
 <h1 class="m-0 px-5 pt-3">Eshop</h1>
 
 <form action="" class="d-flex flex-column p-5">
