@@ -25,11 +25,11 @@ $result=$statement->fetchAll()
   </tr>
 <?php
 foreach($result as $row){?>
-  
   <tr>
   <td><?=$row['id_vid']?></td>
   <td id="moviePoster" style="width: 30%"></td>
   <td id="movieName"></td>
+  
   <td><select name="Qty" id="">
         <option value="1"<?=($row['qty'] === '1' ? 'selected' : '');?>>1</option>
         <option value="2"<?=($row['qty'] === '2' ? 'selected' : '');?>>2</option>
@@ -65,11 +65,9 @@ foreach($result as $row){?>
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US`)
     .then(response => response.json())
     .then(data=>{
-      console.log(data['original_title'])
-      
-      document.getElementById(`movieName${i}`).innerHTML = `<td>${data['original_title']}</td>`
-      document.getElementById(`moviePoster${i}`).innerHTML = `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
-      
+      document.getElementById(`movieName`).innerHTML += `<td>${data['original_title']}</td>`
+      document.getElementById(`moviePoster`).innerHTML += `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
+    
     
     })
   };
