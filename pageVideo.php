@@ -305,7 +305,7 @@ if(isset($_POST['qty'])){
 
 
 
-</html>
+
 
 <?php
 }
