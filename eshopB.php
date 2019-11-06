@@ -23,18 +23,23 @@ $result=$statement->fetchAll();
     <th>Quantity</th>
     <th>Total Price</th>
   </tr>
+  <script>let test2 = [];
+  let test ='';</script>
 <?php
+$i=0;
 foreach($result as $row){?>
+
 <script>
-let data = [];
-let push = "<?= $row['id_vid']; ?>"
-data.push(push)
-console.log(data)
+<?="
+test =".$row['id_vid'].
+"
+test2.push(test)
+"; ?>
 </script>
   <tr>
   <td><?=$row['id_vid']?></td>
-  <td id="moviePoster" style="width: 30%"></td>
-  <td id="movieName"></td>
+  <td id="moviePoster<?=$i?>" style="width: 30%"></td>
+  <td id="movieName<?=$i?>"></td>
   
   <td><select name="Qty" id="">
         <option value="1"<?=($row['qty'] === '1' ? 'selected' : '');?>>1</option>
@@ -50,7 +55,8 @@ console.log(data)
       </select></td>
   <td><?=$row['prix'];?></td>
   </tr>
-<?php } ?>
+<?php $i++ ;
+} ?>
 
 </table>
   
@@ -67,19 +73,23 @@ console.log(data)
   <script>
 
   
-  console.log(data)
-  function id (){
-    let id = "<?=$row['id_vid'] ?>"
+  console.log(test2, 3)
+  function id (test){
+  
+    for(let i=0; i<test.length; i++){
+    let id = test[i];
+    console.log(id,4);
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US`)
     .then(response => response.json())
     .then(data=>{
-      document.getElementById(`movieName`).innerHTML += `<td>${data['original_title']}</td>`
-      document.getElementById(`moviePoster`).innerHTML += `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
+      console.log(document.getElementById(`movieName${i}`))
+      document.getElementById(`movieName${i}`).innerHTML += `<td>${data['original_title']}</td>`
+      document.getElementById(`moviePoster${i}`).innerHTML += `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
     
     
-    })
+    })}
   };
-  id();
+  id(test2);
   </script>
 <?php include('footer.php'); ?>
 
