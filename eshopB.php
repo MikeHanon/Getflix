@@ -67,8 +67,8 @@ foreach($result as $row){?>
     .then(data=>{
       console.log(data['original_title'])
       
-      document.getElementById('movieName').innerHTML = `<td >${data['original_title']}</td>`
-      document.getElementById('moviePoster').innerHTML = `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
+      document.getElementById(`movieName${i}`).innerHTML = `<td>${data['original_title']}</td>`
+      document.getElementById(`moviePoster${i}`).innerHTML = `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
       
     
     })
