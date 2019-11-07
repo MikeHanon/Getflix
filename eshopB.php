@@ -43,7 +43,7 @@ test2.push(test)
   <td id="moviePoster<?=$i?>" style="width: 30%"></td>
   <td id="movieName<?=$i?>"></td>
   
-  <td><select name="Qty" id="">
+  <td><select name="Qty" id="" onchange="updateCost(this.value)">
         <option value="1"<?=($row['qty'] === '1' ? 'selected' : '');?>>1</option>
         <option value="2"<?=($row['qty'] === '2' ? 'selected' : '');?>>2</option>
         <option value="3"<?=($row['qty'] === '3' ? 'selected' : '');?>>3</option>
@@ -55,11 +55,22 @@ test2.push(test)
         <option value="9"<?=($row['qty'] === '9' ? 'selected' : '');?>>9</option>
         <option value="10"<?=($row['qty'] === '10' ? 'selected' : '');?>>10</option>
       </select></td>
-  <td><?=$row['prix'];?></td>
+
+  <td id="prix"><?=$row['prix'];?></td>
   <td><a href="deleteItem.php?id=<?=($row['id_vid']);?>"><i class="far fa-trash-alt"></i></a></td>
   </tr>
 <?php $i++ ;
 } ?>
+
+
+<script>
+function updateCost(qty)
+{
+   var prixFilm = <?=$row['prix'];?>;
+   document.getElementById("prix").innerHTML = qty * prixFilm;
+}
+</script>
+
 
 </table>
   

@@ -7,6 +7,7 @@ require_once 'PHPmailer/SMTP.php';
 require_once 'PHPmailer/Exception.php'; 
 require_once 'PHPmailer/class.phpmailer.php';
 require_once 'PHPmailer/class.smtp.php';
+
 $mail = new PHPMailer();
 var_dump($_POST['email']);
 //SMTP Settings
