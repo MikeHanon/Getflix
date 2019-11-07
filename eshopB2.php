@@ -22,7 +22,7 @@ $result=$statement->fetchAll();
 
 <?php
 
- echo "<section class='px-5'>" . "<b> Commmande au nom de : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" . "<b> Adresse de livraison: </b> " . $_POST['adresse'] . "</section>" . "</br>";
+ echo "<section class='px-5'>" . "<b> Commmande au nom de : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" . "<b> Adresse de livraison: </b> " . $_POST['adresse'] . "</section>" . "</br>" . "<b> Email: </b> " . $_POST['email'] . "</section>" . "</br>";
  
  if ($_POST['codePromo']=="MikeEstTropCool" ){
   echo "<span class='px-5'> <b> REDUCTION 10% ACTIVÉ </b> </span>";
@@ -53,8 +53,17 @@ foreach($result as $row){
 
 </tr>
 </table>
+<form action="eshopC.php" method="post">
 <div class="pl-5 py-3">
+
 <a href="eshopC.php"><button >Confirmer commande</button></a>
+<input type="hidden" value="<?= $_POST['email']?>" name="email">
+<input type="hidden" value="<?=$_POST['prenom']?>" name="prenom">
+<input type="hidden" value="<?=$_POST['nom']?>" name="nom">
+<input type="hidden" value="<?=$_POST['adresse']?>" name="adresse">
+<?=var_dump($_POST['email'])?>
+</form>
+
 </div>
 
 <?php include('footer.php'); ?>
