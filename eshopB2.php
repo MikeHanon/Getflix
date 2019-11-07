@@ -49,10 +49,11 @@ $qty += intval(($row['qty']));
 $price += intval(($row['prix']));
 ?>
 
+</script>
 <tr>
 <td class="pl-5"><?=$row['id_vid'];?></td>
 <td><?=$row['qty'];?></td>
-<td><?=$row['prix'];?></td>
+<td id="prix"><?=$row['prix'];?></td>
 
 <?php ;}?>
 
