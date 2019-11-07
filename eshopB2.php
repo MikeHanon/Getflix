@@ -16,7 +16,6 @@ $result=$statement->fetchAll();
 ?>
 
 
-
 <h3 class="px-5">Your personal information :</h3>
 
 

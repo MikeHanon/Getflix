@@ -64,3 +64,5 @@ mail($to, $subject, $message, $headers);
 </div>
 
 </section>
+<!--On inclut le footer-->
+<?php include('footer.php'); ?>
