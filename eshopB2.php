@@ -21,7 +21,9 @@ $result=$statement->fetchAll();
 
 <?php
 
- echo "<section class='px-5'>" . "<b> Order in the name of : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" . "<b> Delivery address: </b> " . $_POST['adresse'] . "</section>" . "</br>";
+
+ echo "<section class='px-5'>" . "<b> Commmande au nom de : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" . "<b> Adresse de livraison: </b> " . $_POST['adresse'] . "</section>" . "</br>" . "<b> Email: </b> " . $_POST['email'] . "</section>" . "</br>";
+
  
  if ($_POST['codePromo']=="MikeEstTropCool" ){
   echo "<span class='px-5'> <b> REDUCTION 10% ACTIVÉ </b> </span>";
@@ -59,6 +61,7 @@ $price += intval(($row['prix']));
 
 <br>
 
+
 <?php if ($qty>=5 && $_POST['codePromo']=="MikeEstTropCool"){
   
   echo "<p class='px-5'> 10% discount for your promoCode </p>". "<br>";
@@ -76,9 +79,16 @@ $price += intval(($row['prix']));
   echo "<p class='px-5'> Total price of your order : " .($price + delivary())."€ </p>";
 }
 ?>
+
+ <form action="eshopC.php" method="post">
 <div class="pl-5 py-3">
 
 <a href="eshopC.php"><button >Confirm your order</button></a>
+<input type="hidden" value="<?= $_POST['email']?>" name="email">
+<input type="hidden" value="<?=$_POST['prenom']?>" name="prenom">
+<input type="hidden" value="<?=$_POST['nom']?>" name="nom">
+<input type="hidden" value="<?=$_POST['adresse']?>" name="adresse">
+</form>
 </div>
 
 

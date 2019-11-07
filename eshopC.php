@@ -2,30 +2,38 @@
 session_start();
 ?>
 <?php
-require_once 'PHPMailer/PHPMailer.php';
-require_once 'PHPMailer/SMTP.php';
-require_once 'PHPMailer/Exception.php'; 
-require_once 'PHPMailer/class.phpmailer.php';
-require_once 'PHPMailer/class.smtp.php';
+require_once 'PHPmailer/PHPMailer.php';
+require_once 'PHPmailer/SMTP.php';
+require_once 'PHPmailer/Exception.php'; 
+require_once 'PHPmailer/class.phpmailer.php';
+require_once 'PHPmailer/class.smtp.php';
 $mail = new PHPMailer();
-
+var_dump($_POST['email']);
 //SMTP Settings
 $mail->isSMTP();
+$mail->SMTPOptions = array(
+    'ssl' => array(
+    'verify_peer' => false,
+    'verify_peer_name' => false,
+    'allow_self_signed' => true
+    )
+    );
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'seriesaddict5000@gmail.com';
 $mail->Password = 'addict5000';
 $mail->Port = 465;
 $mail->SMTPSecure = 'ssl';
+
 //Email Settings
-$mail->setFrom('nicolastassin598@gmail.com');
-$mail->addAddress('nicolastassin598@gmail.com');
-$mail->Subject = 'Recovery lost password';
-$mail->Body = 'Bonjour';
+$mail->setFrom($_POST['email']);
+$mail->addAddress($_POST['email']);
+$mail->Subject = 'Your order is confirmed!';
+$mail->Body = 'Hey Hi' . $_POST['nom'] . 'your order has been confirmed!';
 if($mail->Send()){
     echo 'Email sent! Check your inbox :)';
 }else{
-    echo 'Something went wrong, the email was not sent !';
+    echo "Mailer Error: " . $mail->ErrorInfo;;
 }
 ?>
 
