@@ -14,7 +14,7 @@ $result=$statement->fetchAll();
 <?php include('NavBar.php'); ?>
 <h1 class="m-0 px-5 pt-3">Eshop</h1>
 
-<form action="" class="d-flex flex-column p-5">
+<form action="eshopB2.php" method="post" class="d-flex flex-column p-5">
 <table>
   <tr>
     <th>ID Movie</th>
@@ -61,15 +61,15 @@ test2.push(test)
 
 </table>
   
-    <label for="">Nom</label>
-    <input type="text" class="w-50">
-    <label for="">Prenom</label>
-    <input type="text" class="w-50">
-    <label for="">Adresse</label>
-    <input type="text" class="w-50">
+<label for="">Nom</label>
+    <input type="text" class="w-50" name="nom">
+    <label for="">Prenom</label >
+    <input type="text" class="w-50" name="prenom">
+    <label for="">Adresse</label >
+    <input type="text" class="w-50" name="adresse">
     <label for="">Code promo</label>
-    <input type="text" class="w-50">
-    <button type="submit" class="mt-4 w-25">Valider la commande</button>
+    <input type="text" class="w-50" name="codePromo">
+    <button type="submit" class="mt-4 w-25" >Valider la commande</button>
   </form>
   <script>
 
