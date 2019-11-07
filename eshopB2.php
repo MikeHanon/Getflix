@@ -19,6 +19,7 @@ $result=$statement->fetchAll();
 
 <h3 class="px-5">Vos données :</h3>
 
+
 <?php
 
  echo "<section class='px-5'>" . "<b> Commmande au nom de : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" . "<b> Adresse de livraison: </b> " . $_POST['adresse'] . "</section>" . "</br>";
@@ -38,8 +39,10 @@ $result=$statement->fetchAll();
 <th>Quantité</th>
 <th>Prix</th>
 </tr>
+
 <?php
-foreach($result as $row){?>
+foreach($result as $row){
+?>
 
 <tr>
 <td class="pl-5"><?=$row['id_vid'];?></td>
@@ -47,9 +50,12 @@ foreach($result as $row){?>
 <td><?=$row['prix'];?></td>
 
 <?php ;}?>
+
 </tr>
 </table>
-
+<div class="pl-5 py-3">
+<a href="eshopC.php"><button >Confirmer commande</button></a>
+</div>
 
 <?php include('footer.php'); ?>
 
