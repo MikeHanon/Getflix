@@ -45,6 +45,6 @@ $statement = $bdd->query($sql);
 
 <?php include('NavBar.php'); ?>
 
-<p class="p-5">Votre commande a bien été envoyé.</p>
+<p class="p-5">Your order has been sent successfully.</p>
 
 <?php include('footer.php'); ?>
