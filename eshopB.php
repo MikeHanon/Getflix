@@ -67,6 +67,8 @@ test2.push(test)
     <input type="text" class="w-50" name="nom">
     <label for="">Prenom</label >
     <input type="text" class="w-50" name="prenom">
+    <label for="">Email</label >
+    <input type="text" class="w-50" name="email">
     <label for="">Adresse</label >
     <input type="text" class="w-50" name="adresse">
     <label for="">Code promo</label>

@@ -15,7 +15,7 @@ $result=$statement->fetchAll();
 
 ?>
 
-<h2 class="px-5">Commande Validé</h2>
+<h2 class="px-5">Commande Validée</h2>
 
 <h3 class="px-5">Vos données :</h3>
 
