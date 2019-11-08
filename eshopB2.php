@@ -22,7 +22,9 @@ $result=$statement->fetchAll();
 <?php
 
 
- echo "<section class='px-5'>" . "<b> Commmande au nom de : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" . "<b> Adresse de livraison: </b> " . $_POST['adresse'] . "</section>" . "</br>" . "<b> Email: </b> " . $_POST['email'] . "</section>" . "</br>";
+ echo "<section class='px-5'>" . "<b> YOUR ORDER : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" 
+ . "<b> Adresse de livraison: </b> " . $_POST['adresse'] ."</br>" 
+ . "<b> Email: </b> " . $_POST['email'] . "</section>" . "</br>";
 
  
  if ($_POST['codePromo']=="MikeEstTropCool" ){
@@ -43,19 +45,30 @@ $result=$statement->fetchAll();
 
 <?php
 $price =0;
-$qty =0;
-foreach($result as $row){
-$qty += intval(($row['qty']));
-$price += intval(($row['prix']));
+$qty =0;?>
+<script>let test2 = [];
+  let test ='';</script>
+<?php
+$i=0;
+foreach($result as $row){?>
+
+<script>
+<?="test =".$row['id_vid']."
+test2.push(test)"; ?>
+</script>
+<?php
+$qty += intval(($_POST['Qty']));
+$price += intval(($row['prix']*$_POST['Qty']));
 ?>
 
 </script>
 <tr>
 <td class="pl-5"><?=$row['id_vid'];?></td>
-<td><?=$row['qty'];?></td>
-<td id="prix"><?=$row['prix'];?></td>
+<td id="movieName<?=$i?>"></td>
+<td><?=$_POST['Qty'];?></td>
+<td id="prix"><?=$row['prix']*$_POST['Qty'];?></td>
 
-<?php ;}?>
+<?php $i++ ;}?>
 
 </tr>
 </table>
@@ -96,7 +109,7 @@ $price += intval(($row['prix']));
 
 
 
-<!--
+
 <?php
 $price =0;
 foreach($result as $row){
@@ -107,5 +120,21 @@ foreach($result as $row){
 echo $price;
 
 ?>
+<script>
 
--->
+ function id (test){
+  
+    for(let i=0; i<test.length; i++){
+    let id = test[i];
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US`)
+    .then(response => response.json())
+    .then(data=>{
+      
+      document.getElementById(`movieName${i}`).innerHTML += `<td>${data['original_title']}</td>`
+      
+    
+    
+    })}
+  };
+  id(test2);
+</script>
