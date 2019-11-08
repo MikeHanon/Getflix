@@ -90,7 +90,9 @@ function updateCost(qty)
     </select>
     <label for="">Code promo</label>
     <input type="text" class="w-50" name="codePromo">
-    <button type="submit" class="mt-4 w-25" >Valider la commande</button>
+    <button type="submit" class="mt-4 w-25" >validate the order
+
+</button>
   </form>
   <script>
 

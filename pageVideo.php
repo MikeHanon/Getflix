@@ -140,7 +140,7 @@ function getSimilar(){
 <h3 onclick="vid()" id='video2' class="disabled">Similar Movies</h3>
 </div>
 <div class="col col-lg-2">
-  <h3 onclick="order3()" id='order2'class="disabled">Order</h3>
+  <h3 onclick="order3()" id='order2'class="disabled"><i class="fas fa-shopping-cart"></i></h3>
 </div>
 </div>
 
@@ -236,7 +236,7 @@ $id5=$_GET['id'];
 <section id="commande" class="col col-md-3 offset-md-4" style='display:none'>
 
 <form action="" method="post">
-  <label for="qty">quantité</label>
+  <label for="qty">quantity</label>
  <select name="qty" id="">
    <option value="1">1</option>
    <option value="2">2</option>
@@ -253,7 +253,7 @@ $id5=$_GET['id'];
    <option value="25">DVD</option>
    <option value="50">Bluray</option>
  </select>
- <button type="submit" class="btn btn-outline-danger valider">Commander</button>
+ <button type="submit" class="btn btn-outline-danger valider">Add to cart</button>
 </form>
 </section>
 <?php
