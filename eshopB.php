@@ -14,16 +14,16 @@ $result=$statement->fetchAll();
 <?php include('NavBar.php'); ?>
 <link rel="stylesheet" href="css/styleEshop.css">
 <link rel="stylesheet" href="css/cssIndex.css">
-<h1 class="m-0 px-5 pt-3">Eshop</h1>
+<h1 class="m-0 px-5 pt-3" style="background-color:black">Eshop</h1>
 
-<form action="eshopB2.php" method="post" class="d-flex flex-column p-5">
-<table>
+<form action="eshopB2.php" method="post" class="bg-dark container d-flex flex-column" style="padding:0">
+<table class="table table-dark table-borderless">
   <tr>
-    <th>ID Movie</th>
-    <th>Poster</th>
-    <th>Movie Name</th>
-    <th>Quantity</th>
-    <th>Total Price</th>
+    <th scope="col">ID Movie</th>
+    <th scope="col">Poster</th>
+    <th scope="col">Movie Name</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Total Price</th>
   </tr>
   <script>let test2 = [];
   let test ='';</script>
@@ -97,6 +97,7 @@ function updateCost(qty,id)
     <button type="submit" class="mt-4 w-25" >validate the order
 
 </button>
+
   </form>
   <script>
 

@@ -9,7 +9,6 @@ require_once 'PHPmailer/class.phpmailer.php';
 require_once 'PHPmailer/class.smtp.php';
 
 $mail = new PHPMailer();
-var_dump($_POST['email']);
 //SMTP Settings
 $mail->isSMTP();
 $mail->SMTPOptions = array(
@@ -32,7 +31,7 @@ $mail->addAddress($_POST['email']);
 $mail->Subject = 'Your order is confirmed!';
 $mail->Body = 'Hey Hi' . $_POST['nom'] . 'your order has been confirmed!';
 if($mail->Send()){
-    echo 'Email sent! Check your inbox :)';
+    echo '';
 }else{
     echo "Mailer Error: " . $mail->ErrorInfo;;
 }
@@ -51,9 +50,10 @@ $sql="DELETE FROM commande WHERE id = $id";
 $statement = $bdd->query($sql);
 
 ?>
-
+<link rel="stylesheet" href="css/styleEshop.css">
+<link rel="stylesheet" href="css/cssIndex.css">
 <?php include('NavBar.php'); ?>
 
-<p class="p-5">Your order has been sent successfully.</p>
+<p class="p-5">Your order has been sent successfully.Email have been sent! Check your inbox :)</p>
 
 <?php include('footer.php'); ?>
