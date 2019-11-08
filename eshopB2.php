@@ -73,19 +73,24 @@ $price += intval(($row['prix']*$_POST['Qty']));
 </tr>
 </table>
 
+<br>
+
 
 <?php if ($qty>=5 && $_POST['codePromo']=="MikeEstTropCool"){
+  
   echo "<p class='px-5'> 10% discount for your promoCode </p>". "<br>";
   echo "<p class='px-5'> 5% discount for 5 or more than 5 dvd or blue-ray bought. </p>". "<br>";
   echo "<p class='px-5'> Total price of your order : " . ($price-($price/100*15)) . "€ </p>";
 }elseif($qty>=5){
-  echo "<p class='px-5'> 5% discount for 5 or more than 5 dvd or blue-ray bought. </p>". "<br>";
-  echo "<p class='px-5'> Total price of your order : " . ($price-($price/100*5)) . "€ </p>";
+  echo "<p class='px-5'> 5% discount for 5 or more than 5 dvd or blue-ray bought. </p>";
+  echo "<p class='px-5'> Delivary cost : ".delivary()."€";
+  echo "<p class='px-5'> Total price of your order : " . ($price-($price/100*5)+delivary()) . "€ </p>";
 }elseif($_POST['codePromo']){
   echo "<p class='px-5'> 10% discount for your promoCode </p>". "<br>";
   echo "<p class='px-5'> Total price of your order : " . ($price-($price/100*10)) . "€ </p>";
 }else{
-  echo "<p class='px-5'> Total price of your order : " .$price."€ </p>";
+  echo "<p class='px-5'> Delivary cost : ".delivary()."€";
+  echo "<p class='px-5'> Total price of your order : " .($price + delivary())."€ </p>";
 }
 ?>
 
@@ -107,6 +112,8 @@ $price += intval(($row['prix']*$_POST['Qty']));
 
 <?php include('footer.php'); ?>
 
+
+<?php 
 
 
 
@@ -138,3 +145,18 @@ echo $price;
   };
   id(test2);
 </script>
+
+function delivary(){
+  $delivary= 0;
+if($_POST["select"]=="Belgium"){
+  $delivary = 0;
+}elseif($_POST["select"]=="EU"){
+  $delivary = 2.5;
+}else{
+  $delivary = 5;
+}
+return $delivary;
+}
+
+?>
+

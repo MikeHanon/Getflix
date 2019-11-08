@@ -78,17 +78,25 @@ function updateCost(qty,id)
 
 </table>
   
-<label for="">Nom</label>
+<label for="">Lastname</label>
     <input type="text" class="w-50" name="nom">
-    <label for="">Prenom</label >
+    <label for="">Name</label >
     <input type="text" class="w-50" name="prenom">
-    <label for="">Email</label >
+    <label for="">Mail</label >
     <input type="text" class="w-50" name="email">
-    <label for="">Adresse</label >
+    <label for="">Adress</label >
     <input type="text" class="w-50" name="adresse">
+    <label for="">Choose your country</label>
+    <select name="select" class="w-50">
+      <option value="Belgium">Belgium</option>
+      <option value="EU">EU</option>
+      <option value="Non-European">Non-European</option>
+    </select>
     <label for="">Code promo</label>
     <input type="text" class="w-50" name="codePromo">
-    <button type="submit" class="mt-4 w-25" >Valider la commande</button>
+    <button type="submit" class="mt-4 w-25" >validate the order
+
+</button>
   </form>
   <script>
 
