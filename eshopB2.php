@@ -22,15 +22,15 @@ $result=$statement->fetchAll();
 <?php
 
 
- echo "<section class='px-5'>" . "<b> YOUR ORDER : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" 
- . "<b> Adresse de livraison: </b> " . $_POST['adresse'] ."</br>" 
+ echo "<section class='px-5'>" . "<b> Profil : </b> " . $_POST['nom'] . " " . $_POST['prenom'] . "<br>" 
+ . "<b> Delivery address: </b> " . $_POST['adresse'] ."</br>" 
  . "<b> Email: </b> " . $_POST['email'] . "</section>" . "</br>";
 
  
  if ($_POST['codePromo']=="MikeEstTropCool" ){
-  echo "<span class='px-5'> <b> REDUCTION 10% ACTIVÉ </b> </span>";
+  echo "<span class='px-5'> <b> DISCOUNT 10% ON </b> </span>";
 } else {
-  echo "<span class='px-5'> <b> PAS DE REDUCTION </b> </span>" . "<br>";
+  echo "<span class='px-5'> <b> NO DISCOUNT </b> </span>" . "<br>";
 } 
 ?>
  
