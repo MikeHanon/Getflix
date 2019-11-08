@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+<link rel="stylesheet" href="css/styleEshop.css">
+<link rel="stylesheet" href="css/cssIndex.css">
 <?php include('NavBar.php'); ?>
 
 <h1 class="m-0 px-5 pt-3">Eshop</h1>
@@ -35,12 +37,13 @@ $result=$statement->fetchAll();
 ?>
  
 <h3 class="px-5">Overview of your order</h3>
-
-<table>
+<section class="container">
+<table class="table table-dark table-borderless">
 <tr>
-<th class="pl-5">Id Film</th>
-<th>Quantity</th>
-<th>Price</th>
+<th scope="col">numero article</th>
+<th scope="col">Id Film</th>
+<th scope="col">Quantity</th>
+<th scope="col">Price</th>
 </tr>
 
 <?php
@@ -63,7 +66,8 @@ $price += intval(($row['prix']*$_POST['Qty']));
 
 
 <tr>
-<td class="pl-5"><?=$row['id_vid'];?></td>
+<th scope="row"><?=$i+1?></th>
+<td class=""><?=$row['id_vid'];?></td>
 <td id="movieName<?=$i?>"></td>
 <td><?=$_POST['Qty'];?></td>
 <td id="prix"><?=$row['prix']*$_POST['Qty'];?></td>
@@ -72,7 +76,7 @@ $price += intval(($row['prix']*$_POST['Qty']));
 
 </tr>
 </table>
-
+</section>
 <br>
 
 
