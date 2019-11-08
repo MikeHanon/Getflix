@@ -65,7 +65,7 @@ test2.push(test)
   
 <label for="">Nom</label>
     <input type="text" class="w-50" name="nom">
-    <label for="">Prenom</label >
+    <label for="">Name</label >
     <input type="text" class="w-50" name="prenom">
     <label for="">Email</label >
     <input type="text" class="w-50" name="email">
@@ -73,7 +73,9 @@ test2.push(test)
     <input type="text" class="w-50" name="adresse">
     <label for="">Code promo</label>
     <input type="text" class="w-50" name="codePromo">
-    <button type="submit" class="mt-4 w-25" >Valider la commande</button>
+    <button type="submit" class="mt-4 w-25" >validate the order
+
+</button>
   </form>
   <script>
 
