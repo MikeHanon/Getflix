@@ -61,7 +61,7 @@ $qty += intval(($_POST['Qty']));
 $price += intval(($row['prix']*$_POST['Qty']));
 ?>
 
-</script>
+
 <tr>
 <td class="pl-5"><?=$row['id_vid'];?></td>
 <td id="movieName<?=$i?>"></td>
@@ -113,7 +113,7 @@ $price += intval(($row['prix']*$_POST['Qty']));
 <?php include('footer.php'); ?>
 
 
-<?php 
+
 
 
 
@@ -143,9 +143,11 @@ echo $price;
     
     })}
   };
+  
   id(test2);
 </script>
 
+<?php
 function delivary(){
   $delivary= 0;
 if($_POST["select"]=="Belgium"){
@@ -157,6 +159,6 @@ if($_POST["select"]=="Belgium"){
 }
 return $delivary;
 }
-
 ?>
+
 
