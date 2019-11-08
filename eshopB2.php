@@ -40,8 +40,9 @@ $result=$statement->fetchAll();
 <section class="container">
 <table class="table table-dark table-borderless">
 <tr>
-<th scope="col">numero article</th>
+<th scope="col">arcticle nr</th>
 <th scope="col">Id Film</th>
+<th scope="col">Title</th>
 <th scope="col">Quantity</th>
 <th scope="col">Price</th>
 </tr>
