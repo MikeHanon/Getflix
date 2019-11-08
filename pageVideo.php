@@ -236,6 +236,7 @@ $id5=$_GET['id'];
 <section id="commande" class="col col-md-3 offset-md-4" style='display:none'>
 
 <form action="" method="post">
+
   <label for="qty">quantity</label>
  <select name="qty" id="">
    <option value="1">1</option>
@@ -249,6 +250,7 @@ $id5=$_GET['id'];
    <option value="9">9</option>
    <option value="10">10</option>
  </select>
+
  <select name="type" id="">
    <option value="25">DVD</option>
    <option value="50">Bluray</option>
@@ -257,12 +259,12 @@ $id5=$_GET['id'];
 </form>
 </section>
 <?php
-if(isset($_POST['qty'])){
+if(isset($_POST['type'])){
   $data =[
     ':id' => $_SESSION['id_user'],
     'id_vid' => $_GET['id'],
-    ':qty' => $_POST['qty'],
-    ':prix' => $_POST['type'] * $_POST['qty'],
+    ':qty' => '1',
+    ':prix' => $_POST['type'],
   ];
   $bdd = new PDO('mysql:host=localhost;dbname=Getflix', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   $sql = "INSERT INTO commande (id,id_vid,qty,prix) VALUES (:id, :id_vid, :qty, :prix) ";

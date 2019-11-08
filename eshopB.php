@@ -32,18 +32,18 @@ $i=0;
 foreach($result as $row){?>
 
 <script>
-<?="
-test =".$row['id_vid'].
-"
-test2.push(test)
-"; ?>
+<?="test =".$row['id_vid']."
+test2.push(test)"; ?>
 </script>
   <tr>
   <td><?=$row['id_vid']?></td>
   <td id="moviePoster<?=$i?>" style="width: 30%"></td>
   <td id="movieName<?=$i?>"></td>
-  
-  <td><select name="Qty" id="" onchange="updateCost(this.value)">
+  <script>
+  <?="var id".$i."='prix".$i."'"; ?>  
+  </script>
+
+  <td><select name="Qty" id="bidon<?=$i?>" onchange="updateCost(this.value,id<?=$i?>)">
         <option value="1"<?=($row['qty'] === '1' ? 'selected' : '');?>>1</option>
         <option value="2"<?=($row['qty'] === '2' ? 'selected' : '');?>>2</option>
         <option value="3"<?=($row['qty'] === '3' ? 'selected' : '');?>>3</option>
@@ -56,7 +56,7 @@ test2.push(test)
         <option value="10"<?=($row['qty'] === '10' ? 'selected' : '');?>>10</option>
       </select></td>
 
-  <td id="prix"><?=$row['prix'];?></td>
+  <td id="prix<?=$i?>"><?=$row['prix'];?></td>
   <td><a href="deleteItem.php?id=<?=($row['id_vid']);?>"><i class="far fa-trash-alt"></i></a></td>
   </tr>
 <?php $i++ ;
@@ -64,10 +64,14 @@ test2.push(test)
 
 
 <script>
-function updateCost(qty)
+console.log(id3)
+function updateCost(qty,id)
 {
+  
    var prixFilm = <?=$row['prix'];?>;
-   document.getElementById("prix").innerHTML = qty * prixFilm;
+   document.getElementById(id).innerHTML = qty * prixFilm;
+   console.log("ho")
+  
 }
 </script>
 
@@ -97,16 +101,15 @@ function updateCost(qty)
   <script>
 
   
-  console.log(test2, 3)
+  
   function id (test){
   
     for(let i=0; i<test.length; i++){
     let id = test[i];
-    console.log(id,4);
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b53ba6ff46235039543d199b7fdebd90&language=en-US`)
     .then(response => response.json())
     .then(data=>{
-      console.log(document.getElementById(`movieName${i}`))
+      
       document.getElementById(`movieName${i}`).innerHTML += `<td>${data['original_title']}</td>`
       document.getElementById(`moviePoster${i}`).innerHTML += `<td><img  src="https://image.tmdb.org/t/p/w200/${data['poster_path']}" style="width:20%" ></img></td>`
     
